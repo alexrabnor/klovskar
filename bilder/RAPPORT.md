@@ -11,7 +11,7 @@ Alla omdöpta, se `mappning.json`. Färdiga promptar finns i Artifacten "Klovsk�
 | Brottsplats – fickur **23.47** | **SAKNAS** – ingen bild (lucka 03 visar 23.47 i text, ok) |
 | Lucka 17 – blodgrupp **O** | OK, tydligt |
 | Lucka 20 – blodgrupp **AB** | OK, tydligt (inskickad separat) |
-| Lucka 15 – Kråkskär **22.50** | **FEL**: lappen säger "Kråbokär 50/11 kl. 2.30" |
+| Lucka 15 – Kråkskär **22.50** | OK – utbytt 2026-11-02 |
 | Lucka 23 – fickur 23.47 | **FEL**: visarna står på ca 11.56 |
 
 Alla siffrorna står även i luckornas text/transkription, så gåtan är löslig även innan bilderna är bytta.

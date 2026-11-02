@@ -564,7 +564,7 @@ JOHAN STRAND: Kvart i elva, kanske. Jag stannade kvar och letade till kvart öve
     titel: "Sjöboden",
     ingress: "Jag gick ner till sjöboden med Holm som vittne och lyfte på presenningen.",
     bilder: [
-      { namn: "lucka-15", alt: "Inne i den röda sjöboden: spritlådor märkta Försiktigt under en presenning, en fotogenlykta och en lapp: Mottaget 6 lådor, Kråkskär 30/11 kl. 22.50, Betalt – L." },
+      { namn: "lucka-15", alt: "Inne i sjöboden: trälådor under en presenning, en fotogenlykta och en lapp fäst på en låda: Mottaget 6 lådor, Kråkskär 30/11 kl. 22.50, Betalt – L." },
     ],
     avsnitt: [
       {
