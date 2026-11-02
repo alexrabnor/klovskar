@@ -17,7 +17,7 @@ Alla omdöpta, se `mappning.json`. Färdiga promptar finns i Artifacten "Klovsk�
 Alla siffrorna står även i luckornas text/transkription, så gåtan är löslig även innan bilderna är bytta.
 
 ## Saknas helt
-`brottsplats` (två försök visar fel tid på uret) och menybilden `meny-matare`.
+Menybilden `meny-matare`. (`brottsplats` inlagd 2026-11-02 – uret visar ca 23.45, timvisaren något tidigt.)
 (Övriga menykort använder befintliga publika bilder: omslag, hotellet-dag, misstankta, karta, koket.)
 
 ## Säkerhet medel – fel i bildtext eller innehåll
