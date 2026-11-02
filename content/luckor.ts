@@ -201,7 +201,7 @@ Jag har bett honom att inte lämna ön. Han svarade att det inte går ändå.`,
     titel: "Det sönderrivna brevet",
     ingress: "Haralds kontor har genomsökts av någon under natten. Bitarna låg i papperskorgen.",
     bilder: [
-      { namn: "lucka-06", alt: "Ett genomsökt skrivbord med utdragna lådor och sönderrivna brevbitar. På en bit står mitt nya testamente och Luciadagen." },
+      { namn: "lucka-06", alt: "Ett skrivbord i mörkret med sönderrivna brevbitar som lagts ihop. Bitarna nämner Dec. 1962, mitt nya testamente och Luciadagen." },
     ],
     interaktion: "pussel",
     pussel: [

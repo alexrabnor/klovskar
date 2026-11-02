@@ -36,3 +36,7 @@ Menybilden `meny-matare`. (`brottsplats` inlagd 2026-11-02 – uret visar ca 23.
 
 ## Dubbletter / okända
 Inga utöver den identiska `livdml`-kopian. Inga okända bilder.
+
+## Uppdatering 2026-11-02 kväll
+Alla bilder på plats. `lucka-06`, `bonus-1`, `bonus-2`, `bonus-5`, `facit` och `meny-matare` gjordes om från grunden.
+`lucka-23`: Gemini klarade inte visarna – de är bortmålade och omritade till 23.47 med `scripts/rita-visare-lucka23.py`.
