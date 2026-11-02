@@ -140,12 +140,21 @@ export async function ledarInstallningar(_: Svar, f: FormData): Promise<Svar> {
 
 // ------------------------------------------------------------------ admin
 
+// Koden är en sexsiffrig PIN, så felförsök räknas globalt: tio fel stänger inloggningen en kvart.
+const adminFel: number[] = [];
+const SPARR_MS = 15 * 60 * 1000;
+
 export async function adminLoggaIn(_: Svar, f: FormData): Promise<Svar> {
   const losen = process.env.ADMIN_LOSEN;
+  const nu = Date.now();
+  while (adminFel.length && adminFel[0] < nu - SPARR_MS) adminFel.shift();
+  if (adminFel.length >= 10) return { fel: "För många felförsök. Försök igen om en kvart." };
   if (!losen || String(f.get("losen")) !== losen) {
+    adminFel.push(nu);
     await new Promise((r) => setTimeout(r, 800));
     return { fel: "Fel lösenord." };
   }
+  adminFel.length = 0;
   (await cookies()).set(ADMINKAKA, adminKakvarde(losen), { ...kakOpt, maxAge: 60 * 60 * 24 * 30 });
   redirect("/admin");
 }
