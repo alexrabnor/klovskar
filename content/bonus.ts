@@ -204,7 +204,7 @@ Carl Ekberg är en smugglare och en dålig son. Men han är ingen mördare.`,
 7. Låt jäsa på plåt under bakduk i 30 minuter till.
 8. Pensla med uppvispat ägg. Grädda mitt i ugnen i 225 grader, 5–8 minuter.
 
-*Margits egen rad längst ner:* "Dubbel sats till Lucia. Herr E. vill ha sin toddy kl. tio, så sätt degen före."`,
+*Margits egen rad längst ner:* "Dubbel sats till Lucia. Herr E. vill ha sin toddy kvart över tio, så sätt degen före."`,
       },
     ],
   },

@@ -26,6 +26,8 @@ export default async function Facit() {
   const a = db().prepare("SELECT utkast, poang_detaljer, inlamnad_av FROM klov_anklagelse WHERE lag_id = ?").get(lag.id) as { utkast: string; poang_detaljer: string; inlamnad_av: string };
   const u = JSON.parse(a.utkast);
   const p = JSON.parse(a.poang_detaljer) as Poang;
+  const fall = p.mordare + p.motiv + p.metod + p.tid;
+  const FALL_MAX = 5 + 3 + 3 + 2;
   const rad = (etikett: string, ert: string, poang: number, max: number) => (
     <tr><td>{etikett}</td><td>{ert}</td><td className="tal">{poang} / {max}</td></tr>
   );
@@ -34,7 +36,8 @@ export default async function Facit() {
       <Avslojande steg={FACIT_STEG.map((s) => ({ rubrik: s.rubrik, innehall: <Text text={s.text} /> }))}>
         <section className="stack">
           <p className="etikett">Lagets resultat</p>
-          <h2 className="rubrik-stor">{p.totalt} av {MAX_POANG} poäng</h2>
+          <h2 className="rubrik-stor">Fallet: {fall} av {FALL_MAX}</h2>
+          <p className="dampad">Chiffer: {p.bonus} av 6 · Totalt {p.totalt} av {MAX_POANG} poäng</p>
           <div className="rull-x">
             <table className="tabell">
               <thead><tr><th>Del</th><th>Ert svar</th><th>Poäng</th></tr></thead>
@@ -43,10 +46,16 @@ export default async function Facit() {
                 {rad("Motiv", MOTIV.find((x) => x.id === u.motiv)?.text ?? "–", p.motiv, 3)}
                 {rad("Metod", METOD.find((x) => x.id === u.metod)?.text ?? "–", p.metod, 3)}
                 {rad("Tid", u.tid ?? "–", p.tid, 2)}
-                {rad("Bonusluckor", `${p.bonus} upplåsta`, p.bonus, 6)}
+                {rad("Chiffer (frivilliga)", `${p.bonus} lösta`, p.bonus, 6)}
               </tbody>
             </table>
           </div>
+          {u.motivText?.trim() && (
+            <div className="panel stack">
+              <p className="etikett">Ert motiv med egna ord</p>
+              <p>{u.motivText}</p>
+            </div>
+          )}
           <p className="dampad liten">Inlämnat av {a.inlamnad_av}. {lag.synlig_i_topplista ? <>Laget syns på <Link href="/topplista">topplistan</Link>.</> : "Laget syns inte på topplistan."}</p>
         </section>
         <section className="stack">

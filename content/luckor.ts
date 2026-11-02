@@ -98,6 +98,8 @@ Korten nedan är vad jag vet om var och en. Tryck på ett porträtt.`,
 
 Hittad av husfrun Margit Lund, som går upp och putsar mässingen i lyktrummet varje lördagsmorgon. Det var lördag. Tornets dörr var låst. Hon låste upp med sin nyckel. Hon skrek. Holm hörde det från stugan och kom springande.
 
+Hon gick aldrig uppför trappan, säger hon, och hon rörde honom inte. Holm bekräftar det: hon stod kvar i dörren när han kom.
+
 Kroppen kall och stel. Doktor Ahlgren bedömer att döden inträffat "för minst sex, kanske åtta timmar sedan".
 
 Trappan har inget räcke mot mitten. Han har fallit genom öppningen, nästan hela vägen ner.
@@ -108,7 +110,9 @@ På tredje trappsteget ett toddyglas, nästan tomt och helt. Doft av rom och cit
 
 Haralds egen tornnyckel låg i hans byxficka.
 
-Fyrens lampa lyste normalt när jag kom upp. Lyktrummet högst upp är varmt och luktar fotogen och mässingsputs.
+Fyrens lampa lyste normalt när jag kom upp. Lyktrummet högst upp är varmt och luktar gas och mässingsputs. Dörren ut till galleriet är regelad på insidan.
+
+Innan vi gick lät jag Holm sätta ett hänglås på tornets dörr. Nyckeln bär jag själv. Kavajen hänger i min garderob.
 
 Vem såg honom sist? Ingen vill vara den personen.`,
       },
@@ -184,6 +188,10 @@ Jag frågade varför han inte var på middagen. Han sa att han inte äter vid sa
 Fyren tänds av sig själv vid skymning med en solventil. Linsen vrids av ett urverk som redaren själv vevade upp varje kväll – det var därför han gick upp i tornet. Holm vaktar ljuset från sitt fönster och skriver när något händer eller vädret slår om. Trappan inne i tornet syns inte från stugan.
 
 – Linsen putsar jag utifrån, från galleriet, sa han. Dit kommer man med järnstegen på tornets utsida. Den har redaren inte kunnat låsa.
+
+– Och därifrån kommer man in?
+
+– Nej. Dörren från galleriet in till lyktrummet är regelad på insidan. Det har den alltid varit.
 
 – Strax före elva stannade blinket och lyste fast ett par sekunder, sa han. Jag tänkte att redaren höll på med urverket igen. Han var klumpig med det. Sedan gick det som vanligt.
 
@@ -411,7 +419,9 @@ ELSA VARG: Jag växte upp hos familjen Varg i Majorna. Fosterbarn. Varje månad 
 SANDAHL: Och ni frågade ändå.
 ELSA VARG: Jag kom hit för att höra honom säga det. En gång.
 SANDAHL: Sa han det?
-ELSA VARG: Han var snäll de första dagarna. Han gav mig det bästa rummet. Sedan den sista kvällen var han som en annan människa.
+ELSA VARG: Han var snäll de första dagarna. Han gav mig det bästa rummet. Dagen innan hörde jag honom i köket. Han var arg. Husfrun grät. Jag trodde att hon hade tappat något. Jag tänkte inte mer på det.
+SANDAHL: Och sedan?
+ELSA VARG: Den sista kvällen var han som en annan människa.
 SANDAHL: Den trettionde. I biblioteket.
 ELSA VARG: Ni vet om det?
 SANDAHL: Berätta.
@@ -442,7 +452,7 @@ Spruta 5 ml med kanyler, 2 st.
 Morfin 10 mg/ml, 5 ampuller – stämmer mot journal.
 Digitalis, 1 flaska – stämmer.
 Kodein, 1 burk – stämmer.
-Veronal (barbital) 0,5 g, burk om 20 tabletter – **innehåller 10. Doktorns egen förteckning anger 20.**
+Veronal (barbital) 0,25 g, burk om 20 tabletter – **innehåller 10. Doktorns egen förteckning anger 20.**
 Kompresser, bandage, plåster.`,
       },
       {
@@ -745,9 +755,8 @@ Elsa har AB.
 
 En far med O kan inte få ett barn med AB. Provinsialläkaren kallade det fullkomligt säkert.
 
-Harald Ekberg var inte Elsa Vargs far.
-
-Han visste det sedan den tjugoåttonde november, då doktorns kuvert kom med båten. Samma dag skrev han till advokaten att testamentet inte skulle undertecknas.
+Doktorns kuvert kom med båten den tjugoåttonde november. Samma dag skrev Harald till advokaten att testamentet inte skulle undertecknas.`,
+        tanke: `Harald Ekberg var inte Elsa Vargs far. Det visste han från den tjugoåttonde november.
 
 "Någon i detta hus har ljugit för mig i tjugosju år." Elsa är tjugosju år. Men Elsa trodde själv att han var hennes far. Hon kan inte ha ljugit om något hon inte visste.
 
@@ -794,9 +803,10 @@ Sista raden, i Haralds handstil, med annat bläck: *"Inga fler. 28/11."*`,
         rubrik: "M.L.",
         text: `Tjugofem kronor i månaden i tjugosju år. Utbetalda till M.L., som skickade dem vidare i ett kuvert utan avsändare – först till familjen Varg, sedan till flickan själv.
 
-Harald trodde i tjugosju år att han var far till M.L.:s barn. Den tjugoåttonde november fick han veta att han inte var det. Samma dag skrev han "Inga fler".
+Ett brev, en kassabok och två initialer.`,
+        tanke: `Harald trodde i tjugosju år att han var far till M.L.:s barn. Den tjugoåttonde november fick han veta att han inte var det. Samma dag skrev han "Inga fler".
 
-Ett brev, en kassabok och två initialer. Jag tänker läsa hotellets gamla anställningsbok i kväll.`,
+Jag tänker läsa hotellets gamla anställningsbok i kväll.`,
       },
     ],
     fraga: "Vad hade M.L. att förlora på Luciadagen?",
@@ -824,7 +834,9 @@ Harald bakade inte. Vem bakade den trettionde november?`,
         rubrik: "B – Avsatsen vid urverket",
         text: `Högst upp, på avsatsen vid urverket som driver linsen: ett skoavtryck i mjöl. Litet. En damsko med låg klack. Storlek 37–38.
 
-Fru Ekberg har storlek 36. Fröken Varg har 39. Husfrun har 38. Hon putsar i tornet varje lördagsmorgon, men mjöl brukar hon inte ha med sig dit.
+Fru Ekberg har storlek 36. Fröken Varg har 39. Husfrun har 38.
+
+Tornet har varit hänglåst sedan den första december, och husfrun kom aldrig längre än till dörren den morgonen. Avtrycket kom dit innan dess.
 
 Damerna på ön är tre. Och jag själv.
 
@@ -833,7 +845,8 @@ Avtrycket syns bara när ljuset kommer från sidan. Det är därför ingen såg 
       {
         format: "anteckningsbok",
         rubrik: "Urverket",
-        text: `Från avsatsen vid urverket kan man nå mekanismen med handen. Faller en tung man mot den stannar linsen ett ögonblick. Då störs ljuset.
+        text: `Från avsatsen vid urverket kan man nå mekanismen med handen.`,
+        tanke: `Faller en tung man mot den stannar linsen ett ögonblick. Då störs ljuset.
 
 22.52.`,
       },
@@ -858,13 +871,13 @@ Undersökt: ett fickur av guld, fabrikat Cyma, med krossat glas.
 
 1. Uret är inte trasigt. Verket är helt. Det går om man trycker in kronan.
 
-2. Kronan var **utdragen** till ställläge när uret kom hit. I det läget står verket stilla. Ett fall gör inte så. Det kräver att någon drar ut kronan med fingrarna.
+2. Kronan stod **utdragen** i ställäge. Dit hamnar den inte av ett fall. Någon har dragit ut den för att vrida visarna.
 
-3. Visarna har vridits fram till 23.47 i ställäget. Spår i oljan på visartappen visar att de vridits ungefär en timme framåt.
+3. Uret stannade inte av sig självt. En glasskärva är intryckt mellan minutvisaren och urtavlan och håller visaren fast.
 
 4. Glaset är krossat med ett slag rakt framifrån, inte av ett fall i sidled.
 
-Min bedömning: uret har stannats och ställts om för hand, och glaset har krossats med avsikt.
+Min bedömning: uret har ställts om för hand och stoppats med avsikt. Vad det visade när mannen dog kan jag inte säga.
 
 Med vördnad,
 A. Berg, urmakare`,
@@ -872,11 +885,10 @@ A. Berg, urmakare`,
       {
         format: "anteckningsbok",
         rubrik: "Två tider",
-        text: `23.47 är inte när Harald dog. 23.47 är när någon ville att vi skulle tro att han dog.
+        text: `I morgon är det julafton. Jag samlar alla i salongen klockan sex. Innan dess vill jag ha ert svar.`,
+        tanke: `23.47 är inte när Harald dog. 23.47 är när någon ville att vi skulle tro att han dog.
 
-Vem hade alibi kl. 23.47? Och vem hade det inte kl. 22.52?
-
-I morgon är det julafton. Jag samlar alla i salongen klockan sex. Innan dess vill jag ha ert svar.`,
+Vem hade alibi kl. 23.47? Och vem hade det inte kl. 22.52?`,
       },
     ],
     fraga: "Ni har allt nu. Vem, varför, hur och när?",

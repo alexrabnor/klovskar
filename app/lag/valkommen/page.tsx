@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SaSpelarNi } from "@/components/SaSpelarNi";
 import type { Metadata } from "next";
 import { kravInloggad } from "@/lib/session";
 import { Kopiera } from "@/components/Kopiera";
@@ -32,6 +33,7 @@ export default async function Valkommen() {
           {lag.ledare_epost ? <p className="dampad liten">Vi har också mejlat den till {lag.ledare_epost}.</p> : <p className="dampad liten">Lägg till din e-post under Laget så mejlar vi den till dig.</p>}
         </section>
       )}
+      <SaSpelarNi />
       <div><Link className="knapp" href="/lag">Till kalendern</Link></div>
     </main>
   );

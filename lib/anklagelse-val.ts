@@ -9,7 +9,7 @@ export const MOTIV = [
 ] as const;
 
 export const METOD = [
-  { id: "gift", text: "Gift" },
+  { id: "gift", text: "Han dog av giftet" },
   { id: "somnmedel", text: "Sömnmedel och en knuff" },
   { id: "slag", text: "Slag mot huvudet" },
   { id: "olycka", text: "Det var en olycka" },

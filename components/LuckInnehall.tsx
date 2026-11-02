@@ -5,6 +5,7 @@ import { Dokument } from "./Dokument";
 import { Zoombar } from "./Zoombar";
 import { Karta, Loggbok, Misstankta, Pussel } from "./Interaktioner";
 import { berattelseDatum } from "@/lib/tid";
+import { SaSpelarNi } from "./SaSpelarNi";
 
 /** Gemensam rendering av en lucka – används i laget, i smakprovet och i admin. */
 export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; platser?: Plats[]; personer?: Person[] }) {
@@ -17,6 +18,7 @@ export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; plats
         <h1 className="rubrik-stor">{lucka.titel}</h1>
         <p className="ingress">{lucka.ingress}</p>
       </header>
+      {lucka.nr === 1 && <SaSpelarNi />}
       {karta ? (
         <Karta platser={platser} />
       ) : loggbok ? (

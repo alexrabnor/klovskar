@@ -131,3 +131,11 @@ byggprompten gäller detta dokument.
 - Köparen **behåller spelet**: "så länge spelet finns, och minst till och med 31 december 2027" (privatperson kan inte lova för alltid).
 - Ingen spärr och ingen lagradering. `lib/gallring.ts` tar bara bort e-post (lagledare + köpare) 13 månader efter lucka 24; körs varje timme med riktig tid.
 
+
+## Efter granskningen (2026-11-02)
+- Bevisläckor täppta: tornet hänglåst av Sandahl från 1 dec och Margit gick aldrig upp (lucka 3, 22); galleridörren regelad inifrån (3, 5); fickuret stoppas av en glasskärva, kronan visar bara att visarna vridits (23).
+- Margit visste dagen innan: Elsa hörde gräl och gråt i köket 29/11 (lucka 11, facit).
+- Sandahls slutsatser i 20–23 ligger i `Avsnitt.tanke` och visas bakom "Sandahls tanke".
+- Spelinstruktion (`components/SaSpelarNi.tsx`) på välkomstsidan och i lucka 1.
+- Facit visar fallpoäng (av 13) och chiffer (av 6) var för sig, plus lagets egen motivtext. Metodvalet "Gift" heter "Han dog av giftet".
+- Veronal 0,25 g/tablett (10 st = 2,5 g, inte dödligt); fyren luktar gas (AGA), inte fotogen.

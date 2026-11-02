@@ -390,3 +390,15 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .ljud-knapp[aria-pressed="true"] { color: var(--barnsten); border-color: currentColor; }
 .ljud-knapp:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
 @media (max-width: 420px) { .ljud-text { display: none; } }
+
+/* Sandahls tanke – dold slutsats under ett dokument */
+.tanke { margin-top: 14px; border-top: 1px dashed currentColor; padding-top: 10px; }
+.tanke summary { cursor: pointer; font: 15px var(--f-m); color: inherit; list-style: none; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; min-height: 32px; }
+.tanke summary::-webkit-details-marker { display: none; }
+.tanke summary::before { content: "+"; font-size: 18px; line-height: 1; }
+.tanke[open] summary::before { content: "–"; }
+.tanke summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.tanke-etikett { text-decoration: underline; text-underline-offset: 3px; }
+.tanke-tips { opacity: .7; font-size: 13px; }
+.tanke-text { padding-top: 8px; }
+.sa-spelar-ni ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }

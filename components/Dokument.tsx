@@ -11,6 +11,12 @@ export function Dokument({ a }: { a: Avsnitt }) {
       <div className="dok-text">
         {a.format === "forhor" ? <Forhor text={a.text} /> : a.format === "telegram" ? <TelegramText text={a.text} /> : <Text text={a.text} />}
       </div>
+      {a.tanke && (
+        <details className="tanke">
+          <summary><span className="tanke-etikett">Sandahls tanke</span><span className="tanke-tips">läs när ni har funderat själva</span></summary>
+          <div className="tanke-text"><Text text={a.tanke} /></div>
+        </details>
+      )}
     </section>
   );
 }

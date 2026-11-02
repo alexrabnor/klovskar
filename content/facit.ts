@@ -26,7 +26,7 @@ Ingrid anade en affär redan 1934, men visste aldrig att det fanns ett barn.
 
 Sedan bjöd Harald hit Elsa och började tala om ett nytt testamente. Han ville ha det säkert och bad doktorn blodgruppera henne. Den 28 november kom svaret: Elsa har AB. Harald har O. En far med O kan aldrig få ett barn med AB.
 
-Harald förstod att han blivit lurad i tjugosju år. Samma kväll sa han till Margit att betalningarna var slut och att han visste. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
+Harald förstod att han blivit lurad i tjugosju år. Dagen därpå, den 29 november, sa han till Margit i köket att betalningarna var slut och att han visste. Fröken Varg hörde dem genom dörren utan att förstå. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
 
 Margit dödade honom för att skydda en hemlighet.`,
   },
@@ -44,7 +44,7 @@ Han föll mot urverket. Linsen stannade och ljuset störde till – 22.52. Sedan
   },
   {
     rubrik: "Den falska tiden",
-    text: `Margit gick ner förbi honom. Hon drog ut kronan på hans fickur, vred visarna fram till 23.47 och slog sönder glaset mot stengolvet. Hon låste tornet efter sig och gick tillbaka till köket.
+    text: `Margit gick ner förbi honom. Hon drog ut kronan på hans fickur, vred visarna fram till 23.47 och slog glaset mot stengolvet så att en skärva klämde fast minutvisaren. Hon låste tornet efter sig och gick tillbaka till köket.
 
 Hon visste att fru Ekberg går ner efter varm mjölk när hon inte kan sova – mjölken stod redan varm på spisen – och att doktorn vill ha is till sin konjak. Kvart i tolv satt hon i köket med två vittnen och sa: "Nu är den kvart i tolv."
 
@@ -56,9 +56,9 @@ På lördagsmorgonen gick hon upp för att putsa mässingen, som alltid, låste 
 
 Hon tänkte inte på fyrvaktarens loggbok. Bertil Holm skriver när något händer – och den natten hände något klockan 22.52. Han trodde att det var redaren som var klumpig med urverket.
 
-Hon tänkte inte heller på att en urmakare kan se om ett ur stannat av sig självt.
+Hon tänkte inte heller på att en urmakare ser skillnad på ett ur som stannat i ett fall och ett ur som stoppats för hand.
 
-Och hon glömde att det bara fanns två nycklar till tornet. Den ena låg i Haralds ficka.`,
+Och hon glömde att det bara fanns två nycklar till tornet. Den ena låg i Haralds ficka. Sedan den första december var tornet dessutom hänglåst, så mjölet i trappan kunde bara ha kommit dit kvällen innan.`,
   },
   {
     rubrik: "De andra",
@@ -98,6 +98,7 @@ export const NYCKELLEDTRADAR: Ledtrad[] = [
   { text: "Elsa: Harald svajade när hon gick – han var drogad, inte full.", lucka: 11 },
   { text: "Doktorns väska med Veronal stod i hallen under hela middagen.", lucka: 12 },
   { text: "Toddyglaset innehöll Veronal – och det var Margit som bar in toddyn.", lucka: 12 },
+  { text: "Elsa hörde Harald gräla med husfrun i köket dagen innan. Husfrun grät.", lucka: 11 },
   { text: "Journalisten hörde snabba steg och ett metalliskt ljud på grusgången mot tornet strax efter Harald.", lucka: 14 },
   { text: "Holm såg ljuset stanna strax före elva och trodde att det var redaren vid urverket.", lucka: 5 },
   { text: "Carl såg fyren blinka konstigt strax efter 22.50 vid Kråkskär.", lucka: 15 },

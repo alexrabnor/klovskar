@@ -8,6 +8,8 @@ export interface Avsnitt {
   rubrik?: string;
   /** Markdown-light: stycken, **fet**, *kursiv*. Förhör: "NAMN: repliken" per rad, (scenanvisning) inom parentes. */
   text: string;
+  /** Sandahls slutsats – dold bakom "Sandahls tanke" så att laget kan försöka själv först. */
+  tanke?: string;
 }
 
 export interface Bild {
