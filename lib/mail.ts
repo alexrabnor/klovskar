@@ -1,7 +1,7 @@
 import "server-only";
 import type { Lag } from "./db";
 
-const BAS = () => process.env.BAS_URL || "https://klovskar.alexcloud.se";
+const BAS = () => process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
 export const esc = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
 export function mejlKonfigurerat() {
@@ -17,7 +17,7 @@ async function skicka(till: string, amne: string, html: string) {
     method: "POST",
     headers: { "api-key": process.env.BREVO_API_KEY, "Content-Type": "application/json", accept: "application/json" },
     body: JSON.stringify({
-      sender: { name: "Mordet på Klovskär", email: process.env.MAIL_FROM || "klovskar@alexcloud.se" },
+      sender: { name: "Mordet på Klovskär", email: process.env.MAIL_FROM || "adventdeckare@alexcloud.se" },
       replyTo: process.env.SALJARE_EPOST ? { email: process.env.SALJARE_EPOST } : undefined,
       to: [{ email: till }],
       subject: amne,
@@ -56,7 +56,7 @@ export async function mejlaKop(epost: string, kod: string, typ: "kop" | "present
 <p>Här är presentkortet. Skicka vidare länken nedan, eller skriv ut presentkortet och lägg det under granen.</p>
 ${knapp(`${BAS()}/presentkort/${encodeURIComponent(kod)}`, "Öppna presentkortet")}
 <p>Koden på kortet:</p>${kodruta(kod)}
-<p>Den som får kortet går till <b>klovskar.alexcloud.se/aktivera</b>, skriver in koden och skapar sitt lag. Koden kan bara användas en gång.</p>
+<p>Den som får kortet går till <b>${BAS().replace(/^https?:\/\//, "")}/aktivera</b>, skriver in koden och skapar sitt lag. Koden kan bara användas en gång.</p>
 <p style="color:#9fb2b5;font-size:14px">Kvittot kommer i ett separat mejl från Stripe.</p>`));
   }
   return skicka(epost, "Er aktiveringskod – Mordet på Klovskär", ram(`

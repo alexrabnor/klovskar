@@ -8,7 +8,7 @@ export function pushKonfigurerad(): boolean {
   if (konfigurerad !== null) return konfigurerad;
   const pub = process.env.VAPID_PUBLIC_KEY, priv = process.env.VAPID_PRIVATE_KEY;
   if (!pub || !priv) return (konfigurerad = false);
-  webpush.setVapidDetails(process.env.VAPID_SUBJECT || "mailto:klovskar@alexcloud.se", pub, priv);
+  webpush.setVapidDetails(process.env.VAPID_SUBJECT || "mailto:adventdeckare@alexcloud.se", pub, priv);
   return (konfigurerad = true);
 }
 

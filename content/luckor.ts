@@ -156,9 +156,10 @@ Tryck på platserna på kartan för mina anteckningar om var och en.`,
     transkription: `Klovskärs fyr – Dagbok
 30 nov. 1962
 
-16.05  Fyren tänd (solventilen). Sikt god. Fast is runt ön.
+16.05  Fyren tänd. Sikt god.
+       Fast is runt ön.
 19.30  Snöbyar från NV. Vind 6 m/s.
-21.00  Sikt god. Allt i ordning.
+21.00  Linsen putsad. Allt i ordning.
 22.52  Ljuset störde till
 22.54  Lampan går jämnt igen.
 23.40  Lugnt. Snöar lätt.
@@ -182,6 +183,8 @@ Hans son Lars dog när rederiets fartyg M/S Svanhild gick under 1954. Han nämne
 Jag frågade varför han inte var på middagen. Han sa att han inte äter vid samma bord som redaren och att det var känt av alla.
 
 Fyren tänds av sig själv vid skymning med en solventil. Linsen vrids av ett urverk som redaren själv vevade upp varje kväll – det var därför han gick upp i tornet. Holm vaktar ljuset från sitt fönster och skriver när något händer eller vädret slår om. Trappan inne i tornet syns inte från stugan.
+
+– Linsen putsar jag utifrån, från galleriet, sa han. Dit kommer man med järnstegen på tornets utsida. Den har redaren inte kunnat låsa.
 
 – Strax före elva stannade blinket och lyste fast ett par sekunder, sa han. Jag tänkte att redaren höll på med urverket igen. Han var klumpig med det. Sedan gick det som vanligt.
 

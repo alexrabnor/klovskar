@@ -17,7 +17,7 @@ export default function Villkor() {
         <h2>Säljare</h2>
         <p>{namn}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}. Säljaren är en privatperson.</p>
         <h2>Vad du köper</h2>
-        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på klovskar.alexcloud.se.</p>
+        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.alexcloud.se.</p>
         <h2>Pris och betalning</h2>
         <p>Priset är {prisKr()} kr per lag. Betalning sker med kort, Apple Pay eller Google Pay via Stripe. Vi ser aldrig dina kortuppgifter.</p>
         <h2>Leverans</h2>

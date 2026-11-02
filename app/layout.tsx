@@ -8,7 +8,7 @@ const brod = Source_Serif_4({ subsets: ["latin"], variable: "--f-brod", display:
 const maskin = Special_Elite({ subsets: ["latin"], weight: "400", variable: "--f-maskin", display: "swap" });
 const hand = Caveat({ subsets: ["latin"], variable: "--f-hand", display: "swap" });
 
-const BAS = process.env.BAS_URL || "https://klovskar.alexcloud.se";
+const BAS = process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
 const BESKRIVNING = "En adventskalender där ni löser ett mord tillsammans. En ny lucka varje morgon, ett lag på upp till tio, och svaret på julafton.";
 
 export const metadata: Metadata = {
