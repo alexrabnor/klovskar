@@ -223,11 +223,11 @@ Carl Ekberg är en smugglare och en dålig son. Men han är ingen mördare.`,
       {
         format: "dokument",
         rubrik: "Lotsverket – Klovskärs fyr, beskrivning",
-        text: `**Lyktrummet:** fotogenljus med roterande lins. Synvidd 14 distansminuter.
+        text: `**Lyktrummet:** gasljus (AGA) med roterande lins. Tänds och släcks av solventil. Synvidd 14 distansminuter.
 
-**Urverket:** driver linsens rotation med ett lod som vevas upp var fjärde timme. Om urverket stannar står linsen still och fyren slutar blinka och lyser fast, tills urverket startas igen. Urverket nås från avsatsen under lyktrummet.
+**Urverket:** driver linsens rotation med ett lod som vevas upp en gång per kväll och räcker natten ut. Om urverket stannar står linsen still och fyren slutar blinka och lyser fast, tills urverket startas igen. Urverket nås från avsatsen under lyktrummet.
 
-**Spiraltrappan:** gjutjärn, 34 steg, utan räcke på insidan.
+**Spiraltrappan:** gjutjärn, 34 steg, utan räcke mot mitten. Öppningen i mitten går ända ner.
 
 **Ingång:** ekdörr med lås. Två nycklar (ombytt lås okt. 1962).`,
       },

@@ -15,15 +15,15 @@ export const PERSONER: Person[] = [
   },
   {
     id: "carl", namn: "Carl Ekberg", alder: 35, roll: "Sonen",
-    kort: "Vice vd i Rederi AB Ekberg, åtminstone på pappret. Charmig, rastlös och alltid på väg någon annanstans. Röker John Silver.",
+    kort: "Vice vd i Rederi AB Ekberg, åtminstone på pappret. Charmig, rastlös och alltid på väg någon annanstans. Röker John Silver och klirrar alltid med växelpengar i fickan.",
   },
   {
     id: "elsa", namn: "Elsa Varg", alder: 27, roll: "Sångerska",
-    kort: "Anlitad att sjunga på hotellets julfest. Kom till ön med sista färjan den 26 november. Harald insisterade på att hon skulle bo i det bästa rummet.",
+    kort: "Anlitad att sjunga på hotellets julfest. Kom till ön med färjan den 26 november. Harald insisterade på att hon skulle bo i det bästa rummet.",
   },
   {
     id: "margit", namn: "Margit Lund", alder: 51, roll: "Husfru",
-    kort: "Har skött Hotell Fyrbåken i trettio år. Bakar, serverar, städar och har nycklar till allt. Man hör henne innan man ser henne – nyckelknippan skramlar.",
+    kort: "Har skött Hotell Fyrbåken i trettio år. Bakar, serverar, städar och har nycklar till allt. Vet vad gästerna behöver innan de vet det själva.",
   },
   {
     id: "bertil", namn: "Bertil Holm", alder: 46, roll: "Fyrvaktare",
@@ -31,7 +31,7 @@ export const PERSONER: Person[] = [
   },
   {
     id: "sven", namn: "Dr Sven Ahlgren", alder: 52, roll: "Läkare, gäst",
-    kort: "Familjen Ekbergs läkare sedan kriget. Kom ut för att fira jul och spela bridge. Bär alltid sin läkarväska, även till middagen.",
+    kort: "Familjen Ekbergs läkare sedan kriget. Kom ut med sista färjan den 28 november för att fira jul. Bär alltid sin läkarväska, även till middagen.",
   },
   {
     id: "johan", namn: "Johan Strand", alder: 31, roll: "Journalist",

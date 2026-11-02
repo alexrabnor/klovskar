@@ -12,7 +12,7 @@ export const LUCKOR: Lucka[] = [
   {
     nr: 1,
     titel: "Telegrammet",
-    ingress: "Det första jag skickade i land. Isen hade lagt sig under natten och färjan går inte förrän det töar.",
+    ingress: "Det första jag skickade i land. Isen lade sig natten mot den 30 november och färjan går inte förrän det töar.",
     bilder: [
       { namn: "lucka-01", alt: "Ett gulnat telegram på en snöig fönsterbräda: Harald Ekberg funnen död i fyrtornet, isen stoppar färjan, undertecknat kommissarie G. Sandahl." },
       { namn: "brottsplats", alt: "Botten av fyrtornets spiraltrappa. Ett fickur med krossat glas visar 23.47, en hand i kavajärm syns i bildkanten och ett välte toddyglas står på trappsteget." },
@@ -24,7 +24,7 @@ export const LUCKOR: Lucka[] = [
         text: `TILL KRIMINALPOLISEN GÖTEBORG STOP
 HARALD EKBERG REDARE 64 ÅR FUNNEN DÖD I FYRTORNET KLOVSKÄR KL 0710 STOP
 SANNOLIKT FALL I SPIRALTRAPPAN STOP
-ISEN STOPPAR FÄRJAN STOP INGEN KAN LÄMNA ÖN STOP
+ISEN STOPPAR FÄRJAN STOP INGEN AV GÄSTERNA KAN LÄMNA ÖN STOP
 UNDERTECKNAD BOR PÅ HOTELL FYRBÅKEN ÖVER JUL STOP
 BEGÄR UPPDRAG ATT UTREDA PÅ PLATS STOP
 SKICKAR MATERIAL DAGLIGEN STOP
@@ -44,6 +44,8 @@ KRIMINALINTENDENT NORDH`,
         format: "anteckningsbok",
         rubrik: "Till min assistent",
         text: `Ni får kopior av allt jag hittar, en bunt i taget, varje morgon fram till jul. Läs dem noga. Jag tänker högt i marginalen och har ofta fel.
+
+Ön är stängd, men inte helt. Postbudet Edvin går över isen med spark två gånger i veckan och bär mina brev och prover. Telefonen i hotellets hall fungerar när kabeln vill.
 
 Sju personer var på ön i natt utöver mig själv. Någon av dem vet mer än de säger. Kanske alla.
 
@@ -67,7 +69,7 @@ Det ser ut som en olycka. Det är just det som stör mig.`,
       {
         format: "anteckningsbok",
         rubrik: "Hotell Fyrbåken, natten mot 1 december",
-        text: `Hotellet har tolv rum. I natt var fem av dem bebodda: Harald och Ingrid i östra flygeln (skilda sovrum, dörr emellan), Carl i rum 3, fröken Varg i rum 1 som är det med havsutsikt, doktor Ahlgren i rum 5 och herr Strand i rum 7 längst in i korridoren. Själv bor jag i rum 9.
+        text: `Hotellet har tolv rum. I natt var fem av dem bebodda: Harald och Ingrid i östra flygeln (skilda sovrum, dörr emellan), Carl i rum 3, fröken Varg i rum 1 – det bästa rummet, med havsutsikt, i östra flygeln intill familjen – doktor Ahlgren i rum 5 och herr Strand i rum 7 längst in i korridoren. Själv bor jag i rum 9.
 
 Husfrun Margit Lund bor i jungfrukammaren bakom köket. Fyrvaktare Holm bor i fyrvaktarstugan, sextio meter från tornet.
 
@@ -95,13 +97,15 @@ Korten nedan är vad jag vet om var och en. Tryck på ett porträtt.`,
         rubrik: "1 dec. 1962",
         text: `Harald Ekberg, 64 år. Funnen nedanför spiraltrappan i fyrtornet kl. 07.10.
 
-Hittad av husfrun Margit Lund, som gick upp med hans morgonkaffe som hon gjort varje morgon i tio år. Tornets dörr var låst. Hon låste upp med sin nyckel. Hon skrek. Holm hörde det från stugan och kom springande.
+Hittad av husfrun Margit Lund, som går upp och putsar mässingen i lyktrummet varje lördagsmorgon. Det var lördag. Tornets dörr var låst. Hon låste upp med sin nyckel. Hon skrek. Holm hörde det från stugan och kom springande.
 
 Kroppen kall och stel. Doktor Ahlgren bedömer att döden inträffat "för minst sex, kanske åtta timmar sedan".
 
-Fickuret i västfickan har stannat. Visarna står på 23.47. Glaset krossat, som av fallet.
+Trappan har inget räcke mot mitten. Han har fallit genom öppningen, nästan hela vägen ner.
 
-På tredje trappsteget ett toddyglas, nästan tomt. Doft av rom och citron. Husfrun säger att hon bar in herr Ekbergs kvällstoddy till biblioteket vid kvart över tio, som varje kväll.
+Fickuret låg på golvet bredvid honom, kedjan fortfarande fäst i västen. Det har stannat. Visarna står på 23.47. Glaset krossat, som av fallet.
+
+På tredje trappsteget ett toddyglas, nästan tomt och helt. Doft av rom och citron. Han måste ha ställt ifrån sig det när han började gå uppför – man behöver båda händerna i den trappan. Husfrun säger att hon bar in herr Ekbergs kvällstoddy till biblioteket vid kvart över tio, som varje kväll.
 
 Haralds egen tornnyckel låg i hans byxficka.
 
@@ -133,7 +137,7 @@ Fyrvaktarstugan ligger så att Holm ser lyktrummet från sitt köksfönster. Han
 
 Sjöboden nere vid bryggan används av Carl Ekberg "till fisket". Fisket har inte gett något på flera år, enligt husfrun.
 
-Söderut, en dryg kilometer över isen, ligger Kråkskär. Obebott sommartid. Jag ska gå dit när isen har bärigheten bekräftad.
+Sydost, en dryg kilometer över isen, ligger Kråkskär. Obebott. Holm säger att isen bär en människa men inte en häst. Jag går inte gärna ut på den.
 
 Tryck på platserna på kartan för mina anteckningar om var och en.`,
       },
@@ -152,15 +156,15 @@ Tryck på platserna på kartan för mina anteckningar om var och en.`,
     transkription: `Klovskärs fyr – Dagbok
 30 nov. 1962
 
-16.05  Fyren tänd. Sikt god. Fast is runt ön.
+16.05  Fyren tänd (solventilen). Sikt god. Fast is runt ön.
 19.30  Snöbyar från NV. Vind 6 m/s.
-21.00  Linsen putsad. Allt i ordning.
+21.00  Sikt god. Allt i ordning.
 22.52  Ljuset störde till
 22.54  Lampan går jämnt igen.
 23.40  Lugnt. Snöar lätt.
 
 1 dec. 1962
-07.15  Hörde skrik från tornet. Gick dit.`,
+07.10  Hörde skrik från tornet. Gick dit.`,
     avsnitt: [
       {
         format: "anteckningsbok",
@@ -177,7 +181,11 @@ Hans son Lars dog när rederiets fartyg M/S Svanhild gick under 1954. Han nämne
 
 Jag frågade varför han inte var på middagen. Han sa att han inte äter vid samma bord som redaren och att det var känt av alla.
 
-Loggboken är prydligt förd. Han skriver bara när något händer, säger han. Jag har läst den två gånger.
+Fyren tänds av sig själv vid skymning med en solventil. Linsen vrids av ett urverk som redaren själv vevade upp varje kväll – det var därför han gick upp i tornet. Holm vaktar ljuset från sitt fönster och skriver när något händer eller vädret slår om. Trappan inne i tornet syns inte från stugan.
+
+– Strax före elva stannade blinket och lyste fast ett par sekunder, sa han. Jag tänkte att redaren höll på med urverket igen. Han var klumpig med det. Sedan gick det som vanligt.
+
+Loggboken är prydligt förd. Jag har läst den två gånger.
 
 Jag har bett honom att inte lämna ön. Han svarade att det inte går ändå.`,
       },
@@ -216,7 +224,7 @@ Det var ingen rånare. Pengarna i kassaskrinet ligger kvar, 340 kronor.
 
 Den som letade ville ha papper.
 
-I papperskorgen under skrivbordet låg ett brev rivet i elva bitar. Haralds handstil. Det har aldrig skickats.
+I papperskorgen under skrivbordet låg ett brev rivet i elva bitar. Haralds handstil. Det har aldrig skickats – han måste ha ändrat sig och rivit det själv. Han ville säga det med egen mun.
 
 Jag har lagt bitarna på bordet. Hjälp mig att få ordning på dem.
 
@@ -323,7 +331,7 @@ Herr L.`,
       {
         format: "anteckningsbok",
         rubrik: "Carl",
-        text: `12 000 kronor är mer än en fyrvaktare tjänar på fyra år.
+        text: `12 000 kronor är mer än en fyrvaktare tjänar på ett år.
 
 Jag frågade Carl om brevet. Han skrattade, för högt.
 
@@ -358,9 +366,9 @@ Var var Carl i natt? Han säger att han låg och läste i sitt rum. Hans skor st
 
 I spåret närmast boden: en fimp av märket John Silver. Rökt till hälften.
 
-Spåren går mot Kråkskär.
+Spåren går sydost, mot Kråkskär.
 
-Snön föll lätt mellan elva och tolv i går kväll enligt fyrens dagbok. Spåren ut är något mer översnöade än spåren hem.`,
+Det började snöa lätt strax före midnatt enligt fyrens dagbok. Spåren ut är något mer översnöade än spåren hem.`,
       },
       {
         format: "anteckningsbok",
@@ -373,7 +381,7 @@ Men vägen till Kråkskär går rakt bort från fyrtornet. Den som var på isen 
 
 Frågan är när han var var.
 
-Jag har också sett ett ljus i natt, långt ute mot väster, som blinkade. Det är inte fyren. Fyren blinkar inte så.`,
+Jag har också sett ett ljus i natt, långt ute mot sydost, som blinkade. Det är inte fyren. Fyren blinkar inte så.`,
       },
     ],
     fraga: "Vad gjorde Carl ute på isen mitt i natten?",
@@ -397,11 +405,11 @@ ELSA VARG: Nej. Jo. Inte på det sättet.
 (Paus.)
 ELSA VARG: Harald Ekberg är min far.
 SANDAHL: Hur vet ni det?
-ELSA VARG: Jag växte upp hos familjen Varg i Majorna. Fosterbarn. Varje månad kom det pengar i ett kuvert utan avsändare. När mamma Varg låg för döden sa hon: "Det är herr Ekberg som betalar för dig. Fråga aldrig varför."
+ELSA VARG: Jag växte upp hos familjen Varg i Majorna. Fosterbarn. Varje månad kom det pengar i ett kuvert utan avsändare. Det gör det fortfarande. Tjugofem kronor. När mamma Varg låg för döden sa hon: "Det är herr Ekberg som betalar för dig. Fråga aldrig varför."
 SANDAHL: Och ni frågade ändå.
 ELSA VARG: Jag kom hit för att höra honom säga det. En gång.
 SANDAHL: Sa han det?
-ELSA VARG: Han var snäll i en vecka. Han gav mig det bästa rummet. Sedan den sista kvällen var han som en annan människa.
+ELSA VARG: Han var snäll de första dagarna. Han gav mig det bästa rummet. Sedan den sista kvällen var han som en annan människa.
 SANDAHL: Den trettionde. I biblioteket.
 ELSA VARG: Ni vet om det?
 SANDAHL: Berätta.
@@ -450,6 +458,13 @@ SANDAHL: Hela middagen. I hallen. Där alla gick förbi.
 DR AHLGREN: Ja.
 SANDAHL: Varför ljög ni för mig?
 DR AHLGREN: Jag ljög inte. Jag … jag sa inget.`,
+      },
+      {
+        format: "utlatande",
+        rubrik: "Statens kriminaltekniska anstalt – telegram 12 dec.",
+        text: `PROV: RESTER UR TODDYGLAS KLOVSKÄR STOP
+INNEHÅLLER BARBITAL (VERONAL) I HÖG HALT STOP
+MOTSVARAR FLERA TABLETTER STOP`,
       },
     ],
     fraga: "Vem kunde ta tabletterna – och vem visste att väskan stod där?",
@@ -531,20 +546,20 @@ JOHAN STRAND: Då kröp jag in under skrivbordet. Jag hörde honom gå förbi i 
 SANDAHL: Åt vilket håll?
 JOHAN STRAND: Mot bakdörren. Mot tornet.
 SANDAHL: Ensam?
-JOHAN STRAND: Han gick ensam. Men några minuter senare gick någon mer samma väg. Fort.
+JOHAN STRAND: Han gick ensam. Men några minuter senare gick någon ute på grusgången under kontorsfönstret, mot tornet. Fort.
 SANDAHL: Vem?
-JOHAN STRAND: Jag såg inte. Jag låg under ett skrivbord. Jag hörde bara steg. Och ett skrammel. Som mynt i en ficka. Eller nycklar.
+JOHAN STRAND: Jag såg inte. Jag låg under ett skrivbord. Jag hörde bara steg i snön. Och ett metalliskt ljud. Det kunde ha varit vad som helst.
 SANDAHL: Vilken tid var det?
 JOHAN STRAND: Kvart i elva, kanske. Jag stannade kvar och letade till kvart över elva. Sedan gick jag och la mig. Jag har skrivit upp allt. Jag är journalist.`,
       },
     ],
-    fraga: "Vem skramlar när den går?",
+    fraga: "Vem gick efter Harald mot tornet?",
     teaser: "Lucka 14 är öppen – något ligger gömt under en madrass i rum 7.",
   },
   {
     nr: 15,
     titel: "Sjöboden",
-    ingress: "I dag bar isen. Jag gick till sjöboden med Holm som vittne och lyfte på presenningen.",
+    ingress: "Jag gick ner till sjöboden med Holm som vittne och lyfte på presenningen.",
     bilder: [
       { namn: "lucka-15", alt: "Inne i den röda sjöboden: spritlådor märkta Försiktigt under en presenning, en fotogenlykta och en lapp: Mottaget 6 lådor, Kråkskär 30/11 kl. 22.50, Betalt – L." },
     ],
@@ -562,7 +577,7 @@ Betalt – L.`,
         text: `SANDAHL: Sex lådor polsk sprit. På en ö utan systembolag.
 CARL EKBERG: (tänder en cigarett) Okej. Okej. Det är min.
 SANDAHL: Berätta om natten mellan trettionde och första.
-CARL EKBERG: Lindqvist kommer med båt från Polen till Kråkskär när isen ligger. Han lägger lådorna på isen vid skäret. Jag hämtar dem med spark. Jag säljer dem vidare till restauranger i Göteborg. Det betalar skulden.
+CARL EKBERG: Lindqvist kommer med båt från Polen till iskanten bortom Kråkskär. Han blinkar med en lampa när han är framme, och lägger lådorna på isen vid skäret. Jag hämtar dem med spark. Jag säljer dem vidare till restauranger i Göteborg. Det betalar skulden.
 SANDAHL: Herr L.
 CARL EKBERG: Herr L. Han skriver lappen när han har fått betalt. Han skriver alltid klockslaget. Han litar inte på någon.
 SANDAHL: Kråkskär 22.50.
@@ -589,7 +604,7 @@ CARL EKBERG: Strax efter att han skrev lappen.`,
         rubrik: "Förhör med Ingrid Ekberg, 16 dec. kl. 11.00",
         text: `INGRID EKBERG: Jag har bestämt mig för att berätta som det var. Det är snart jul.
 SANDAHL: Börja vid halv elva.
-INGRID EKBERG: Jag låg i sängen och läste. Klockan stod på halv elva när jag hörde honom. Biblioteket ligger under mitt rum. Han skrek på ett sätt jag inte hört sedan trettiotalet.
+INGRID EKBERG: Jag låg i sängen och läste. Klockan stod på halv elva när jag hörde honom. Biblioteket ligger under mitt rum. Jag har vetat sedan trettiotalet att min man inte alltid var trogen, kommissarien. Men så där hade han aldrig skrikit. Han skrek på ett sätt jag inte hört sedan trettiotalet.
 SANDAHL: Vad skrek han?
 INGRID EKBERG: Jag hörde inte allt. "Lurad." "Tjugosju år." "Inte ett öre till." Och en gång, mycket tydligt: "Hon har ljugit för mig från första dagen."
 SANDAHL: Hon?
@@ -597,9 +612,9 @@ INGRID EKBERG: Jag trodde att han menade flickan. Nu är jag inte säker.
 SANDAHL: När slutade det?
 INGRID EKBERG: Tjugo i elva. En dörr slog igen, och någon sprang uppför trappan och förbi min dörr. Lätta steg. Unga steg. Sedan blev det tyst.
 SANDAHL: Och sedan?
-INGRID EKBERG: Jag kunde inte sova. Vid tjugo över elva gick jag ner till köket för att värma mjölk. Margit stod vid bordet och knådade degen till lussekatterna. Hon var alldeles röd i ansiktet. Hon sa att köket var varmt.
+INGRID EKBERG: Jag kunde inte sova. Det kan jag sällan. Vid tjugo över elva gick jag ner till köket efter varm mjölk, som jag brukar. Margit stod vid bordet och knådade lussekattsdeg till första advent. Mjölken stod redan varm på spisen. Hon var röd i ansiktet och sa att köket var varmt.
 SANDAHL: Stannade ni?
-INGRID EKBERG: Jag satt med mjölken. Doktorn kom ner en stund senare och ville ha is till sin konjak. Vi satt där alla tre. Margit tittade på köksklockan och sa: "Nu är den kvart i tolv, nu får degen vila." Jag minns det för att hon sa det så högt.
+INGRID EKBERG: Jag satt med mjölken. Doktorn kom ner en stund senare och ville ha is till sin konjak. Vi satt där alla tre. Margit tittade på köksklockan och sa: "Nu är den kvart i tolv, nu får degen vila."
 SANDAHL: Gick ni upp sedan?
 INGRID EKBERG: Strax efter tolv. Jag såg inte min man igen.`,
       },
@@ -637,7 +652,7 @@ Jag har pratat med provinsialläkaren i Strömstad i telefon. Jag frågade honom
 
 Han sa nej. Han förklarade det två gånger, långsamt. En far med O kan få barn med O, A eller B. Aldrig AB. Det är en av få saker inom medicinen som han kallade "fullkomligt säker".
 
-Jag vet inte ännu vem som har vilken blodgrupp. Men någon ville att Harald skulle veta sin.`,
+Jag vet inte ännu vem som har vilken blodgrupp. Men Harald ville vara säker på sin egen.`,
       },
     ],
     fraga: "Varför skulle Harald behöva veta sin egen blodgrupp?",
@@ -658,15 +673,15 @@ Jag vet inte ännu vem som har vilken blodgrupp. Men någon ville att Harald sku
 SANDAHL: Börja med Veronalet.
 DR AHLGREN: Jag märkte det på morgonen den första. Tio tabletter borta. Jag förstod direkt. Han hade varit ostadig när han föll, det såg jag på honom. Men om det kommer ut att en läkare lämnar sömnmedel i en hall där vem som helst kan ta dem, då är jag färdig. Trettio år, färdig.
 SANDAHL: Och den andra lögnen?
-DR AHLGREN: I oktober kom fröken Varg till min mottagning i Göteborg. Hon ville ge blod. Hon har gjort det i flera år. Jag tog provet. Och Harald hade bett mig, i förtroende, att ta reda på hennes blodgrupp. Han ville ha det svart på vitt innan han skrev under.
+DR AHLGREN: Jag är överläkare vid blodcentralen i Göteborg. Fröken Varg ger blod där sedan flera år. Harald bad mig i oktober, i förtroende, att ta reda på hennes blodgrupp. Han ville ha det svart på vitt innan han skrev under. Jag slog upp den i registret.
 SANDAHL: Vad visade provet?
-DR AHLGREN: Det skickade jag till honom. Den tjugoåttonde november, med båten. Ett kuvert.
+DR AHLGREN: Jag skrev till honom. Brevet kom ut med sista båten den tjugoåttonde november, samma båt som jag själv. Ett kuvert.
 SANDAHL: Vad stod det?
 DR AHLGREN: Jag kan inte säga det. Läkarsekretess.
 SANDAHL: Han är död, doktorn.
 DR AHLGREN: Hon är inte det.
 SANDAHL: Var var ni mellan halv elva och midnatt den trettionde?
-DR AHLGREN: I salongen. Patiens, ensam. Vid halv tolv ville jag ha is och gick ut i köket. Fru Ekberg satt där med varm mjölk och husfrun stod med degen. Husfrun pratade om att hon hade stått där hela kvällen. Jag tänkte inte på det då. Hon sa det två gånger.`,
+DR AHLGREN: I salongen. Patiens, ensam. Vid halv tolv ville jag ha is och gick ut i köket. Fru Ekberg satt där med varm mjölk och husfrun stod med degen. Husfrun sa att hon hade stått där hela kvällen. Jag tänkte inte på det då.`,
       },
     ],
     fraga: "Vad tror ni stod i doktorns kuvert?",
@@ -689,7 +704,7 @@ Låssmeden i Strömstad gjorde två nycklar. Inte tre. Jag har hans kvitto.
 
 Den ena hängde på Haralds egen knippa. Den låg i hans byxficka när han hittades.
 
-Den andra hänger på husfruns knippa, "för städningen". Margit Lund putsar mässingen i lyktrummet varje lördag.
+Den andra hänger på husfruns knippa, "för städningen". Margit Lund putsar mässingen i lyktrummet varje lördagsmorgon.
 
 Holm måste be om lov för att serva sin egen fyr. Han har gjort det tre gånger sedan oktober, varje gång med Margit som öppnade.
 
@@ -775,11 +790,11 @@ Sista raden, i Haralds handstil, med annat bläck: *"Inga fler. 28/11."*`,
       {
         format: "anteckningsbok",
         rubrik: "M.L.",
-        text: `Tjugofem kronor i månaden i tjugosju år. Utbetalda till M.L., som skickade dem vidare till familjen Varg i ett kuvert utan avsändare.
+        text: `Tjugofem kronor i månaden i tjugosju år. Utbetalda till M.L., som skickade dem vidare i ett kuvert utan avsändare – först till familjen Varg, sedan till flickan själv.
 
-Vem på Klovskär har initialerna M.L.? Vem har varit här i trettio år? Vem kom till ön 1932 och var borta "ett halvår i Göteborg hos en sjuk syster" 1935, enligt hotellets gamla anställningsbok?
+Harald trodde i tjugosju år att han var far till M.L.:s barn. Den tjugoåttonde november fick han veta att han inte var det. Samma dag skrev han "Inga fler".
 
-Harald trodde i tjugosju år att han var far till M.L.:s barn. Den tjugoåttonde november fick han veta att han inte var det.`,
+Ett brev, en kassabok och två initialer. Jag tänker läsa hotellets gamla anställningsbok i kväll.`,
       },
     ],
     fraga: "Vad hade M.L. att förlora på Luciadagen?",
@@ -800,14 +815,16 @@ Harald trodde i tjugosju år att han var far till M.L.:s barn. Den tjugoåttonde
 
 Jag lät provinsialläkaren titta på det i mikroskop via sin kollega i Strömstad. Svar per telefon: vetemjöl, färgat med saffran.
 
-Harald bakade inte. Ingen på hela ön bakade den trettionde november – utom en.`,
+Harald bakade inte. Vem bakade den trettionde november?`,
       },
       {
         format: "foto",
-        rubrik: "B – Trappsteg nr 31",
-        text: `Högt upp i spiraltrappan, nära lyktrummet och urverket som driver linsen, på trappsteget under avsatsen: ett skoavtryck i mjöl. Litet. En damsko med låg klack. Storlek 37–38.
+        rubrik: "B – Avsatsen vid urverket",
+        text: `Högst upp, på avsatsen vid urverket som driver linsen: ett skoavtryck i mjöl. Litet. En damsko med låg klack. Storlek 37–38.
 
-Fru Ekberg har storlek 36 och har inte varit i tornet sedan i somras. Fröken Varg har 39.
+Fru Ekberg har storlek 36. Fröken Varg har 39. Husfrun har 38. Hon putsar i tornet varje lördagsmorgon, men mjöl brukar hon inte ha med sig dit.
+
+Damerna på ön är tre. Och jag själv.
 
 Avtrycket syns bara när ljuset kommer från sidan. Det är därför ingen såg det den första morgonen.`,
       },
@@ -855,9 +872,7 @@ A. Berg, urmakare`,
         rubrik: "Två tider",
         text: `23.47 är inte när Harald dog. 23.47 är när någon ville att vi skulle tro att han dog.
 
-Vem hade ett vattentätt alibi kl. 23.47? Vem satt i köket med två vittnen och sa högt vad klockan var?
-
-Och vem hade inget alibi alls kl. 22.52?
+Vem hade alibi kl. 23.47? Och vem hade det inte kl. 22.52?
 
 I morgon är det julafton. Jag samlar alla i salongen klockan sex. Innan dess vill jag ha ert svar.`,
       },

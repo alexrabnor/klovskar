@@ -22,9 +22,11 @@ Hon stod vid fönstret med nyckelknippan i handen när jag sa det. Hon försökt
 
 I tjugosju år betalade Harald tjugofem kronor i månaden till M.L. Margit skickade pengarna vidare till fosterfamiljen Varg. Hon såg sin dotter växa upp på avstånd och sa aldrig ett ord.
 
+Ingrid anade en affär redan 1934, men visste aldrig att det fanns ett barn.
+
 Sedan bjöd Harald hit Elsa och började tala om ett nytt testamente. Han ville ha det säkert och bad doktorn blodgruppera henne. Den 28 november kom svaret: Elsa har AB. Harald har O. En far med O kan aldrig få ett barn med AB.
 
-Harald förstod att han blivit lurad i tjugosju år. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
+Harald förstod att han blivit lurad i tjugosju år. Samma kväll sa han till Margit att betalningarna var slut och att han visste. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
 
 Margit dödade honom för att skydda en hemlighet.`,
   },
@@ -36,23 +38,23 @@ Kvart över tio bar hon in herr Ekbergs kvällstoddy till biblioteket, som hon g
 
 Elsa kom in och grälet började. När Elsa sprang därifrån tjugo i elva var Harald redan ostadig. Han tog glaset och gick mot tornet, som han alltid gjorde, för att se ljuset innan han sov.
 
-Margit följde efter några minuter senare. Journalisten hörde nyckelknippan skramla i korridoren. Hon låste upp tornet med sin nyckel och gick upp. Uppe vid avsatsen under lyktrummet, där Harald stod och svajade, tog hon honom i kragen och knuffade.
+Han ställde glaset på tredje trappsteget och tog sig upp till urverket för att veva det, som varje kväll. Margit gick efter från köksdörren längs grusgången – det var hennes steg och hennes nyckelknippa journalisten hörde under fönstret. Uppe på avsatsen, där Harald stod och svajade, tog hon honom i kragen och knuffade.
 
-Han föll mot urverket. Linsen stannade och ljuset störde till – 22.52. Sedan föll han nerför spiraltrappan.`,
+Han föll mot urverket. Linsen stannade och ljuset störde till – 22.52. Sedan föll han genom trappans öppna mitt, nästan hela vägen ner.`,
   },
   {
     rubrik: "Den falska tiden",
-    text: `Margit gick ner förbi honom. Hon drog ut kronan på hans fickur, vred visarna fram till 23.47 och slog sönder glaset mot trappsteget. Hon låste tornet efter sig och gick tillbaka till köket.
+    text: `Margit gick ner förbi honom. Hon drog ut kronan på hans fickur, vred visarna fram till 23.47 och slog sönder glaset mot stengolvet. Hon låste tornet efter sig och gick tillbaka till köket.
 
-Hon visste att fru Ekberg brukar gå ner efter varm mjölk när hon inte kan sova, och att doktorn brukar vilja ha is till sin konjak. Kvart i tolv satt hon i köket med två vittnen och sa högt: "Nu är den kvart i tolv."
+Hon visste att fru Ekberg går ner efter varm mjölk när hon inte kan sova – mjölken stod redan varm på spisen – och att doktorn vill ha is till sin konjak. Kvart i tolv satt hon i köket med två vittnen och sa: "Nu är den kvart i tolv."
 
-På morgonen gick hon upp med kaffet som vanligt, låste upp och "hittade" honom.`,
+På lördagsmorgonen gick hon upp för att putsa mässingen, som alltid, låste upp och "hittade" honom.`,
   },
   {
     rubrik: "Det hon inte tänkte på",
-    text: `Hon hade knådat saffransdeg hela kvällen. När hon tog Harald i kragen fastnade gult mjöl i den. När hon gick nerför trappan lämnade hennes sko ett avtryck på trappsteg 31.
+    text: `Hon hade knådat saffransdeg hela kvällen. När hon tog Harald i kragen fastnade gult mjöl i den. Hennes sko lämnade ett avtryck i mjöl på avsatsen vid urverket.
 
-Hon tänkte inte på fyrvaktarens loggbok. Bertil Holm skriver bara när något händer – och den natten hände något klockan 22.52.
+Hon tänkte inte på fyrvaktarens loggbok. Bertil Holm skriver när något händer – och den natten hände något klockan 22.52. Han trodde att det var redaren som var klumpig med urverket.
 
 Hon tänkte inte heller på att en urmakare kan se om ett ur stannat av sig självt.
 
@@ -64,7 +66,7 @@ Och hon glömde att det bara fanns två nycklar till tornet. Den ena låg i Hara
 
 **Carl Ekberg** stod på isen vid Kråkskär och räknade pengar med en polsk smugglare kl. 22.50. Han har betalat sin skuld. Tullen får veta resten.
 
-**Ingrid Ekberg** köpte råttgift mot råttor. Asken står oöppnad i källaren.
+**Ingrid Ekberg** köpte råttgift mot råttor. Ingen dog av arsenik; Harald hade Veronal i blodet. Asken står i källaren, nästan full.
 
 **Johan Strand** stal papper, inte liv. Hans artikel om Svanhild publiceras i januari.
 
@@ -95,14 +97,16 @@ export const NYCKELLEDTRADAR: Ledtrad[] = [
   { text: "Haralds brev: någon har ljugit för honom i tjugosju år.", lucka: 6 },
   { text: "Elsa: Harald svajade när hon gick – han var drogad, inte full.", lucka: 11 },
   { text: "Doktorns väska med Veronal stod i hallen under hela middagen.", lucka: 12 },
-  { text: "Journalisten hörde någon skramla med nycklar på väg mot tornet.", lucka: 14 },
+  { text: "Toddyglaset innehöll Veronal – och det var Margit som bar in toddyn.", lucka: 12 },
+  { text: "Journalisten hörde snabba steg och ett metalliskt ljud på grusgången mot tornet strax efter Harald.", lucka: 14 },
+  { text: "Holm såg ljuset stanna strax före elva och trodde att det var redaren vid urverket.", lucka: 5 },
   { text: "Carl såg fyren blinka konstigt strax efter 22.50 vid Kråkskär.", lucka: 15 },
-  { text: "Margit sa högt i köket: \"Nu är den kvart i tolv.\"", lucka: 16 },
+  { text: "Margit hade mjölken varm innan fru Ekberg kom, och sa: \"Nu är den kvart i tolv.\"", lucka: 16 },
   { text: "Harald har blodgrupp O.", lucka: 17 },
   { text: "Doktorn tog Elsas blodgrupp åt Harald och skickade svaret den 28 november.", lucka: 18 },
   { text: "Bara två nycklar till tornet: Haralds och husfruns.", lucka: 19 },
   { text: "Elsa har blodgrupp AB – Harald kan inte vara hennes far.", lucka: 20 },
   { text: "Brevet från M. 1935 och kassaboken med M.L. 25 kr.", lucka: 21 },
-  { text: "Saffransmjöl i Haralds krage och ett mjöligt damskoavtryck i trappan.", lucka: 22 },
+  { text: "Saffransmjöl i Haralds krage och ett damskoavtryck i storlek 37–38 i mjöl – husfrun har 38.", lucka: 22 },
   { text: "Urmakaren: fickuret ställdes om för hand till 23.47.", lucka: 23 },
 ];
