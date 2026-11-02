@@ -7,7 +7,7 @@ Alla omdöpta, se `mappning.json`. Färdiga promptar finns i Artifacten "Klovsk�
 
 | Ledtråd | Status |
 | --- | --- |
-| Lucka 05 – loggbok **22.52** | **SAKNAS** – ingen bild |
+| Lucka 05 – loggbok **22.52** | OK (inlagd 2 nov) |
 | Brottsplats – fickur **23.47** | **SAKNAS** – ingen bild (lucka 03 visar 23.47 i text, ok) |
 | Lucka 17 – blodgrupp **O** | OK, tydligt |
 | Lucka 20 – blodgrupp **AB** | OK, tydligt (inskickad separat) |
@@ -17,7 +17,7 @@ Alla omdöpta, se `mappning.json`. Färdiga promptar finns i Artifacten "Klovsk�
 Alla siffrorna står även i luckornas text/transkription, så gåtan är löslig även innan bilderna är bytta.
 
 ## Saknas helt
-`brottsplats`, `lucka-05`, `bonus-4`. Samt menybilder: `meny-tavla`, `meny-matare`.
+`brottsplats` (två försök visar fel tid på uret) och menybilden `meny-matare`.
 (Övriga menykort använder befintliga publika bilder: omslag, hotellet-dag, misstankta, karta, koket.)
 
 ## Säkerhet medel – fel i bildtext eller innehåll
