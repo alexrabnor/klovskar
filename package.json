@@ -1,0 +1,37 @@
+{
+  "name": "klovskar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mordet på Klovskär – adventsmysterium (klovskar.alexcloud.se)",
+  "scripts": {
+    "dev": "next dev -p 3131",
+    "build": "next build && node scripts/kolla-lackor.mjs",
+    "start": "next start -p ${PORT:-3131}",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "stripe": "^23.1.0",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/web-push": "^3.6.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "sharp@0.35.5": true
+  }
+}

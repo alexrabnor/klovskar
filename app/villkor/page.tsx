@@ -1,0 +1,36 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { prisKr } from "@/lib/stripe";
+import { Sidfot } from "@/components/Sidfot";
+
+export const metadata: Metadata = { title: "Köpvillkor" };
+export const dynamic = "force-dynamic";
+
+export default function Villkor() {
+  const namn = process.env.SALJARE_NAMN || "Säljaren";
+  const epost = process.env.SALJARE_EPOST || "";
+  return (
+    <>
+      <main className="sida prosa">
+        <Link href="/" className="liten">← Startsidan</Link>
+        <h1 className="rubrik-mellan">Köpvillkor</h1>
+        <h2>Säljare</h2>
+        <p>{namn}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}. Säljaren är en privatperson.</p>
+        <h2>Vad du köper</h2>
+        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på klovskar.alexcloud.se.</p>
+        <h2>Pris och betalning</h2>
+        <p>Priset är {prisKr()} kr per lag. Betalning sker med kort, Apple Pay eller Google Pay via Stripe. Vi ser aldrig dina kortuppgifter.</p>
+        <h2>Leverans</h2>
+        <p>Koden visas direkt efter betalningen och skickas till den e-postadress du anger. Ett presentkort levereras på samma sätt.</p>
+        <h2>Ångerrätt</h2>
+        <p>Enligt lagen om distansavtal har du normalt 14 dagars ångerrätt. För digitalt innehåll gäller den inte om du uttryckligen samtyckt till att leveransen påbörjas direkt och bekräftat att ångerrätten då upphör. Det gör du med kryssrutan före betalningen.</p>
+        <p><b>Vår egen garanti:</b> har laget inte öppnat någon lucka får du pengarna tillbaka om du hör av dig, även efter att koden visats.</p>
+        <h2>Tillgång</h2>
+        <p>Laget har tillgång till spelet i minst tolv månader efter att den sista luckan öppnat. Spelet kräver internetuppkoppling.</p>
+        <h2>Fel och reklamation</h2>
+        <p>Fungerar något inte som det ska, kontakta oss så rättar vi det eller betalar tillbaka. Du kan också vända dig till Allmänna reklamationsnämnden, arn.se.</p>
+      </main>
+      <Sidfot />
+    </>
+  );
+}

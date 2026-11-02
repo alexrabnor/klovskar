@@ -1,0 +1,244 @@
+<title>Klovskär bildpromptar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap">
+<style>
+/* Layout: en smal spalt med ett "beviskort" per bild – fynd, prompt, kopiera. */
+:root {
+  --bg: #0f1c22;
+  --panel: #16272f;
+  --line: #2a4049;
+  --fg: #e4ddd0;
+  --muted: #9fb0b3;
+  --amber: #e2a24a;
+  --red: #d0675a;
+  --display: "DM Serif Display", Georgia, serif;
+  --body: "Source Serif 4", Georgia, serif;
+  --type: "Special Elite", "Courier New", monospace;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+.eyebrow { font-family: var(--type); color: var(--amber); letter-spacing: .08em; font-size: .85rem; text-transform: uppercase; margin: 0 0 8px; }
+.intro p { margin: 0 0 10px; color: var(--muted); max-width: 62ch; }
+.intro strong { color: var(--fg); }
+article { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 22px; display: grid; gap: 14px; min-width: 0; }
+article header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: 1.5rem; margin: 0; }
+.fil { font-family: var(--type); font-size: .85rem; color: var(--muted); }
+.fel { margin: 0; padding-left: 12px; border-left: 3px solid var(--red); color: var(--fg); }
+.fel b { color: var(--red); font-weight: 600; }
+.upload { margin: 0; font-size: .92rem; color: var(--muted); }
+.upload code { font-family: var(--type); color: var(--fg); font-size: .85rem; word-break: break-all; }
+pre { margin: 0; background: #0b151a; border: 1px solid var(--line); padding: 14px; font-family: var(--type); font-size: .88rem; line-height: 1.5; white-space: pre-wrap; word-break: break-word; color: #f0e6d2; max-height: 340px; overflow: auto; }
+button { justify-self: start; font: 600 .95rem var(--body); background: var(--amber); color: #1a1208; border: 0; border-radius: 3px; padding: 10px 18px; cursor: pointer; min-height: 44px; }
+button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+button.ok { background: #7fb38a; }
+.tips { font-size: .92rem; color: var(--muted); }
+.tips h2 { color: var(--fg); font-size: 1.2rem; margin-bottom: 6px; }
+.tips ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+</style>
+
+<div class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Mordet på Klovskär · bilder att göra om</p>
+    <h1>Fem nya bilder, sju att rätta</h1>
+    <p><strong>Nya bilder</strong> skapas från grunden. Ladda gärna upp <code>koket.jpg</code> eller <code>omslag.jpg</code> som stilreferens, så matchar de resten av spelet.</p>
+    <p><strong>Rättningar</strong> görs som redigering i Gemini: ladda upp bilden du redan har och klistra in prompten. Då behålls stil och ljus, och bara felet rättas.</p>
+    <p>Promptarna är på engelska eftersom Gemini följer dem bättre så. Svensk text som ska synas i bilden står inom citattecken och ska stavas exakt så.</p>
+    <p>Spara den nya bilden i filsamlaren med <strong>målnamnet som filnamn</strong> (t.ex. <code>lucka-15.jpg</code>), så byter jag ut den direkt.</p>
+  </section>
+  <div id="lista" style="display:grid;gap:28px"></div>
+  <section class="tips">
+    <h2>Om texten blir fel igen</h2>
+    <ul>
+      <li>Be Gemini om en sak i taget, t.ex. bara klockans visare, och sedan texten på lappen.</li>
+      <li>Skriv om felet rakt ut: <em>"The note still says 2.30. It must say exactly 22.50."</em></li>
+      <li>Det gör inget om liten brödtext blir rotvälska. Det viktiga är siffrorna och namnen.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const STIL = `Style: photorealistic, cinematic still from a 1960s Scandinavian noir film. Muted petrol-blue shadows, warm amber light from a kerosene lamp, fine film grain, shallow depth of field. Setting: a remote island hotel and lighthouse in the Bohuslän archipelago, Sweden, December 1962. No modern objects. No blood, no gore. Any visible text must be in Swedish and spelled exactly as given; no other legible text.`;
+
+const bilder = [
+  {
+    ny: true, mal: "lucka-05",
+    fel: "<b>Saknas.</b> Fyrvaktarens loggbok. Raden “22.52 Ljuset störde till” är den viktigaste ledtråden i hela spelet. Den ska gå att läsa tydligt men inte skrika.",
+    prompt: `${STIL}
+
+Landscape 4:3. Close-up, slightly from above, of an open lighthouse keeper's logbook lying on a worn wooden desk in a small keeper's cottage at night. A kerosene lamp off to one side, a fountain pen, a mug of coffee, frost on the dark window behind. The logbook has printed ruled columns and a printed header at the top of the left page:
+"Klovskärs fyr – Dagbok"
+
+Handwritten in blue-black ink, neat but tired 1960s handwriting, one entry per line, the time at the start of each line:
+"30 nov. 1962"
+"16.05  Fyren tänd. Sikt god. Fast is runt ön."
+"19.30  Snöbyar från NV. Vind 6 m/s."
+"21.00  Linsen putsad. Allt i ordning."
+"22.52  Ljuset störde till"
+"22.54  Lampan går jämnt igen."
+"23.40  Lugnt. Snöar lätt."
+
+All lines equal size and weight. The line "22.52 Ljuset störde till" must be fully legible but must NOT be highlighted, underlined or circled. Spelling exact.`
+  },
+  {
+    ny: true, mal: "brottsplats",
+    fel: "<b>Saknas.</b> Fyrtornets spiraltrappa på morgonen. Fickuret ska visa 23.47. Det är den falska tiden, och spelarna ska jämföra den med 22.52 i loggboken.",
+    prompt: `${STIL}
+
+Landscape 3:2. The bottom of a narrow cast-iron spiral staircase inside an old stone lighthouse, early grey morning light falling from a small window above, cold blue tones with one warm lantern on the floor. On the bottom step lies an open gold pocket watch with its glass crushed into a star of cracks. The watch clearly shows 11:47: the long minute hand points between the 9 and the 10, the short hour hand points just left of the 12.
+
+At the very bottom edge of the frame, only partly visible: a man's hand in a grey tweed jacket sleeve with a white shirt cuff, resting still on the stone floor. No face, no body, no blood.
+
+On the step above the watch: a tipped-over glass toddy tumbler with a little amber liquid left. No text anywhere in the image.`
+  },
+  {
+    ny: true, mal: "bonus-4",
+    fel: "<b>Saknas.</b> Sjökort med Carls smugglarled. Får inte förväxlas med kartan: sjökortet har djupsiffror i vattnet.",
+    prompt: `Landscape 4:3. Top-down photo of an old Swedish nautical chart from the 1950s lying on a wooden table under warm lamplight, a brass dividers and a pencil on top, fine film grain, photorealistic.
+
+The chart shows a small archipelago: a larger island labelled "Klovskär" with a tiny lighthouse symbol, and a smaller island to the south-east labelled "Kråkskär". Between and around them the water is covered in small printed depth soundings (numbers like 4, 7, 12, 18, 23) and thin dotted depth contour lines, as on real Swedish sea charts. A compass rose in one corner. Printed title in a box: "Sjökort – Bohusläns skärgård".
+
+On top of the chart someone has drawn by hand, in soft pencil, a dashed route from a small boathouse on Klovskär across the water to Kråkskär, with a small handwritten "X" on Kråkskär. A faint grid of pencil lines divides the chart into squares, labelled A–F along the top and 1–6 down the side.
+
+Spelling exact: "Klovskär", "Kråkskär". No other place names.`
+  },
+  {
+    ny: true, mal: "meny-tavla",
+    fel: "<b>Saknas.</b> Menybild för Anslagstavlan, där laget fäster ledtrådar och drar röda trådar mellan dem.",
+    prompt: `${STIL}
+
+Landscape 16:9. A detective's corkboard on a wooden wall in a dim hotel room at night, lit by a single desk lamp. Pinned to it with brass drawing pins: blurry black-and-white portrait photos (faces not recognisable), a scrap of newspaper, a small hand-drawn map, a pocket-watch sketch and handwritten notes. Red wool thread stretched taut between the pins, crossing in several places. The image should read clearly even when shown small. No legible text anywhere.`
+  },
+  {
+    ny: true, mal: "meny-matare",
+    fel: "<b>Saknas.</b> Menybild för Misstankemätaren, där laget röstar varje dag på vem de tror är mördaren.",
+    prompt: `${STIL}
+
+Landscape 16:9. On a dark wooden table in a hotel salon at night: seven small folded paper ballot slips, some open, a pencil, and a polished brass ship's barometer or pressure gauge whose needle points into the red. Snow falling outside the frosted window behind, a candle burning. The image should read clearly even when shown small. No legible text anywhere.`
+  },
+  {
+    mal: "lucka-15", fil: "Gemini_Generated_Image_3wqnvo3wqnvo3wqn.jpg",
+    fel: "Lappen säger <b>“Kråbokär 50/11 kl. 2.30”</b>. Den ska säga Kråkskär 30/11 kl. 22.50. Det är Carls alibi.",
+    prompt: `Edit this image. Keep everything exactly as it is – the boathouse, the crates under the tarpaulin, the kerosene lantern, the light and the colours. Change ONLY the handwritten text on the small white card on the crate.
+
+The card must contain exactly three handwritten lines in Swedish, in pencil, neat 1960s handwriting, clearly legible:
+"Mottaget 6 lådor."
+"Kråkskär 30/11 kl. 22.50"
+"Betalt – L."
+
+Spelling must be exact: "Kråkskär" with å and ä, the date "30/11", the time "22.50" with a full stop between the hour and minutes. No other text on the card.`
+  },
+  {
+    mal: "lucka-23", fil: "Gemini_Generated_Image_fks3mzfks3mzfks3.jpg",
+    fel: "Fickuret visar <b>ca 11.56</b>. Det ska visa 23.47, samma tid som brottsplatsen och lucka 3.",
+    prompt: `Edit this image. Keep the watchmaker's bench, the lamp, the tools, the cracked glass, the handwritten note and the lighting exactly as they are. Change ONLY the hands of the gold pocket watch.
+
+The watch must show 11:47:
+- The long MINUTE hand points between the 9 and the 10 (at 47 minutes).
+- The short HOUR hand points just to the left of the 12, almost at 12 (most of the way from 11 to 12).
+- The small seconds dial can stay as it is.
+
+Also make the crown at the top of the watch (the winding knob above the bow) visibly pulled out a few millimetres from the case, so a gap of the stem shows. Keep the note text exactly: "Urmakare A. Berg – Kronan utdragen – klockan har ställts om för hand."`
+  },
+  {
+    mal: "lucka-06", fil: "Gemini_Generated_Image_eattlmeattlmeatt.jpg",
+    fel: "Det sönderrivna brevet är daterat <b>“Dec 1565”</b>.",
+    prompt: `Edit this image. Keep the searched desk, the torn letter pieces, the lamp, the window with snow and the lighting exactly as they are. Change ONLY the date line at the top of the largest torn letter piece.
+
+It must read, in the same handwriting:
+"Dec. 1962"
+
+Keep the lines below it: "…mitt nya testamente… på Luciadagen … hela familjen ska veta". Do not add any other text.`
+  },
+  {
+    mal: "bonus-1", fil: "Gemini_Generated_Image_csrae8csrae8csra.jpg",
+    fel: "Listan har <b>Harald Ekberg som kapten</b> och <b>Margit Lund som kokerska</b> ombord, och skräprader (“Marg Smuit”, “Harald Ekberg, seamen, 9 år”). Harald var redare, inte ombord, och Margit har aldrig varit till sjöss. Den handskrivna raden längst ner är bra och ska vara kvar.",
+    prompt: `Edit this image. Keep the paper, the desk, the inkwell, the fountain pen, the warm lamplight and the handwritten note at the bottom exactly as they are. Replace ONLY the typewritten crew list.
+
+Typewritten text, 1950s office typewriter, exactly:
+"Rederi AB Ekberg, Göteborg"
+(underlined:) "M/S Svanhild – Besättning, november 1954"
+
+"Nils Ottosson, befälhavare"
+"Gustav Ek, styrman"
+"Ragnar Lind, maskinist"
+"Lars Holm, däcksman, 19 år"
+"Erik Sjöberg, kock"
+"Olof Persson, matros"
+
+Draw a hand-drawn pencil oval around the line "Lars Holm, däcksman, 19 år" only. Six names, no other names, no duplicates.
+
+Keep the handwritten ink note at the bottom exactly: "Skrovet rostigt – åtgärdas EJ före resan. H.E."`
+  },
+  {
+    mal: "bonus-5", fil: "Gemini_Generated_Image_jfsujijfsujijfsu.jpg",
+    fel: "Rubriken är på engelska (<b>“Evening, December 1962”</b>), och lappen <b>“tornet 22.45 – han sover då”</b> är i praktiken Margits erkännande redan vid lucka 18. Det receptet ska visa är bara att hon bakar.",
+    prompt: `Edit this image. Keep the recipe book, the saffron on paper, the raisins, the rolling pin, the flour and the lussekatter buns exactly as they are. Change ONLY the handwriting on the right-hand page.
+
+Remove the English line at the top and the small pencil note in the margin completely. The page must contain only this, in neat old-fashioned Swedish handwriting with ink:
+
+"Lussekatter" (underlined title)
+"1 g saffran"
+"150 g smör"
+"5 dl mjölk"
+"50 g jäst"
+"2 dl socker"
+"ca 15 dl vetemjöl"
+"russin"
+
+No other words, no margin notes, no dates.`
+  },
+  {
+    mal: "bonus-2", fil: "Gemini_Generated_Image_axyyhkaxyyhkaxyy.jpg",
+    fel: "Raden <b>“Varför luktar det saffran i tornet?”</b> pekar mot köket redan vid lucka 10. Saffransledtråden ska komma i lucka 22.",
+    prompt: `Edit this image. Keep the diary, the pressed violet, the tea cup, the pen and the lighting exactly as they are. On the right-hand page, remove ONLY the last two lines that mention saffron, and leave that part of the page as blank paper.
+
+The left page stays exactly: "Alla ljuger. Frågan är vem som ljuger om rätt sak."
+On the right page, keep the lines above, ending with: "Fyrvaktaren? För uppenbart."
+
+Do not add any new text.`
+  },
+  {
+    mal: "facit", fil: "Gemini_Generated_Image_var036var036var0.jpg",
+    fel: "<b>Margit och Elsa syns två gånger var</b> (Margit både i förgrunden och vid fönstret, Elsa både i fåtöljen och stående till höger). Varje person ska finnas en gång.",
+    prompt: `Edit this image. Every person must appear exactly ONCE. There are eight people in total: seven suspects and the female inspector.
+
+1. Remove the housekeeper standing in the BACKGROUND by the window (white apron, between the inspector and the doctor). Fill that spot with window, curtains and snow.
+2. Remove the young dark-haired woman STANDING on the right edge in front of the fireplace. Keep the young woman sitting in the brown leather armchair.
+3. Keep the housekeeper in the FOREGROUND on the left: grey hair in a bun, white apron, head bowed, hands folded, facing the floor.
+
+Keep the bunch of old iron keys on the table in front, the Christmas tree with candles, the inspector in her tweed suit in the centre, the bearded lighthouse keeper by the fire, the man in glasses in the armchair, the journalist with a notebook, the elegant older woman and the young man on the sofa.
+
+Keep the red rubber stamp "FALLET LÖST" in the lower right corner, spelled exactly like that.`
+  }
+];
+
+const lista = document.getElementById("lista");
+for (const b of bilder) {
+  const a = document.createElement("article");
+  const id = "p-" + b.mal;
+  a.innerHTML = `
+    <header><h2>${b.mal}</h2><span class="fil">${b.mal}.jpg</span></header>
+    <p class="fel">${b.fel}</p>
+    <p class="upload">${b.ny ? "Ny bild från grunden" : `Redigera: ladda upp <code>${b.fil}</code>`}</p>
+    <pre id="${id}"></pre>
+    <button type="button" id="k-${b.mal}">Kopiera prompt</button>`;
+  a.querySelector("pre").textContent = b.prompt;
+  const knapp = a.querySelector("button");
+  knapp.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(b.prompt);
+      knapp.textContent = "Kopierad"; knapp.classList.add("ok");
+      setTimeout(() => { knapp.textContent = "Kopiera prompt"; knapp.classList.remove("ok"); }, 2000);
+    } catch {
+      const r = document.createRange(); r.selectNodeContents(a.querySelector("pre"));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      knapp.textContent = "Markerad – kopiera med Ctrl+C";
+    }
+  });
+  lista.appendChild(a);
+}
+</script>

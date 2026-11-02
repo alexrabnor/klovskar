@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_PATH: /app/data/klovskar.db
+      BILD_DIR: /app/bilder
+      TZ: Europe/Stockholm
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - klovskar_data:/app/data
+      # Bilderna monteras utanför imagen – en ny bild kräver ingen ombyggnad
+      - ./bilder:/app/bilder:ro
+    networks:
+      - caddy_net
+
+volumes:
+  klovskar_data:
+
+networks:
+  caddy_net:
+    external: true

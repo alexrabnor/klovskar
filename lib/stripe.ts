@@ -1,0 +1,38 @@
+import "server-only";
+import Stripe from "stripe";
+
+export type StripeLage = "test" | "live";
+
+export function stripeLage(): StripeLage {
+  return process.env.STRIPE_LAGE === "live" ? "live" : "test";
+}
+
+function nyckel(): string | undefined {
+  return stripeLage() === "live" ? process.env.STRIPE_LIVE_SECRET_KEY : process.env.STRIPE_TEST_SECRET_KEY;
+}
+
+export function webhookHemlighet(): string | undefined {
+  return stripeLage() === "live" ? process.env.STRIPE_LIVE_WEBHOOK_SECRET : process.env.STRIPE_TEST_WEBHOOK_SECRET;
+}
+
+export function stripeKonfigurerad(): boolean {
+  return !!nyckel();
+}
+
+let klient: Stripe | null = null;
+let klientLage: StripeLage | null = null;
+
+export function stripe(): Stripe {
+  const k = nyckel();
+  if (!k) throw new Error(`Stripe-nyckel för ${stripeLage()}läge saknas i .env`);
+  if (!klient || klientLage !== stripeLage()) {
+    klient = new Stripe(k);
+    klientLage = stripeLage();
+  }
+  return klient;
+}
+
+export function prisKr(): number {
+  const p = Number(process.env.PRIS_KR);
+  return Number.isFinite(p) && p > 0 ? p : 199;
+}
