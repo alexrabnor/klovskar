@@ -8,6 +8,8 @@ import { PERSONER } from "@/content/personer";
 import { arOppen, oppningstid } from "@/lib/tid";
 import { LuckInnehall } from "@/components/LuckInnehall";
 import { Kommentarer } from "./Kommentarer";
+import { LuckLjud } from "@/components/Ljud";
+import { LUCKLJUD } from "@/content/ljud";
 
 export const metadata: Metadata = { title: "Lucka" };
 
@@ -29,6 +31,7 @@ export default async function LuckSida({ params }: { params: Promise<{ nr: strin
   const bonus = BONUS.find((b) => b.synsFran === nr);
   return (
     <main className="sida">
+      <LuckLjud stamning={LUCKLJUD[nr]} />
       <LuckInnehall
         lucka={lucka}
         platser={lucka.interaktion === "karta" ? PLATSER : undefined}

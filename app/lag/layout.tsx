@@ -3,6 +3,7 @@ import { kravInloggad } from "@/lib/session";
 import { vantandeOvertag } from "@/lib/lag";
 import { godkann, neka } from "@/app/actions";
 import { Flikar } from "./Flikar";
+import { LjudKnapp } from "@/components/Ljud";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +15,10 @@ export default async function LagLayout({ children }: { children: React.ReactNod
       <header className="topp">
         <div className="topp-inre">
           <Link href="/lag" className="topp-namn">Klovskär</Link>
-          <span className="topp-lag">{lag.namn}{arLedare ? " · lagledare" : ""}</span>
+          <span className="topp-hoger">
+            <span className="topp-lag">{lag.namn}{arLedare ? " · lagledare" : ""}</span>
+            <LjudKnapp />
+          </span>
         </div>
       </header>
       {overtag.map((o) => (

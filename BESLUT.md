@@ -73,8 +73,12 @@ byggprompten gäller detta dokument.
   **Artifact** med rapporten och en färdig prompt per saknad/felaktig bild. Platshållare tills dess.
 
 ## Ljud
-- Väntar. Spelare + datumlås för ljud (`/api/ljud/[namn]`) byggs in; en lucka med ljudfil
-  visar automatiskt uppspelningsknapp.
+- Stämningsljud + prassel när en lucka öppnas. **Av som standard**, knapp i toppen (sparas i localStorage).
+  Ingen ledtråd får hänga på ljud.
+- Sju loopar (vind, inne, brasa, kök, klocka, hav, is) från Freesound, alla CC0 – se `public/ljud/KALLOR.md`.
+  Bearbetas med `scripts/bygg-ljud.sh`. Lucka → stämning i `content/ljud.ts` (publikt, avslöjar inget).
+- Web Audio (inte `<audio loop>`) så skarven blir ljudlös. Pausas när fliken döljs.
+- Röster väntar tills spelet är testat (kräver betald ElevenLabs för kommersiellt bruk).
 
 ## Notiser
 - Web push med VAPID (`web-push`), opt-in under "Laget", guide för iPhone-hemskärm.

@@ -6,6 +6,8 @@ import { PERSONER } from "@/content/personer";
 import { LuckInnehall } from "@/components/LuckInnehall";
 import { prisKr } from "@/lib/stripe";
 import { Sidfot } from "@/components/Sidfot";
+import { LjudKnapp, LuckLjud } from "@/components/Ljud";
+import { LUCKLJUD } from "@/content/ljud";
 
 export const metadata: Metadata = { title: "Smakprov" };
 export const dynamic = "force-dynamic";
@@ -17,7 +19,11 @@ export default async function Smakprov({ params }: { params: Promise<{ nr: strin
   return (
     <>
       <main className="sida">
-        <Link href="/" className="liten">← Startsidan</Link>
+        <LuckLjud stamning={LUCKLJUD[nr]} />
+        <div className="rad" style={{ justifyContent: "space-between" }}>
+          <Link href="/" className="liten">← Startsidan</Link>
+          <LjudKnapp />
+        </div>
         <p className="chip chip-varning" style={{ justifySelf: "start" }}>Gratis smakprov</p>
         <LuckInnehall lucka={lucka} personer={lucka.interaktion === "misstankta" ? PERSONER : undefined} />
         <div className="panel stack">

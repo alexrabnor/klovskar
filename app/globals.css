@@ -382,3 +382,11 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .presentkort-text .etikett { color: #8a2f25; }
 .presentkort-kod { font: 26px/1.2 var(--f-m); letter-spacing: .12em; border: 2px dashed #8a6a3a; padding: 12px; text-align: center; word-break: break-all; }
 @media print { body { background: white; } .korn, .testbanderoll, .utskrift-dold { display: none !important; } .presentkort { box-shadow: none; border: 1px solid #ccc; } }
+
+/* Ljudknappen i toppen */
+.topp-hoger { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.topp-hoger .topp-lag { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ljud-knapp { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px; border: 1px solid var(--linje); border-radius: 999px; background: transparent; color: var(--dampad); font: 13px var(--f-m); cursor: pointer; flex-shrink: 0; }
+.ljud-knapp[aria-pressed="true"] { color: var(--barnsten); border-color: currentColor; }
+.ljud-knapp:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+@media (max-width: 420px) { .ljud-text { display: none; } }
