@@ -15,7 +15,6 @@ export const LUCKOR: Lucka[] = [
     ingress: "Det första jag skickade i land. Isen lade sig natten mot den 30 november och färjan går inte förrän det töar.",
     bilder: [
       { namn: "lucka-01", alt: "Ett gulnat telegram på en snöig fönsterbräda: Harald Ekberg funnen död i fyrtornet, isen stoppar färjan, undertecknat kommissarie G. Sandahl." },
-      { namn: "brottsplats", alt: "Botten av fyrtornets spiraltrappa. Ett fickur med krossat glas visar 23.47, en hand i kavajärm syns i bildkanten och ett välte toddyglas står på trappsteget." },
     ],
     avsnitt: [
       {
@@ -89,7 +88,7 @@ Korten nedan är vad jag vet om var och en. Tryck på ett porträtt.`,
     ingress: "Mina anteckningar från tornet, gjorda medan det fortfarande var mörkt ute.",
     bilder: [
       { namn: "lucka-03", alt: "En svart anteckningsbok med blyertstext: Harald Ekberg 64 år, funnen nedanför spiraltrappan kl. 07.10. Fickuret stannat 23.47, glaset krossat. Toddyglas i tornet, nästan tomt. Vem såg honom sist?" },
-      { namn: "brottsplats", alt: "Fyrtornets spiraltrappa med det krossade fickuret som visar 23.47." },
+      { namn: "brottsplats", alt: "Botten av fyrtornets spiraltrappa. Ett fickur med krossat glas visar 23.47, en hand i kavajärm syns i bildkanten och ett välte toddyglas står på trappsteget." },
     ],
     avsnitt: [
       {
