@@ -26,7 +26,7 @@ Ingrid anade en affär redan 1934, men visste aldrig att det fanns ett barn.
 
 Sedan bjöd Harald hit Elsa och började tala om ett nytt testamente. Han ville ha det säkert och bad doktorn blodgruppera henne. Den 28 november kom svaret: Elsa har AB. Harald har O. En far med O kan aldrig få ett barn med AB.
 
-Harald förstod att han blivit lurad i tjugosju år. Dagen därpå, den 29 november, sa han till Margit i köket att betalningarna var slut och att han visste. Fröken Varg hörde dem genom dörren utan att förstå. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
+Harald förstod att han blivit lurad i tjugosju år. Dagen därpå, den 29 november, sa han till Margit i köket att betalningarna var slut och att han visste. Fröken Varg hörde grälet i korridoren utan att se vem det var. På Luciadagen tänkte han stryka Elsa ur testamentet och avslöja inför alla vem som ljugit. Elsa skulle få veta allt på det värsta tänkbara sättet. Margit skulle förlora sin plats, sitt hem och sin dotter samtidigt.
 
 Margit dödade honom för att skydda en hemlighet.`,
   },
@@ -34,7 +34,7 @@ Margit dödade honom för att skydda en hemlighet.`,
     rubrik: "Hur",
     text: `Under middagen stod doktorns väska i hallen. Margit gick förbi den med fat och kappor. Hon tog tio tabletter Veronal.
 
-Kvart över tio bar hon in herr Ekbergs kvällstoddy till biblioteket, som hon gjort varje kväll i tio år. Hon hade rört ner tabletterna i den.
+Kvart över tio bar hon in herr Ekbergs kvällstoddy till biblioteket, som hon gjort varje kväll i tio år, och ställde den på bordet vid fönstret. Tabletterna hade hon redan rört ner i köket. Att glaset sedan stod obevakat en stund gjorde bara att fler kunde misstänkas.
 
 Elsa kom in och grälet började. När Elsa sprang därifrån tjugo i elva var Harald redan ostadig. Han tog glaset och gick mot tornet, som han alltid gjorde, för att se ljuset innan han sov.
 
@@ -98,7 +98,7 @@ export const NYCKELLEDTRADAR: Ledtrad[] = [
   { text: "Elsa: Harald svajade när hon gick – han var drogad, inte full.", lucka: 11 },
   { text: "Doktorns väska med Veronal stod i hallen under hela middagen.", lucka: 12 },
   { text: "Toddyglaset innehöll Veronal – och det var Margit som bar in toddyn.", lucka: 12 },
-  { text: "Elsa hörde Harald gräla med husfrun i köket dagen innan. Husfrun grät.", lucka: 11 },
+  { text: "Elsa hörde Harald gräla med en gråtande kvinna vid köket dagen innan.", lucka: 11 },
   { text: "Journalisten hörde snabba steg och ett metalliskt ljud på grusgången mot tornet strax efter Harald.", lucka: 14 },
   { text: "Holm såg ljuset stanna strax före elva och trodde att det var redaren vid urverket.", lucka: 5 },
   { text: "Carl såg fyren blinka konstigt strax efter 22.50 vid Kråkskär.", lucka: 15 },

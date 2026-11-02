@@ -100,13 +100,13 @@ Hittad av husfrun Margit Lund, som går upp och putsar mässingen i lyktrummet v
 
 Hon gick aldrig uppför trappan, säger hon, och hon rörde honom inte. Holm bekräftar det: hon stod kvar i dörren när han kom.
 
-Kroppen kall och stel. Doktor Ahlgren bedömer att döden inträffat "för minst sex, kanske åtta timmar sedan".
+Kroppen kall och stel. Doktor Ahlgren bedömer att döden inträffat "för minst sex, kanske nio timmar sedan".
 
 Trappan har inget räcke mot mitten. Han har fallit genom öppningen, nästan hela vägen ner.
 
 Fickuret låg på golvet bredvid honom, kedjan fortfarande fäst i västen. Det har stannat. Visarna står på 23.47. Glaset krossat, som av fallet.
 
-På tredje trappsteget ett toddyglas, nästan tomt och helt. Doft av rom och citron. Han måste ha ställt ifrån sig det när han började gå uppför – man behöver båda händerna i den trappan. Husfrun säger att hon bar in herr Ekbergs kvällstoddy till biblioteket vid kvart över tio, som varje kväll.
+På tredje trappsteget ett toddyglas, nästan tomt och helt. Doft av rom och citron. Han måste ha ställt ifrån sig det när han började gå uppför – man behöver båda händerna i den trappan. Husfrun säger att hon bar in herr Ekbergs kvällstoddy till biblioteket vid kvart över tio, som varje kväll. Hon ställde den på bordet vid fönstret. Herr Ekberg var inte där än.
 
 Haralds egen tornnyckel låg i hans byxficka.
 
@@ -419,7 +419,7 @@ ELSA VARG: Jag växte upp hos familjen Varg i Majorna. Fosterbarn. Varje månad 
 SANDAHL: Och ni frågade ändå.
 ELSA VARG: Jag kom hit för att höra honom säga det. En gång.
 SANDAHL: Sa han det?
-ELSA VARG: Han var snäll de första dagarna. Han gav mig det bästa rummet. Dagen innan hörde jag honom i köket. Han var arg. Husfrun grät. Jag trodde att hon hade tappat något. Jag tänkte inte mer på det.
+ELSA VARG: Han var snäll de första dagarna. Han gav mig det bästa rummet. Dagen innan hörde jag honom gräla med någon i korridoren vid köket. En kvinna grät. Jag såg inte vem. Jag tänkte inte mer på det.
 SANDAHL: Och sedan?
 ELSA VARG: Den sista kvällen var han som en annan människa.
 SANDAHL: Den trettionde. I biblioteket.
@@ -717,6 +717,8 @@ Låssmeden i Strömstad gjorde två nycklar. Inte tre. Jag har hans kvitto.
 Den ena hängde på Haralds egen knippa. Den låg i hans byxficka när han hittades.
 
 Den andra hänger på husfruns knippa, "för städningen". Margit Lund putsar mässingen i lyktrummet varje lördagsmorgon.
+
+En sak till, medan jag ändå räknade: råttgiftet stod i källaren, där fru Ekberg sa. Asken är nästan full, och det finns råttspillning längs hela väggen. Hon talade sanning om råttorna.
 
 Holm måste be om lov för att serva sin egen fyr. Han har gjort det tre gånger sedan oktober, varje gång med Margit som öppnade.
 
