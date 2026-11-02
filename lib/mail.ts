@@ -38,7 +38,7 @@ function ram(innehall: string) {
 <tr><td><img src="${BAS()}/api/bild/hotellet-dag?w=960" width="560" alt="Hotell Fyrbåken och fyrtornet på Klovskär i vinterljus" style="display:block;width:100%;height:auto"></td></tr>
 <tr><td style="padding:28px 28px 32px;font-size:17px;line-height:1.6">${innehall}</td></tr>
 </table>
-<p style="color:#9fb2b5;font-size:13px;margin-top:16px">Mordet på Klovskär · ${esc(process.env.SALJARE_NAMN || "")} · ${esc(process.env.SALJARE_EPOST || "")}</p>
+<p style="color:#9fb2b5;font-size:13px;margin-top:16px">Mordet på Klovskär · Adventsmysteriet 2026 · ${esc(process.env.SALJARE_NAMN || "")} · ${esc(process.env.SALJARE_EPOST || "")}</p>
 </td></tr></table></body></html>`;
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "Mordet på Klovskär",
   "short_name": "Klovskär",
-  "description": "Ett adventsmysterium i 24 luckor.",
+  "description": "Adventsmysteriet 2026 – ett mordmysterium i 24 luckor.",
   "start_url": "/lag",
   "scope": "/",
   "display": "standalone",

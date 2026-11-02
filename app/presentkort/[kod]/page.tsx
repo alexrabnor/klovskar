@@ -17,7 +17,7 @@ export default async function Presentkort({ params }: { params: Promise<{ kod: s
         <div className="presentkort-text">
           <p className="etikett">Presentkort</p>
           <h1>Mordet på Klovskär</h1>
-          <p>Ett adventsmysterium i 24 luckor för dig och upp till nio vänner. Ni väljer själva när de 24 dagarna börjar.</p>
+          <p>Adventsmysteriet 2026: 24 luckor för dig och upp till nio vänner. Ni väljer själva när de 24 dagarna börjar.</p>
           <p className="presentkort-kod">{kod.kod}</p>
           <p className="liten">Skapa ert lag på <b>{bas}/aktivera</b></p>
           {kod.lag_id && <p className="liten" style={{ color: "#8a2f25" }}>Koden har redan använts.</p>}

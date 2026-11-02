@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna } from "@/lib/tid";
+import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna, manaderEfterSistaLuckan } from "@/lib/tid";
 
 const advent = { startdatum: "2026-12-01", forskjutning_min: 0 };
 
@@ -64,5 +64,18 @@ describe("testläget", () => {
   });
   it("ignorerar ogiltigt värde", () => {
     expect(serverNu({ TESTLAGE_DATUM: "imorgon" }, 777)).toBe(777);
+  });
+});
+
+describe("månader efter sista luckan", () => {
+  it("håller 06.00 svensk tid över sommartid", () => {
+    expect(manaderEfterSistaLuckan("2026-12-01", 6)).toBe(stockholm(2027, 6, 24, 6, 0));
+  });
+  it("13 månader från advent 2026 är 24 januari 2028", () => {
+    expect(manaderEfterSistaLuckan("2026-12-01", 13)).toBe(stockholm(2028, 1, 24, 6, 0));
+  });
+  it("klarar månader med färre dagar", () => {
+    // lucka 24 den 31 januari 2027 → 28 februari 2027
+    expect(manaderEfterSistaLuckan("2027-01-08", 1)).toBe(stockholm(2027, 2, 28, 6, 0));
   });
 });

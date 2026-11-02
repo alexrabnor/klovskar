@@ -1,4 +1,4 @@
-// Körs en gång när servern startar. Här lever schemajobbet för morgonens notiser.
+// Körs en gång när servern startar. Här lever schemajobben: morgonens notiser och gallringen.
 export async function register() {
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
   if (process.env.NEXT_PHASE === "phase-production-build") return;
@@ -7,4 +7,8 @@ export async function register() {
   const { skickaNyaLuckor } = await import("./lib/utskick");
   setTimeout(() => skickaNyaLuckor(), 10_000);
   setInterval(() => skickaNyaLuckor(), 60_000);
+  const { gallra } = await import("./lib/gallring");
+  const gallraSakert = () => { try { gallra(); } catch (e) { console.error("[gallring]", e); } };
+  setTimeout(gallraSakert, 30_000);
+  setInterval(gallraSakert, 60 * 60_000);
 }

@@ -18,8 +18,8 @@ export async function skapaCheckout(opts: { present: boolean; epost?: string }):
         currency: "sek",
         unit_amount: prisKr() * 100,
         product_data: {
-          name: opts.present ? "Mordet på Klovskär – presentkort" : "Mordet på Klovskär – lag",
-          description: "Adventsmysterium i 24 luckor för ett lag på upp till 10 spelare. Digital leverans direkt.",
+          name: opts.present ? "Mordet på Klovskär (Adventsmysteriet 2026) – presentkort" : "Mordet på Klovskär (Adventsmysteriet 2026) – lag",
+          description: "Adventsmysteriet 2026 – 24 luckor för ett lag på upp till 10 spelare. Digital leverans direkt.",
         },
       },
     }],

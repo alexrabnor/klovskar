@@ -17,7 +17,7 @@ export default function Villkor() {
         <h2>Säljare</h2>
         <p>{namn}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}. Säljaren är en privatperson.</p>
         <h2>Vad du köper</h2>
-        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.alexcloud.se.</p>
+        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär, Adventsmysteriet 2026. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.alexcloud.se.</p>
         <h2>Pris och betalning</h2>
         <p>Priset är {prisKr()} kr per lag. Betalning sker med kort, Apple Pay eller Google Pay via Stripe. Vi ser aldrig dina kortuppgifter.</p>
         <h2>Leverans</h2>
@@ -26,7 +26,7 @@ export default function Villkor() {
         <p>Enligt lagen om distansavtal har du normalt 14 dagars ångerrätt. För digitalt innehåll gäller den inte om du uttryckligen samtyckt till att leveransen påbörjas direkt och bekräftat att ångerrätten då upphör. Det gör du med kryssrutan före betalningen.</p>
         <p><b>Vår egen garanti:</b> har laget inte öppnat någon lucka får du pengarna tillbaka om du hör av dig, även efter att koden visats.</p>
         <h2>Tillgång</h2>
-        <p>Laget har tillgång till spelet i minst tolv månader efter att den sista luckan öppnat. Spelet kräver internetuppkoppling.</p>
+        <p>Mordet på Klovskär är Adventsmysteriet 2026. Laget behåller tillgången till spelet, sina anteckningar och facit så länge spelet finns, och minst till och med den 31 december 2027. Spelet kräver internetuppkoppling.</p>
         <h2>Fel och reklamation</h2>
         <p>Fungerar något inte som det ska, kontakta oss så rättar vi det eller betalar tillbaka. Du kan också vända dig till Allmänna reklamationsnämnden, arn.se.</p>
       </main>

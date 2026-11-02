@@ -53,6 +53,17 @@ export function oppningstid(startdatum: string, nr: number): number {
   return stockholm(dag.getUTCFullYear(), dag.getUTCMonth() + 1, dag.getUTCDate(), OPPNAR_KL, 0);
 }
 
+/** Lagledarens e-post behövs bara under spelet. Den raderas 13 månader efter att lucka 24 öppnat. */
+export const EPOST_SPARAS_MANADER = 13;
+
+/** Samma klockslag (06.00 svensk tid) ett antal kalendermånader efter att lucka 24 öppnat. */
+export function manaderEfterSistaLuckan(startdatum: string, manader: number): number {
+  const [a, m, d] = svensktDatum(oppningstid(startdatum, 24)).split("-").map(Number);
+  const mal = new Date(Date.UTC(a, m - 1 + manader, 1));
+  const sistaDag = new Date(Date.UTC(mal.getUTCFullYear(), mal.getUTCMonth() + 1, 0)).getUTCDate();
+  return stockholm(mal.getUTCFullYear(), mal.getUTCMonth() + 1, Math.min(d, sistaDag), OPPNAR_KL, 0);
+}
+
 export interface LagTid {
   startdatum: string;
   /** Adminens tidsförskjutning för testlag, i minuter. */

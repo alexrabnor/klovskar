@@ -125,3 +125,9 @@ byggprompten gäller detta dokument.
 - Tornets dörr: Harald bytte lås i oktober, två nycklar (hans + husfruns). Löser varför fyrvaktaren inte har nyckel till sin egen fyr.
 - Margit "hittade" kroppen kl. 07.10 och låste upp med sin nyckel (lucka 3) – en tidig, oskyldigt formulerad ledtråd.
 - Bonusbilderna 2 och 5 hade för tydliga avslöjanden i bild (saffran i tornet, "tornet 22.45"). Rättningspromptar levererade; bonus 5:s text har en mild ledtråd (toddyn kl. tio).
+
+## Tillgång och serie (2026-11-02)
+- Spelet är **Adventsmysteriet 2026**. Nästa år kommer ett nytt fall; gamla fall kan säljas året runt.
+- Köparen **behåller spelet**: "så länge spelet finns, och minst till och med 31 december 2027" (privatperson kan inte lova för alltid).
+- Ingen spärr och ingen lagradering. `lib/gallring.ts` tar bara bort e-post (lagledare + köpare) 13 månader efter lucka 24; körs varje timme med riktig tid.
+

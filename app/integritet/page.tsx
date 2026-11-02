@@ -25,7 +25,7 @@ export default function Integritet() {
         <h2>Var det sparas</h2>
         <p>På en server i Sverige som säljaren själv driver. Betalningen hanteras av Stripe och e-posten skickas via Brevo; båda följer GDPR. Vi använder inga analysverktyg och inga annonskakor. Spelet använder två nödvändiga kakor för att komma ihåg vilket lag du spelar i och om du är lagledare.</p>
         <h2>Hur länge</h2>
-        <p>Allt raderas tolv månader efter att lagets sista lucka öppnat. Bokföringsuppgifter om köpet (belopp och datum) sparas så länge lagen kräver.</p>
+        <p>E-postadresser raderas automatiskt 13 månader efter att lagets sista lucka öppnat. Laget, spelarnas visningsnamn och det ni gjort i spelet sparas så länge spelet finns, så att ni kan gå tillbaka till ert fall. Vill ni att laget raderas tidigare räcker det att höra av sig. Bokföringsuppgifter om köpet (belopp och datum) sparas så länge lagen kräver.</p>
         <h2>Dina rättigheter</h2>
         <p>Du kan när som helst be om att få se, rätta eller radera dina uppgifter. Hör av dig till e-postadressen ovan. Du kan också klaga hos Integritetsskyddsmyndigheten, imy.se.</p>
       </main>

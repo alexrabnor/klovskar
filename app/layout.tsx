@@ -9,7 +9,7 @@ const maskin = Special_Elite({ subsets: ["latin"], weight: "400", variable: "--f
 const hand = Caveat({ subsets: ["latin"], variable: "--f-hand", display: "swap" });
 
 const BAS = process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
-const BESKRIVNING = "En adventskalender där ni löser ett mord tillsammans. En ny lucka varje morgon, ett lag på upp till tio, och svaret på julafton.";
+const BESKRIVNING = "Adventsmysteriet 2026. En adventskalender där ni löser ett mord tillsammans: en ny lucka varje morgon, ett lag på upp till tio, och svaret på julafton.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BAS),

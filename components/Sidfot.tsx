@@ -5,7 +5,7 @@ export function Sidfot() {
   const epost = process.env.SALJARE_EPOST;
   return (
     <footer className="sidfot">
-      <p>Mordet på Klovskär – ett adventsmysterium i 24 luckor</p>
+      <p>Mordet på Klovskär – Adventsmysteriet 2026</p>
       <p>
         <Link href="/villkor">Köpvillkor</Link> · <Link href="/integritet">Integritet</Link> · <Link href="/topplista">Topplista</Link>
       </p>
