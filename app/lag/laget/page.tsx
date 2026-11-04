@@ -10,7 +10,7 @@ import { oppningstid } from "@/lib/tid";
 
 export const metadata: Metadata = { title: "Laget" };
 
-const BAS = process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
+const BAS = process.env.BAS_URL || "https://adventdeckare.se";
 
 export default async function Laget() {
   const { lag, spelare, arLedare, nu } = await kravInloggad();

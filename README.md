@@ -1,6 +1,6 @@
 # Mordet på Klovskär
 
-Adventsmysterium i 24 luckor som säljs per lag – **adventdeckare.alexcloud.se**, port 3131.
+Adventsmysterium i 24 luckor som säljs per lag – **adventdeckare.se**, port 3131.
 
 Next.js 16 + SQLite (`better-sqlite3`) på volymen `klovskar_klovskar_data`. Alla beslut står i [BESLUT.md](BESLUT.md).
 
@@ -30,7 +30,7 @@ Lägg filen i `bilder/` med målnamnet (t.ex. `lucka-05.jpg`). Ingen ombyggnad b
 
 1. Lägg in nycklar i `.env`: `STRIPE_TEST_SECRET_KEY` (och senare `STRIPE_LIVE_SECRET_KEY`).
 2. Skapa en webhook i Stripe → Utvecklare → Webhooks:
-   - URL: `https://adventdeckare.alexcloud.se/api/stripe/webhook`
+   - URL: `https://adventdeckare.se/api/stripe/webhook`
    - Händelser: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `charge.refunded`
    - Signeringshemligheten → `STRIPE_TEST_WEBHOOK_SECRET` (resp. `_LIVE_`).
 3. `STRIPE_LAGE=test` visar en testbanderoll. Byt till `live` när allt är provat.

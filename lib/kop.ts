@@ -5,7 +5,7 @@ import { nyAktiveringskod } from "./slump";
 import { stripe, stripeLage, prisKr } from "./stripe";
 import { mejlaKop } from "./mail";
 
-const BAS = () => process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
+const BAS = () => process.env.BAS_URL || "https://adventdeckare.se";
 
 export async function skapaCheckout(opts: { present: boolean; epost?: string }): Promise<string> {
   const s = await stripe().checkout.sessions.create({

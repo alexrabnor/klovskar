@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export default async function Presentkort({ params }: { params: Promise<{ kod: string }> }) {
   const kod = kodMedKod(decodeURIComponent((await params).kod));
   if (!kod) notFound();
-  const bas = (process.env.BAS_URL || "https://adventdeckare.alexcloud.se").replace(/^https?:\/\//, "");
+  const bas = (process.env.BAS_URL || "https://adventdeckare.se").replace(/^https?:\/\//, "");
   return (
     <main className="presentkort-sida">
       <article className="presentkort">

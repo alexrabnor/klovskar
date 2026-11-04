@@ -10,7 +10,7 @@ byggprompten gäller detta dokument.
 ## Stack och drift (avviker från prompten)
 - **Next.js 16** (App Router, TS, Tailwind), inte 14.
 - `node:24-alpine` (Node 20 är EOL).
-- **Ingen Caddy.** Appen går direkt på port via Cloudflare Tunnel (`adventdeckare.alexcloud.se` → `192.168.0.155:PORT`).
+- **Ingen Caddy.** Appen går direkt på port via Cloudflare Tunnel (`adventdeckare.se` → `192.168.0.155:PORT`; `adventdeckare.alexcloud.se` ligger kvar som alias tills Stripe-webhooken bytts).
 - Registreras i dashboard2 (`GAMES` i `src/constants.ts`) + spelarkivet, inte `apps.json`.
 - Favicon, OG-taggar, cache-headers enligt CLAUDE.md.
 - **SQLite** (`better-sqlite3@^12`) på namngiven volym (`klovskar_data`), inte Directus.

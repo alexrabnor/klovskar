@@ -1,7 +1,7 @@
 import "server-only";
 import type { Lag } from "./db";
 
-const BAS = () => process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
+const BAS = () => process.env.BAS_URL || "https://adventdeckare.se";
 export const esc = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 
 export function mejlKonfigurerat() {

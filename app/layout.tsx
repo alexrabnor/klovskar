@@ -8,7 +8,7 @@ const brod = Source_Serif_4({ subsets: ["latin"], variable: "--f-brod", display:
 const maskin = Special_Elite({ subsets: ["latin"], weight: "400", variable: "--f-maskin", display: "swap" });
 const hand = Caveat({ subsets: ["latin"], variable: "--f-hand", display: "swap" });
 
-const BAS = process.env.BAS_URL || "https://adventdeckare.alexcloud.se";
+const BAS = process.env.BAS_URL || "https://adventdeckare.se";
 const BESKRIVNING = "Adventsmysteriet 2026. En adventskalender där ni löser ett mord tillsammans: en ny lucka varje morgon, ett lag där hela fem personer kan vara med, och svaret på julafton.";
 
 export const metadata: Metadata = {
