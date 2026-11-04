@@ -17,9 +17,9 @@ export default function Villkor() {
         <h2>Säljare</h2>
         <p>{namn}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}. Säljaren är en privatperson.</p>
         <h2>Vad du köper</h2>
-        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär, Adventsmysteriet 2026. Koden skapar ett lag med upp till tio spelare och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.alexcloud.se.</p>
+        <p>En aktiveringskod till det digitala spelet Mordet på Klovskär, Adventsmysteriet 2026. Koden skapar ett lag där hela fem personer kan vara med och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.alexcloud.se.</p>
         <h2>Pris och betalning</h2>
-        <p>Priset är {prisKr()} kr per lag. Betalning sker med kort, Apple Pay eller Google Pay via Stripe. Vi ser aldrig dina kortuppgifter.</p>
+        <p>Priset är {prisKr()} kr per lag (introduktionspris, ordinarie pris 199 kr). Betalning sker med kort, Apple Pay eller Google Pay via Stripe. Vi ser aldrig dina kortuppgifter.</p>
         <h2>Leverans</h2>
         <p>Koden visas direkt efter betalningen och skickas till den e-postadress du anger. Ett presentkort levereras på samma sätt.</p>
         <h2>Ångerrätt</h2>

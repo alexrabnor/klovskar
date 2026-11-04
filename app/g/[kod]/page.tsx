@@ -27,7 +27,7 @@ export default async function Inbjudan({ params }: { params: Promise<{ kod: stri
       <header className="stack">
         <p className="etikett">Mordet på Klovskär</p>
         <h1 className="rubrik-mellan">{lag.namn} behöver dig</h1>
-        <p className="dampad">{antal} av {MAX_SPELARE} platser är tagna. Varje morgon öppnas en ny lucka, och på julafton lämnar laget in sin anklagelse.</p>
+        <p className="dampad">{antal} av {MAX_SPELARE} platser är tagna – hela 5 personer kan vara med i laget. Varje morgon öppnas en ny lucka, och på julafton lämnar laget in sin anklagelse.</p>
       </header>
       <GaMedFormular kod={lag.kod} lagnamn={lag.namn} />
     </main>

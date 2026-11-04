@@ -21,7 +21,7 @@ export default async function Valkommen() {
       </header>
       <section className="panel stack">
         <h2 style={{ fontSize: 22 }}>1. Bjud in laget</h2>
-        <p>Skicka länken till upp till nio vänner. De skriver bara sitt namn.</p>
+        <p>Skicka länken till dina medspelare – hela fem personer kan vara med i laget. De skriver bara sitt namn.</p>
         <Kopiera text={`${BAS}/g/${lag.kod}`} etikett="Kopiera inbjudan" visa />
         <p className="dampad liten">Lagkod: <b style={{ fontFamily: "var(--f-m)", letterSpacing: ".1em" }}>{lag.kod}</b></p>
       </section>

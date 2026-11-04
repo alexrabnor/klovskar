@@ -3,7 +3,7 @@ import { db, kodMedKod, lagMedKod, spelareILag, type Lag, type Spelare } from ".
 import { nyLagkod, nyToken } from "./slump";
 import { oppningstid, serverNu, svensktDatum, lagetsNu } from "./tid";
 
-export const MAX_SPELARE = 10;
+export const MAX_SPELARE = 5;
 
 export class Fel extends Error {}
 

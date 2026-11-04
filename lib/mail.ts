@@ -63,7 +63,7 @@ ${knapp(`${BAS()}/presentkort/${encodeURIComponent(kod)}`, "Öppna presentkortet
 <h1 style="font-weight:normal;font-size:28px;margin:0 0 12px">Välkomna till Klovskär</h1>
 <p>Tack för ert köp. Här är er aktiveringskod:</p>${kodruta(kod)}
 ${knapp(lank, "Skapa ert lag")}
-<p>När laget är skapat får ni en lagkod att dela med upp till nio vänner. Ni väljer själva om luckorna ska följa adventskalendern eller börja ett eget datum.</p>
+<p>När laget är skapat får ni en lagkod att dela – hela fem personer kan vara med i samma lag. Ni väljer själva om luckorna ska följa adventskalendern eller börja ett eget datum.</p>
 <p style="color:#9fb2b5;font-size:14px">Spara det här mejlet. Kvittot kommer i ett separat mejl från Stripe.</p>`));
 }
 

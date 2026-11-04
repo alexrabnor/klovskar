@@ -25,7 +25,7 @@ byggprompten gäller detta dokument.
 - Lucka-, bild- och ljudfiler serveras endast via `/api/bild/[namn]` / `/api/ljud/[namn]` med datumkontroll.
 
 ## Försäljning
-- Privatpersoner köper. **199 kr per lag** (max 10 spelare). Pris i `PRIS_KR` + Stripe.
+- Privatpersoner köper. **Introduktionspris 99 kr per lag** (ord. 199 kr, max 5 spelare). Pris i `PRIS_KR` + Stripe.
 - **Stripe Payment Link + webhook** → engångs-aktiveringskod på tacksidan + mejl via Brevo.
 - Både **testläge och skarpt läge**: `STRIPE_LAGE=test|live`, två nyckelpar i `.env`.
   Testläge visar banderoll "TESTLÄGE – inga riktiga pengar" över hela sajten.
