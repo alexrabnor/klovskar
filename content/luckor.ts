@@ -21,11 +21,8 @@ export const LUCKOR: Lucka[] = [
         format: "telegram",
         rubrik: "Telegram – Klovskär 1 dec 1962 kl 08.40",
         text: `TILL KRIMINALPOLISEN GÖTEBORG STOP
-HARALD EKBERG REDARE 64 ÅR FUNNEN DÖD I FYRTORNET KLOVSKÄR KL 0710 STOP
-SANNOLIKT FALL I SPIRALTRAPPAN STOP
-ISEN STOPPAR FÄRJAN STOP INGEN AV GÄSTERNA KAN LÄMNA ÖN STOP
-UNDERTECKNAD BOR PÅ HOTELL FYRBÅKEN ÖVER JUL STOP
-BEGÄR UPPDRAG ATT UTREDA PÅ PLATS STOP
+HARALD EKBERG FUNNEN DÖD I FYRTORNET STOP
+ISEN STOPPAR FÄRJAN STOP
 SKICKAR MATERIAL DAGLIGEN STOP
 KOMMISSARIE G SANDAHL`,
       },
@@ -42,7 +39,9 @@ KRIMINALINTENDENT NORDH`,
       {
         format: "anteckningsbok",
         rubrik: "Till min assistent",
-        text: `Ni får kopior av allt jag hittar, en bunt i taget, varje morgon fram till jul. Läs dem noga. Jag tänker högt i marginalen och har ofta fel.
+        text: `Ett telegram kostar per ord, så här är resten. Redaren Harald Ekberg, 64 år, hittades kl. 07.10 nedanför spiraltrappan i fyrtornet på Klovskär. Sannolikt ett fall. Ingen av gästerna kan lämna ön. Jag bor själv på Hotell Fyrbåken över jul, och i telefon bad jag om att få utreda saken på plats.
+
+Ni får kopior av allt jag hittar, en bunt i taget, varje morgon fram till jul. Läs dem noga. Jag tänker högt i marginalen och har ofta fel.
 
 Ön är stängd, men inte helt. Postbudet Edvin går över isen med spark två gånger i veckan och bär mina brev och prover. Telefonen i hotellets hall fungerar när kabeln vill.
 
