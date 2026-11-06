@@ -40,3 +40,8 @@ Inga utöver den identiska `livdml`-kopian. Inga okända bilder.
 ## Uppdatering 2026-11-02 kväll
 Alla bilder på plats. `lucka-06`, `bonus-1`, `bonus-2`, `bonus-5`, `facit` och `meny-matare` gjordes om från grunden.
 `lucka-23`: Gemini klarade inte visarna – de är bortmålade och omritade till 23.47 med `scripts/rita-visare-lucka23.py`.
+
+## Bild mot text, 2026-11-06
+Alla bilder jämförda mot luckornas text.
+Rättat: `lucka-06` datum (Dec. → 28 nov., `scripts/ratta-datum-lucka06.py`), `bonus-6` lösa "9:16" borttagna, `misstankta` engelsk lapp bortkapad. Texten anpassad till bilderna: trappan har mittpelare och schakt mot väggen, Carls led går sydost till östra udden, receptets mängder, pusslet i lucka 6.
+Väntar på nya bilder från användaren: `lucka-13a`, `lucka-21` (saknar "Inga fler. 28/11"), `bonus-3`. Promptar i `bildpromptar.html`.

@@ -42,12 +42,11 @@ button.ok { background: #7fb38a; }
 
 <div class="wrap">
   <section class="intro">
-    <p class="eyebrow">Mordet på Klovskär · bilder som återstår</p>
-    <h1>Sju bilder, alla från grunden</h1>
-    <p><strong>Klart 2 november:</strong> alla bilder ligger i spelet. Lucka 23:s visare målades om för hand eftersom Gemini inte klarade dem. Promptarna finns kvar som referens.</p>
-    <p>Varje prompt gör en <strong>helt ny bild</strong>. Du behöver inte ladda upp den gamla. Ladda gärna upp <code>brottsplats.jpg</code> eller <code>lucka-15.jpg</code> som stilreferens, så matchar de resten av spelet.</p>
-    <p>Promptarna är på engelska eftersom Gemini följer dem bättre så. Svensk text som ska synas i bilden står inom citattecken och ska stavas exakt så.</p>
-    <p>Spara den nya bilden i filsamlaren med <strong>målnamnet som filnamn</strong> (t.ex. <code>lucka-23.jpg</code>), så byter jag ut den direkt.</p>
+    <p class="eyebrow">Mordet på Klovskär · bilder med rotvälska</p>
+    <h1>Tre bilder att göra om</h1>
+    <p>Spelet fungerar utan dem, för all text finns också i dokumentet under bilden. Men i de här tre syns stora partier påhittade ord när man zoomar, och i lucka 21 saknas raden "Inga fler. 28/11".</p>
+    <p>Varje prompt gör en <strong>helt ny bild</strong>. Ladda gärna upp <code>lucka-15.jpg</code> eller <code>bonus-1.jpg</code> som stilreferens.</p>
+    <p>Lägg den nya bilden i filsamlaren med <strong>målnamnet som filnamn</strong> (t.ex. <code>lucka-21.jpg</code>), så byter jag ut den direkt.</p>
   </section>
   <div id="lista" style="display:grid;gap:28px"></div>
   <section class="tips">
@@ -65,103 +64,71 @@ const STIL = `Style: photorealistic, cinematic still from a 1960s Scandinavian n
 
 const bilder = [
   {
-    mal: "lucka-23",
-    fel: "Urmakarens fickur. Ska visa <b>23.47</b>, samma tid som brottsplatsen, och kronan ska vara utdragen. Det är beviset för att klockan ställdes om.",
+    mal: "lucka-21",
+    fel: "Brevet har fem rader rotvälska. Kassaboken visar en rad per år med månader som inte stämmer. Texten säger varje månad från juni 1935, och den viktiga sista raden <b>“Inga fler. 28/11.”</b> saknas.",
     prompt: `${STIL}
-Landscape 3:2. Close-up on a watchmaker's workbench at night, lit by a green-shaded brass desk lamp. On a square of dark green felt lies an open gold pocket watch with its glass cracked into a star. Around it: tweezers, tiny screwdrivers, a jeweller's loupe and a small brass parts tray.
+Landscape 4:3. Top-down view of a desk under warm lamplight. On the left, a single old handwritten letter on cream paper. On the right, an open ledger. Everything is sharp enough to read. No other text anywhere.
 
-The watch face is fully visible and seen almost straight from above, so the hands are easy to read. It shows a quarter to twelve: the LONG thin minute hand points at the 9 (slightly past it, towards the 10). The SHORT thick hour hand points almost straight up, very close to the 12, just a little to the left of it. The two hands form a wide V opening to the left. Classic black Arabic numerals 1–12 in the correct order, a small seconds dial at the 6.
+The letter, in neat feminine fountain-pen handwriting, exactly these lines and nothing else:
+"Göteborg, maj 1935"
+"Käre Harald,"
+"vårt barn är fött. En flicka."
+"Hon är frisk och har mörkt hår, som du."
+"Jag kan inte behålla henne. Du vet varför."
+"Ingen får någonsin veta."
+"M."
 
-The winding crown at the top of the watch is visibly pulled out a few millimetres, showing a gap of the steel stem.
+The ledger page has ruled columns. At the top, printed: "Kassabok". Eleven handwritten rows in dark ink, one per month, exactly:
+"1962 januari – M.L. 25 kr"
+"februari – M.L. 25 kr"
+"mars – M.L. 25 kr"
+"april – M.L. 25 kr"
+"maj – M.L. 25 kr"
+"juni – M.L. 25 kr"
+"juli – M.L. 25 kr"
+"augusti – M.L. 25 kr"
+"september – M.L. 25 kr"
+"oktober – M.L. 25 kr"
+"november – M.L. 25 kr"
 
-Beside the watch lies a small white card with neat handwriting in ink, three lines, exactly:
-"Urmakare A. Berg"
-"Kronan utdragen"
-"klockan har ställts om för hand."`
+Below the last row, in a different, darker ink and a hard, angry hand, one line:
+"Inga fler. 28/11."
+
+Spelling exact. Do not invent any other words.`
   },
   {
-    mal: "lucka-06",
-    fel: "Det sönderrivna brevet. Används även som pussel, så bitarna ska synas tydligt. Datumet ska vara <b>1962</b>.",
+    mal: "lucka-13a",
+    fel: "Mitten av testamentet är rotvälska, och där det ska stå “Undertecknas:” står det “Ungnatned”.",
     prompt: `${STIL}
-Landscape 4:3. A heavy old oak desk in a shipowner's private office at night, clearly searched in a hurry: drawers pulled out, papers spilled, an overturned inkwell (dry, no spill). A brass desk lamp is the only light; snow falls past the dark window behind.
+Landscape 4:3. Close-up of one sheet of cream paper on a dark leather desk blotter, a brass wax seal stamp, a stick of red sealing wax and a candle beside it. The sheet is fully in focus. Neat, firm, old-fashioned handwriting in black ink, exactly these lines and nothing else:
 
-In the centre of the desk, in sharp focus, lie six or seven torn pieces of a handwritten letter on cream paper, roughly pushed together so the writing can almost be read across the tears. Handwriting in black ink, an older man's firm hand. On the pieces, exactly these fragments and nothing else legible:
-"Dec. 1962"
-"…mitt nya testamente…"
-"…på Luciadagen…"
-"…hela familjen ska veta"
-Spelling exact. All other writing on the pieces is too small or torn to read.`
+"Mitt testamente" (underlined title)
+"Härmed förordnar jag, Harald Ekberg,"
+"att hela min kvarlåtenskap, med undantag"
+"av vad lagen tillerkänner min hustru,"
+"skall tillfalla"
+"Elsa Varg, född 1935 i Göteborg."
+"Min son Carl Ekberg skall erhålla"
+"sin laglott och intet därutöver."
+"Detta testamente skall tillkännagivas"
+"på Luciadagen 1962 i närvaro av familjen."
+"Undertecknas: ____________"
+
+The signature line is EMPTY: the will has not been signed. No wax seal on the paper. Spelling exact. No other words anywhere.`
   },
   {
-    mal: "bonus-1",
-    fel: "Besättningslistan för M/S Svanhild. <b>Bara de sex namnen</b>. Harald och Margit fanns inte ombord.",
+    mal: "bonus-3",
+    fel: "Sidan är nästan helt rotvälska. Bara raden med faderskapet och “S.A. ?” ska finnas.",
     prompt: `${STIL}
-Landscape 4:3. Top-down view of a yellowed typewritten sheet of paper lying on a dark wooden desk, a fountain pen and an inkwell beside it, warm lamplight from one side.
+Landscape 4:3. Close-up of the second page of a handwritten document on a dark wooden desk, warm lamplight from one side, a fountain pen at the edge. The page is almost empty, with lots of blank cream paper. Firm old-fashioned handwriting in black ink, one sentence only, at the top of the page:
 
-Typewritten with a 1950s office typewriter, exactly these lines:
-"Rederi AB Ekberg, Göteborg"
-"M/S Svanhild – Besättning, november 1954" (this line underlined)
-"Nils Ottosson, befälhavare"
-"Gustav Ek, styrman"
-"Ragnar Lind, maskinist"
-"Lars Holm, däcksman, 19 år"
-"Erik Sjöberg, kock"
-"Olof Persson, matros"
+"… och detta under förutsättning att faderskapet bekräftas av läkare före undertecknandet."
 
-A hand-drawn pencil oval circles ONLY the line "Lars Holm, däcksman, 19 år".
-At the bottom of the page, handwritten in blue-black ink, slanted, one line:
-"Skrovet rostigt – åtgärdas EJ före resan. H.E."
+The words from "faderskapet" to "undertecknandet" are crossed out with several hard, angry strokes of the pen, so hard that the paper is torn along the line. The crossed-out words can still be read.
 
-Exactly six names, no other names, no duplicates. Spelling exact.`
-  },
-  {
-    mal: "bonus-2",
-    fel: "Kommissariens dagbok. Bara en mening, och <b>ingen saffran</b>. Den ledtråden kommer först i lucka 22.",
-    prompt: `${STIL}
-Landscape 4:3. An open leather-bound diary on a bedside table in a simple hotel room at night. A pressed purple violet lies in the fold between the pages. A cup of tea, a fountain pen and a small reading lamp beside it.
+In the left margin beside that line, in soft grey pencil, small: "S.A. ?"
 
-On the left page, in neat, upright handwriting in dark ink, two lines only:
-"Alla ljuger."
-"Frågan är vem som ljuger om rätt sak."
-
-The right page is blank cream paper. No other text anywhere. Spelling exact.`
-  },
-  {
-    mal: "bonus-5",
-    fel: "Margits receptbok. Ska bara visa att hon bakar lussekatter. <b>Ingen anteckning om tornet</b> och ingen engelska.",
-    prompt: `${STIL}
-Landscape 4:3. A warm hotel kitchen table in early morning light: a worn handwritten recipe book lying open, a small fold of paper with deep orange saffron threads, a bowl of raisins, a floury wooden rolling pin, and a baking tray of freshly baked golden Swedish saffron buns shaped as S-curls with a raisin in each end.
-
-The right-hand page of the recipe book has old-fashioned Swedish handwriting in ink, exactly:
-"Lussekatter" (underlined title)
-"1 g saffran"
-"150 g smör"
-"5 dl mjölk"
-"50 g jäst"
-"2 dl socker"
-"ca 15 dl vetemjöl"
-"russin"
-
-The left-hand page has faint, unreadable older writing. No margin notes, no dates, no English. Spelling exact.`
-  },
-  {
-    mal: "facit",
-    fel: "Avslöjandet. Den gamla hade dubbla personer. Den här visar <b>bara husfrun</b> i fokus, så det kan inte hända igen.",
-    prompt: `${STIL}
-Landscape 16:9. The hotel salon on Christmas Eve, lit by candles on a decorated Christmas tree and a fire in the hearth. In the foreground, slightly left of centre, stands a woman of about 50, the hotel housekeeper: grey hair in a neat bun, dark dress with a white apron, head bowed, hands folded in front of her, eyes on the floor. She is the only person in sharp focus, and she appears only once.
-
-On a low table in the very front of the frame lies a large bunch of old iron keys on a ring.
-
-In the soft, out-of-focus background on the right: the back and shoulder of a woman in a tweed suit (the inspector), seen from behind. No other people in the image.
-
-In the lower right corner, a slightly tilted red rubber stamp, as if stamped on the photo, with exactly the text:
-"FALLET LÖST"`
-  },
-  {
-    mal: "meny-matare",
-    fel: "Menybild för Misstankemätaren, där laget röstar varje dag på vem de tror är mördaren.",
-    prompt: `${STIL}
-Landscape 16:9. On a dark wooden table in a hotel salon at night: a handful of small folded paper ballot slips, some open, a pencil, and a polished brass ship's barometer whose needle points into the red. Snow falling outside the frosted window behind, a candle burning. The image should read clearly even when shown small. No legible text anywhere.`
+Spelling exact. Nothing else is written anywhere on the page.`
   }
 ];
 

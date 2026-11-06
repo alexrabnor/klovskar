@@ -101,7 +101,7 @@ Hon gick aldrig uppför trappan, säger hon, och hon rörde honom inte. Holm bek
 
 Kroppen kall och stel. Doktor Ahlgren bedömer att döden inträffat "för minst sex, kanske nio timmar sedan".
 
-Trappan har inget räcke mot mitten. Han har fallit genom öppningen, nästan hela vägen ner.
+Trappan går runt en järnpelare och räcket är bara knähögt. Mellan trappan och tornväggen går ett öppet schakt ända ner. Han har fallit i det, nästan hela vägen.
 
 Fickuret låg på golvet bredvid honom, kedjan fortfarande fäst i västen. Det har stannat. Visarna står på 23.47. Glaset krossat, som av fallet.
 
@@ -207,7 +207,7 @@ Jag har bett honom att inte lämna ön. Han svarade att det inte går ändå.`,
     titel: "Det sönderrivna brevet",
     ingress: "Haralds kontor har genomsökts av någon under natten. Bitarna låg i papperskorgen.",
     bilder: [
-      { namn: "lucka-06", alt: "Ett skrivbord i mörkret med sönderrivna brevbitar som lagts ihop. Bitarna nämner Dec. 1962, mitt nya testamente och Luciadagen." },
+      { namn: "lucka-06", alt: "Ett skrivbord i mörkret med sönderrivna brevbitar som lagts ihop. Bitarna nämner 28 nov. 1962, mitt nya testamente, Luciadagen och att hela familjen ska veta." },
     ],
     interaktion: "pussel",
     pussel: [
@@ -218,7 +218,7 @@ Jag har bett honom att inte lämna ön. Han svarade att det inte går ändå.`,
       "Mitt nya testamente ska",
       "INTE undertecknas som vi sagt.",
       "Jag läser upp min vilja",
-      "själv på Luciadagen – inför alla.",
+      "själv på Luciadagen – hela familjen ska veta.",
       "Någon i detta hus har ljugit",
       "för mig i tjugosju år.",
       "H. Ekberg",
@@ -233,7 +233,7 @@ Det var ingen rånare. Pengarna i kassaskrinet ligger kvar, 340 kronor.
 
 Den som letade ville ha papper.
 
-I papperskorgen under skrivbordet låg ett brev rivet i elva bitar. Haralds handstil. Det har aldrig skickats – han måste ha ändrat sig och rivit det själv. Han ville säga det med egen mun.
+I papperskorgen under skrivbordet låg ett brev rivet i bitar. Haralds handstil. Det har aldrig skickats – han måste ha ändrat sig och rivit det själv. Han ville säga det med egen mun.
 
 Jag har lagt bitarna på bordet. Hjälp mig att få ordning på dem.
 
@@ -241,7 +241,7 @@ Sedan vill jag att ni funderar på två frågor. Vilket besked fick Harald den 2
       },
     ],
     fraga: "Vem kan ha ljugit för Harald i tjugosju år?",
-    teaser: "Lucka 6 är öppen – elva bitar papper i en papperskorg.",
+    teaser: "Lucka 6 är öppen – ett rivet brev i en papperskorg.",
   },
   {
     nr: 7,
@@ -371,7 +371,7 @@ Var var Carl i natt? Han säger att han låg och läste i sitt rum. Hans skor st
       {
         format: "foto",
         rubrik: "Fotografi nr 14 – Sjöboden, 1 dec. kl. 07.50",
-        text: `Ett spår av herrkängor, storlek 43 eller 44, går från sjöbodens dörr rakt söderut över isen. Ett annat spår, samma kängor, kommer tillbaka. Det andra spåret ligger ovanpå det första.
+        text: `Ett spår av herrkängor, storlek 43 eller 44, går från sjöbodens dörr ut över isen. Ett annat spår, samma kängor, kommer tillbaka. Det andra spåret ligger ovanpå det första.
 
 I spåret närmast boden: en fimp av märket John Silver. Rökt till hälften.
 

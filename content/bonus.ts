@@ -151,7 +151,7 @@ Om resultatet bekräftade faderskapet hade han inte behövt stryka villkoret i v
       {
         format: "anteckningsbok",
         rubrik: "Smugglarleden",
-        text: `Carl har ritat sin väg över isen med blyerts. Från sjöbodens brygga rakt söderut, förbi grundet vid 4 meter, till den västra udden på Kråkskär. Ett kryss där lådorna läggs.
+        text: `Carl har ritat sin väg över isen med blyerts. Från bryggan sydost över isen, i en båge runt grundet vid 4 meter, till den östra udden på Kråkskär. Ett kryss där lådorna läggs.
 
 I marginalen tre datum: 16/11, 23/11, 30/11. Varje fredag.
 
@@ -185,10 +185,10 @@ Carl Ekberg är en smugglare och en dålig son. Men han är ingen mördare.`,
 - 150 g smör
 - 5 dl mjölk
 - 50 g jäst (för söta degar)
-- 1 ½ dl socker
+- 2 dl socker
 - ½ tsk salt
 - 1 ägg
-- ca 14–15 dl vetemjöl
+- ca 15 dl vetemjöl
 
 **Till garnering**
 - russin
@@ -227,7 +227,7 @@ Carl Ekberg är en smugglare och en dålig son. Men han är ingen mördare.`,
 
 **Urverket:** driver linsens rotation med ett lod som vevas upp en gång per kväll och räcker natten ut. Om urverket stannar står linsen still och fyren slutar blinka och lyser fast, tills urverket startas igen. Urverket nås från avsatsen under lyktrummet.
 
-**Spiraltrappan:** gjutjärn, 34 steg, utan räcke mot mitten. Öppningen i mitten går ända ner.
+**Spiraltrappan:** gjutjärn, 34 steg, runt en mittpelare. Räcket är knähögt. Mellan trappan och väggen går ett öppet schakt ända ner.
 
 **Ingång:** ekdörr med lås. Två nycklar (ombytt lås okt. 1962).`,
       },

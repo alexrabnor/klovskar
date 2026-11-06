@@ -40,7 +40,7 @@ Elsa kom in och grälet började. När Elsa sprang därifrån tjugo i elva var H
 
 Han ställde glaset på tredje trappsteget och tog sig upp till urverket för att veva det, som varje kväll. Margit gick efter från köksdörren längs grusgången – det var hennes steg och hennes nyckelknippa journalisten hörde under fönstret. Uppe på avsatsen, där Harald stod och svajade, tog hon honom i kragen och knuffade.
 
-Han föll mot urverket. Linsen stannade och ljuset störde till – 22.52. Sedan föll han genom trappans öppna mitt, nästan hela vägen ner.`,
+Han föll mot urverket. Linsen stannade och ljuset störde till – 22.52. Sedan föll han över det låga räcket och ner i schaktet, nästan hela vägen.`,
   },
   {
     rubrik: "Den falska tiden",
