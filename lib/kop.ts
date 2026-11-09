@@ -8,7 +8,7 @@ import { mejlaKop } from "./mail";
 const BAS = () => process.env.BAS_URL || "https://adventdeckare.se";
 
 export async function skapaCheckout(opts: { present: boolean; epost?: string }): Promise<string> {
-  const s = await stripe().checkout.sessions.create({
+  const params: Stripe.Checkout.SessionCreateParams = {
     mode: "payment",
     locale: "sv",
     customer_email: opts.epost || undefined,
@@ -28,7 +28,13 @@ export async function skapaCheckout(opts: { present: boolean; epost?: string }):
     invoice_creation: { enabled: true },
     success_url: `${BAS()}/kop/tack?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${BAS()}/kop${opts.present ? "?present=1" : ""}`,
-  });
+  };
+  // Managed Payments (Stripe som säljare) ska aldrig gälla här: villkoren anger
+  // Alexander Rabnor som säljare, och det kräver skattekod per produkt.
+  const s = await stripe().checkout.sessions.create({
+    ...params,
+    managed_payments: { enabled: false },
+  } as Stripe.Checkout.SessionCreateParams);
   if (!s.url) throw new Error("Stripe gav ingen betalningslänk");
   return s.url;
 }
