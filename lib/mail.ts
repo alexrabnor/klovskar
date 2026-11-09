@@ -8,6 +8,21 @@ export function mejlKonfigurerat() {
   return !!process.env.BREVO_API_KEY;
 }
 
+/** Textversion av mejlet. Mejl med bara HTML får minuspoäng i skräppostfilter. */
+export function htmlTillText(html: string): string {
+  const avkoda = (t: string) => t.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  return avkoda(
+    html
+      .replace(/<img[^>]*>/gi, "")
+      .replace(/<a [^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (_, url, text) => `${text.replace(/<[^>]+>/g, "").trim()}: ${url}`)
+      .replace(/<(br|\/p|\/h1|\/h2|\/tr|\/li)\s*\/?>/gi, "\n")
+      .replace(/<[^>]+>/g, ""),
+  )
+    .split("\n").map((r) => r.replace(/\s+/g, " ").trim()).join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 async function skicka(till: string, amne: string, html: string) {
   if (!process.env.BREVO_API_KEY) {
     console.warn(`[mejl] BREVO_API_KEY saknas – skickar inte "${amne}" till ${till}`);
@@ -22,6 +37,7 @@ async function skicka(till: string, amne: string, html: string) {
       to: [{ email: till }],
       subject: amne,
       htmlContent: html,
+      textContent: htmlTillText(html),
     }),
   });
   if (!res.ok) {

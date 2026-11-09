@@ -36,12 +36,12 @@ export default async function Tack({ searchParams }: { searchParams: Promise<{ s
       <Kopiera text={kod.kod} etikett="Kopiera koden" />
       {present ? (
         <div className="stack">
-          <p>Koden finns också på presentkortet, som du kan skriva ut eller skicka vidare som länk. Vi har mejlat båda till {kod.epost}.</p>
+          <p>Koden finns också på presentkortet, som du kan skriva ut eller skicka vidare som länk. Vi har mejlat båda till {kod.epost}. Hittar du inte mejlet? Titta i skräpposten.</p>
           <div><Link className="knapp" href={`/presentkort/${kod.kod}`}>Öppna presentkortet</Link></div>
         </div>
       ) : (
         <div className="stack">
-          <p>Vi har också mejlat koden till {kod.epost}. Skapa laget nu, eller när det passar.</p>
+          <p>Vi har också mejlat koden till {kod.epost}. Hittar ni inte mejlet? Titta i skräpposten. Skapa laget nu, eller när det passar.</p>
           <div><Link className="knapp" href={`/aktivera?kod=${kod.kod}`}>Skapa ert lag</Link></div>
         </div>
       )}
