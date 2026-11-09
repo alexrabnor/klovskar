@@ -38,8 +38,9 @@ Uppgradera till CPX32 först när `docker stats` visar att minnet inte räcker.
   någon minut (disken kan bara växa, inte krympa, så välj "bara CPU/RAM" om du
   vill kunna gå tillbaka).
 
-**Undvik ARM (CAX-serien)** om du inte vet att alla dina appar fungerar på arm64.
-Klovskär gör det, men det är en onödig felkälla när fler appar ska in.
+**ARM (CAX-serien)** är ofta billigare men kan strula för appar med inbyggda
+moduler (Klovskär har `better-sqlite3` och `sharp`). Välj den bara om
+prisskillnaden är stor, och prova då bygget direkt efter installationen.
 
 **Vilka appar ska dit?** Bara det som ska nås utifrån av andra (sådant som säljs
 eller används av kunder/allmänheten). Interna verktyg, dashboards och experiment
