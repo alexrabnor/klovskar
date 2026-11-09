@@ -9,7 +9,7 @@ const DB_PATH = process.env.DB_PATH || path.join(process.cwd(), "data", "klovska
 const SCHEMA = `
 CREATE TABLE IF NOT EXISTS klov_kod (
   kod TEXT PRIMARY KEY,
-  typ TEXT NOT NULL,                 -- kop | present | gratis
+  typ TEXT NOT NULL,                 -- kop | present | gratis | testare
   stripe_session TEXT UNIQUE,
   epost TEXT,
   belopp_ore INTEGER NOT NULL DEFAULT 0,
@@ -169,7 +169,7 @@ export interface Spelare {
 
 export interface Kod {
   kod: string;
-  typ: "kop" | "present" | "gratis";
+  typ: "kop" | "present" | "gratis" | "testare";
   stripe_session: string | null;
   epost: string | null;
   belopp_ore: number;

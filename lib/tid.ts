@@ -45,6 +45,11 @@ export function serverNu(env: Record<string, string | undefined> = process.env, 
   return tolkad ?? verklig;
 }
 
+/** Startdatum för ett testarlag: 24 dagar bakåt, så att alla luckor redan är öppna. */
+export function testarStartdatum(nu: number): string {
+  return svensktDatum(nu - ANTAL_LUCKOR * 86400000);
+}
+
 /** När lucka nr öppnas för ett lag med startdatum "YYYY-MM-DD". */
 export function oppningstid(startdatum: string, nr: number): number {
   const [a, m, d] = startdatum.split("-").map(Number);

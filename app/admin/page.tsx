@@ -23,7 +23,7 @@ export default async function Admin() {
   const lagen = d.prepare("SELECT l.*, (SELECT COUNT(*) FROM klov_spelare s WHERE s.lag_id = l.id) AS antal FROM klov_lag l ORDER BY l.id DESC").all() as (Lag & { antal: number })[];
   const koder = d.prepare("SELECT * FROM klov_kod ORDER BY skapad DESC LIMIT 200").all() as Kod[];
   const intakter = d.prepare(`SELECT substr(skapad, 1, 4) ar, COUNT(*) st, SUM(belopp_ore) ore FROM klov_kod
-    WHERE typ != 'gratis' AND testlage = 0 AND aterbetald = 0 GROUP BY ar ORDER BY ar DESC`).all() as { ar: string; st: number; ore: number }[];
+    WHERE typ IN ('kop', 'present') AND testlage = 0 AND aterbetald = 0 GROUP BY ar ORDER BY ar DESC`).all() as { ar: string; st: number; ore: number }[];
   const status = (ok: boolean, text: string) => <span className={`chip ${ok ? "chip-ok" : "chip-varning"}`}>{text}</span>;
 
   return (
@@ -63,6 +63,9 @@ export default async function Admin() {
         <form action={skapaGratiskod} className="rad">
           <input name="antal" type="number" min="1" max="20" defaultValue="1" aria-label="Antal" style={{ width: 90 }} />
           <input name="notering" type="text" placeholder="Notering, t.ex. testgrupp" aria-label="Notering" style={{ flex: "1 1 200px", width: "auto" }} />
+          <label className="rad" style={{ gap: 6, alignItems: "center" }}>
+            <input name="testare" type="checkbox" value="1" /> Testare – alla luckor öppna direkt, syns inte i topplistan
+          </label>
           <button className="knapp knapp-liten">Skapa</button>
         </form>
         <div className="rull-x">

@@ -17,8 +17,9 @@ export async function skapaGratiskod(f: FormData) {
   await krav();
   const antal = Math.max(1, Math.min(20, Number(f.get("antal")) || 1));
   const notering = String(f.get("notering") || "").slice(0, 120) || null;
-  const ins = db().prepare("INSERT INTO klov_kod (kod, typ, notering, testlage) VALUES (?, 'gratis', ?, ?)");
-  for (let i = 0; i < antal; i++) ins.run(nyAktiveringskod(), notering, stripeLage() === "test" ? 1 : 0);
+  const typ = f.get("testare") ? "testare" : "gratis";
+  const ins = db().prepare("INSERT INTO klov_kod (kod, typ, notering, testlage) VALUES (?, ?, ?, ?)");
+  for (let i = 0; i < antal; i++) ins.run(nyAktiveringskod(), typ, notering, stripeLage() === "test" ? 1 : 0);
   revalidatePath("/admin");
 }
 

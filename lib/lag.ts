@@ -1,7 +1,7 @@
 import "server-only";
 import { db, kodMedKod, lagMedKod, spelareILag, type Lag, type Spelare } from "./db";
 import { nyLagkod, nyToken } from "./slump";
-import { oppningstid, serverNu, svensktDatum, lagetsNu } from "./tid";
+import { oppningstid, serverNu, svensktDatum, lagetsNu, testarStartdatum } from "./tid";
 
 export const MAX_SPELARE = 5;
 
@@ -54,12 +54,15 @@ export function skapaLag(opts: { kod: string; lagnamn: string; startdatum: strin
     const namn = rensaNamn(opts.namn, 30);
     if (lagnamn.length < 2) throw new Fel("Ge laget ett namn.");
     if (namn.length < 1) throw new Fel("Skriv ditt namn eller smeknamn.");
-    if (!giltigtStartdatum(opts.startdatum)) throw new Fel("Startdatumet ser inte rätt ut.");
+    // En testarkod öppnar alla luckor direkt, oavsett vilket startdatum som valdes
+    const testare = kod.typ === "testare";
+    const startdatum = testare ? testarStartdatum(serverNu()) : opts.startdatum;
+    if (!giltigtStartdatum(startdatum)) throw new Fel("Startdatumet ser inte rätt ut.");
     const epost = rensaNamn(opts.epost ?? kod.epost ?? "", 120) || null;
     const ledare = nyToken();
     const lagkod = unikLagkod();
-    const lag = d.prepare(`INSERT INTO klov_lag (namn, kod, startdatum, ledare_token, ledare_epost, aktiveringskod, morgonmejl)
-      VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING *`).get(lagnamn, lagkod, opts.startdatum, ledare, epost, kod.kod, 0) as Lag;
+    const lag = d.prepare(`INSERT INTO klov_lag (namn, kod, startdatum, ledare_token, ledare_epost, aktiveringskod, morgonmejl, synlig_i_topplista)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING *`).get(lagnamn, lagkod, startdatum, ledare, epost, kod.kod, 0, testare ? 0 : 1) as Lag;
     d.prepare("UPDATE klov_kod SET lag_id = ? WHERE kod = ?").run(lag.id, kod.kod);
     const spelare = d.prepare("INSERT INTO klov_spelare (lag_id, namn, token) VALUES (?, ?, ?) RETURNING *").get(lag.id, namn, nyToken()) as Spelare;
     return { lag, spelare };

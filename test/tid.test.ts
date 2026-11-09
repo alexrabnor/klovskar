@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna, manaderEfterSistaLuckan } from "@/lib/tid";
+import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna, manaderEfterSistaLuckan, testarStartdatum } from "@/lib/tid";
 
 const advent = { startdatum: "2026-12-01", forskjutning_min: 0 };
 
@@ -78,4 +78,11 @@ describe("månader efter sista luckan", () => {
     // lucka 24 den 31 januari 2027 → 28 februari 2027
     expect(manaderEfterSistaLuckan("2027-01-08", 1)).toBe(stockholm(2027, 2, 28, 6, 0));
   });
+});
+
+it("testarStartdatum: alla 24 luckor är öppna direkt", () => {
+  for (const nu of [stockholm(2026, 11, 9, 21, 0), stockholm(2026, 12, 1, 5, 59), stockholm(2027, 1, 2, 0, 1)]) {
+    const lag = { startdatum: testarStartdatum(nu), forskjutning_min: 0 };
+    for (let nr = 1; nr <= 24; nr++) expect(arOppen(lag, nr, nu), `lucka ${nr} vid ${new Date(nu).toISOString()}`).toBe(true);
+  }
 });
