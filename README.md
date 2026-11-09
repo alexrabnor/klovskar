@@ -2,7 +2,7 @@
 
 Adventsmysterium i 24 luckor som säljs per lag – **adventdeckare.se**, port 3131.
 
-Next.js 16 + SQLite (`better-sqlite3`) på volymen `klovskar_klovskar_data`. Alla beslut står i [BESLUT.md](BESLUT.md).
+Next.js 16 + SQLite (`better-sqlite3`) på volymen `klovskar_klovskar_data`. Alla beslut står i [BESLUT.md](BESLUT.md). Drift på Hetzner: [DRIFT.md](DRIFT.md).
 
 ## Starta
 
