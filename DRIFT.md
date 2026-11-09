@@ -9,23 +9,31 @@ SQLite på en volym, ut mot internet via Cloudflare Tunnel. Ingen kodändring be
 Hetzner Cloud, **delad vCPU, x86 (Intel/AMD)**, plats **Helsingfors (hel1)** –
 närmast Sverige och inom EU (bra för köparnas e-post enligt GDPR).
 
-| Behov | Specifikation | Ungefärligt pris |
-| --- | --- | --- |
-| Klovskär + 1–2 små appar | 2 vCPU, 4 GB RAM, 40 GB disk | ca 4–5 €/mån |
-| **Rekommenderat:** Klovskär + 3–6 appar | **4 vCPU, 8 GB RAM, 80 GB disk** | ca 7–9 €/mån |
-| Backup (rekommenderas) | +20 % av serverpriset | ca 1–2 €/mån |
+Priser från Hetzners konsol i november 2026, Helsingfors, **inklusive 25 % moms**
+(x86/AMD, CPX-serien):
 
-Hetzner byter ibland namn på planerna (CX22/CX32, CX23/CX33 …) och justerar
-priserna – välj efter specifikationen ovan och kontrollera priset på hetzner.com.
-Priserna är exklusive moms.
+| Plan | Specifikation | Pris/mån |
+| --- | --- | --- |
+| CPX12 | 1 vCPU, 2 GB RAM, 40 GB disk | 14,36 € |
+| **CPX22 (rekommenderas)** | **2 vCPU, 4 GB RAM, 80 GB disk** | **24,36 €** |
+| CPX32 | 4 vCPU, 8 GB RAM, 160 GB disk | 44,36 € |
+| IPv4-adress | behövs (GitHub saknar IPv6) | 0,63 € |
+| Backup | +20 % av serverpriset | ca 5 € för CPX22 |
+
+Titta först om det finns en billigare serie i konsolen (t.ex. "Cost-Optimized"
+eller ARM/CAX) – den finns inte alltid i alla datacenter, prova då Nürnberg
+eller Falkenstein. Hetzner ändrar planer och priser ibland; konsolen gäller.
+
+CPX22 räcker för Klovskär och några små appar tack vare swappen (avsnitt 3).
+Uppgradera till CPX32 först när `docker stats` visar att minnet inte räcker.
 
 **Därför räcker det:**
 - Klovskär använder ca 150–300 MB RAM i drift. En typisk Next.js-/Node-app likaså.
 - Den tunga stunden är `docker compose up --build`: `next build` tar 1–2 GB RAM
-  medan den pågår. Med 8 GB kan du bygga en app medan de andra kör vidare.
+  medan den pågår. Med 4 GB + 2 GB swap går det bra att bygga en app i taget.
 - Disk: varje Docker-image är några hundra MB, Klovskärs bilder ca 110 MB,
   databasen några MB. Byggcachen växer med tiden – rensa med `docker system prune`
-  ibland. 80 GB ger gott om marginal; 40 GB räcker för ett fåtal appar.
+  ibland. 80 GB ger gott om marginal.
 - Börja gärna med den mindre – en server kan uppgraderas i Hetzners panel på
   någon minut (disken kan bara växa, inte krympa, så välj "bara CPU/RAM" om du
   vill kunna gå tillbaka).
