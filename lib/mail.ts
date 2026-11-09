@@ -32,7 +32,7 @@ async function skicka(till: string, amne: string, html: string) {
     method: "POST",
     headers: { "api-key": process.env.BREVO_API_KEY, "Content-Type": "application/json", accept: "application/json" },
     body: JSON.stringify({
-      sender: { name: "Mordet på Klovskär", email: process.env.MAIL_FROM || "adventdeckare@alexcloud.se" },
+      sender: { name: "Mordet på Klovskär", email: process.env.MAIL_FROM || "hej@adventdeckare.se" },
       replyTo: process.env.SALJARE_EPOST ? { email: process.env.SALJARE_EPOST } : undefined,
       to: [{ email: till }],
       subject: amne,
