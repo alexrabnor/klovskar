@@ -139,3 +139,6 @@ byggprompten gäller detta dokument.
 - Spelinstruktion (`components/SaSpelarNi.tsx`) på välkomstsidan och i lucka 1.
 - Facit visar fallpoäng (av 13) och chiffer (av 6) var för sig, plus lagets egen motivtext. Metodvalet "Gift" heter "Han dog av giftet".
 - Veronal 0,25 g/tablett (10 st = 2,5 g, inte dödligt); fyren luktar gas (AGA), inte fotogen.
+
+## Uppgifter i luckorna (2026-11-10)
+Lucka 5 (hitta 22.52 i loggboken), 12 (räkna 2,5 g Veronal), 20 (blodgrupper ett barn till en O-far kan ha) och 23 (ställ fickuret på 22.52). De bekräftar fakta laget redan har fått, men pekar aldrig ut mördaren, eftersom blindtestet visade att fallet redan är lätt. Svaren ligger i `content/luckor.ts` och skickas till klienten först när luckan är öppen. Klarmarkeringen sparas per enhet i localStorage, som pusslet i lucka 6.

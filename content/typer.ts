@@ -17,6 +17,14 @@ export interface Bild {
   alt: string;
 }
 
+/** En liten uppgift i en lucka. Svaren skickas bara till klienten när luckan är öppen. */
+export type Uppgift = { rubrik: string; fraga: string; lost: string } & (
+  | { typ: "rad"; rader: { text: string; svar?: string }[]; ratt: number; fel: string }
+  | { typ: "tal"; enhet: string; godkand: [number, number]; fel: string }
+  | { typ: "flerval"; val: string[]; ratt: string[]; felval: Record<string, string>; saknas: string }
+  | { typ: "klocka"; start: string; godkand: [number, number]; fel: string; felStart: string }
+);
+
 export interface Lucka {
   nr: number;
   titel: string;
@@ -31,6 +39,8 @@ export interface Lucka {
   teaser: string;
   /** Pusselbitar (lucka 6) i rätt ordning. */
   pussel?: string[];
+  /** Liten uppgift att lösa (lucka 5, 12, 20, 23). */
+  uppgift?: Uppgift;
   /** Loggbokens transkription (lucka 5). */
   transkription?: string;
 }

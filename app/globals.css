@@ -305,7 +305,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .pussel-bit.ratt { background: linear-gradient(90deg, var(--barnsten) 0 10px, #f2ead8 10px); padding-left: 24px; }
 .pussel-bit.ratt::after { content: " ✓"; color: #9a6418; font-family: var(--f-b, Georgia), serif; font-size: 18px; }
 .pussel-klar .pussel-bit::after { content: none; }
-.pussel-lost { border: 2px solid var(--barnsten); background: #e2a24a1f; padding: 12px 16px; font-size: 17px; animation: pussel-lost .6s ease-out; }
+.pussel-lost, .uppgift-lost { border: 2px solid var(--barnsten); background: #e2a24a1f; padding: 12px 16px; font-size: 17px; animation: pussel-lost .6s ease-out; }
 .pussel-lost b { color: var(--barnsten); }
 @keyframes pussel-lost { from { transform: scale(.96); opacity: .3; } to { transform: none; opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .pussel-lost { animation: none; } }
@@ -409,3 +409,22 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .tanke-tips { opacity: .7; font-size: 13px; }
 .tanke-text { padding-top: 8px; }
 .sa-spelar-ni ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+/* Uppgifter i luckorna 5, 12, 20, 23 */
+.dold { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.uppgift { border-top: 1px dashed var(--linje); padding-top: 18px; }
+.uppgift-etikett { margin: 0; font-family: var(--f-m); color: var(--barnsten); letter-spacing: .12em; text-transform: uppercase; font-size: 13px; }
+.uppgift-fel { margin: 0; padding: 10px 14px; border-left: 3px solid var(--dampad); color: var(--fg); font-style: italic; }
+.uppgift-rader { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.uppgift-rad { width: 100%; text-align: left; background: #f2ead8; color: #222c3a; border: 0; padding: 8px 14px; font-family: var(--f-h); font-size: 20px; cursor: pointer; min-height: 44px; }
+.uppgift-rad:hover:not(:disabled) { background: #fff7e6; }
+.uppgift-rad:focus-visible, .uppgift-valknapp:focus-visible { outline: 3px solid var(--barnsten); outline-offset: 2px; }
+.uppgift-rad.fel { opacity: .55; }
+.uppgift-rad.ratt { background: linear-gradient(90deg, var(--barnsten) 0 10px, #f2ead8 10px); padding-left: 24px; }
+.uppgift-rad:disabled { cursor: default; }
+.uppgift-val { display: flex; flex-wrap: wrap; gap: 10px; }
+.uppgift-valknapp { min-width: 72px; min-height: 56px; font-family: var(--f-m); font-size: 24px; background: transparent; color: var(--fg); border: 2px solid var(--linje); cursor: pointer; }
+.uppgift-valknapp.vald { border-color: var(--barnsten); background: #e2a24a26; color: var(--barnsten); }
+.uppgift-klocka { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.uppgift-klocka svg { max-width: 100%; height: auto; filter: drop-shadow(0 10px 20px #0008); }
+.uppgift-tid { margin: 0; font-family: var(--f-m); font-size: 36px; color: var(--barnsten); letter-spacing: .06em; font-variant-numeric: tabular-nums; }

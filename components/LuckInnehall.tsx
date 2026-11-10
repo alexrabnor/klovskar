@@ -6,6 +6,7 @@ import { Zoombar } from "./Zoombar";
 import { Karta, Loggbok, Misstankta, Pussel } from "./Interaktioner";
 import { berattelseDatum } from "@/lib/tid";
 import { SaSpelarNi } from "./SaSpelarNi";
+import { Uppgift } from "./Uppgift";
 
 /** Gemensam rendering av en lucka – används i laget, i smakprovet och i admin. */
 export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; platser?: Plats[]; personer?: Person[] }) {
@@ -35,6 +36,7 @@ export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; plats
           <Pussel bitar={lucka.pussel} />
         </section>
       )}
+      {lucka.uppgift && <Uppgift nr={lucka.nr} u={lucka.uppgift} />}
     </>
   );
 }
