@@ -241,7 +241,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 
 /* ------------------------------------------------------------------ zoom */
 .zoom { position: relative; overflow: hidden; touch-action: none; cursor: zoom-in; background: #000; border-radius: 4px; border: 1px solid var(--linje); user-select: none; }
-.zoom img { transform-origin: 0 0; will-change: transform; pointer-events: none; }
+.zoom img { display: block; transform-origin: 0 0; will-change: transform; pointer-events: none; transition: opacity .35s ease-out; }
+.zoom img.laddar { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .zoom img { transition: none; } }
 .zoom-kontroller { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 6px; }
 .zoom-kontroller button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: #0b161bcc; color: var(--fg); font-size: 20px; cursor: pointer; }
 .lupp { position: absolute; width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--barnsten); box-shadow: 0 10px 30px #000a; pointer-events: none; background-repeat: no-repeat; display: none; }

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { bildUrl } from "./Bild";
-import { Zoombar } from "./Zoombar";
+import { Zoombar, type BildInfoProp } from "./Zoombar";
 import type { Plats } from "@/content/karta";
 import type { Person } from "@/content/personer";
 
@@ -23,11 +23,11 @@ export function Karta({ platser }: { platser: Plats[] }) {
   );
 }
 
-export function Loggbok({ namn, alt, transkription }: { namn: string; alt: string; transkription: string }) {
+export function Loggbok({ namn, alt, transkription, info }: { namn: string; alt: string; transkription: string; info?: BildInfoProp | null }) {
   const [visa, setVisa] = useState(false);
   return (
     <div className="stack">
-      <Zoombar namn={namn} alt={alt} prioritet />
+      <Zoombar namn={namn} alt={alt} prioritet info={info} />
       <div>
         <button type="button" className="knapp knapp-sekundar" onClick={() => setVisa((v) => !v)} aria-expanded={visa}>
           {visa ? "Dölj transkription" : "Läs transkription"}

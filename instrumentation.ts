@@ -11,4 +11,10 @@ export async function register() {
   const gallraSakert = () => { try { gallra(); } catch (e) { console.error("[gallring]", e); } };
   setTimeout(gallraSakert, 30_000);
   setInterval(gallraSakert, 60 * 60_000);
+  // Skapa alla bildstorlekar i förväg – en utbytt bild får nya varianter vid nästa omstart eller första visning
+  const { vamCache } = await import("./lib/bilder");
+  setTimeout(() => {
+    const t = Date.now();
+    vamCache().then((n) => console.log(`[bilder] ${n} varianter klara på ${Math.round((Date.now() - t) / 1000)} s`)).catch((e) => console.error("[bilder]", e));
+  }, 5_000);
 }

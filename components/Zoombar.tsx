@@ -3,7 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { bildUrl } from "./Bild";
 
 // Pinch och dra på mobil, hjul och förstoringsglas på dator.
-export function Zoombar({ namn, alt, prioritet }: { namn: string; alt: string; prioritet?: boolean }) {
+export interface BildInfoProp { w: number; h: number; lqip: string }
+
+export function Zoombar({ namn, alt, prioritet, info }: { namn: string; alt: string; prioritet?: boolean; info?: BildInfoProp | null }) {
+  const [laddad, setLaddad] = useState(false);
   const ram = useRef<HTMLDivElement>(null);
   const bild = useRef<HTMLImageElement>(null);
   const lupp = useRef<HTMLDivElement>(null);
@@ -30,6 +33,9 @@ export function Zoombar({ namn, alt, prioritet }: { namn: string; alt: string; p
     t.current.s = s1;
     tillamp();
   };
+
+  // En bild som redan låg i webbläsarens cache hinner bli klar före hydreringen
+  useEffect(() => { if (bild.current?.complete && bild.current.naturalWidth) setLaddad(true); }, []);
 
   useEffect(() => {
     const el = ram.current!;
@@ -88,16 +94,24 @@ export function Zoombar({ namn, alt, prioritet }: { namn: string; alt: string; p
 
   return (
     <figure style={{ margin: 0 }}>
-      <div ref={ram} className="zoom" onPointerDown={ned} onPointerMove={flytta} onPointerUp={upp} onPointerCancel={upp} onDoubleClick={dubbel}>
+      <div ref={ram} className="zoom"
+        style={info ? { aspectRatio: `${info.w} / ${info.h}`, backgroundImage: `url(${info.lqip})`, backgroundSize: "cover" } : undefined}
+        onPointerDown={ned} onPointerMove={flytta} onPointerUp={upp} onPointerCancel={upp} onDoubleClick={dubbel}>
         <img
           ref={bild}
           src={bildUrl(namn, 960)}
-          srcSet={`${bildUrl(namn, 640)} 640w, ${bildUrl(namn, 960)} 960w, ${bildUrl(namn, 1600)} 1600w`}
+          srcSet={`${bildUrl(namn, 640)} 640w, ${bildUrl(namn, 960)} 960w, ${bildUrl(namn, 1200)} 1200w, ${bildUrl(namn, 1600)} 1600w`}
           sizes="(max-width: 760px) 100vw, 760px"
           alt={alt}
           loading={prioritet ? "eager" : "lazy"}
+          fetchPriority={prioritet ? "high" : undefined}
+          decoding="async"
+          width={info?.w}
+          height={info?.h}
+          onLoad={() => setLaddad(true)}
           draggable={false}
-          style={{ width: "100%" }}
+          className={info && !laddad ? "laddar" : undefined}
+          style={{ width: "100%", height: "auto" }}
         />
         <div ref={lupp} className={`lupp${luppPa ? " pa" : ""}`} style={{ backgroundImage: `url(${bildUrl(namn, 1600)})` }} />
         <div className="zoom-kontroller">

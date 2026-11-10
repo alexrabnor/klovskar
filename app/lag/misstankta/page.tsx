@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { kravInloggad } from "@/lib/session";
 import { PERSONER } from "@/content/personer";
-import { Zoombar } from "@/components/Zoombar";
+import { ZoombarMedInfo } from "@/components/ZoombarServer";
 import { Misstankta } from "@/components/Interaktioner";
 
 export const metadata: Metadata = { title: "De misstänkta" };
@@ -11,7 +11,7 @@ export default async function MisstanktaSida() {
   return (
     <main className="sida">
       <h1 className="rubrik-mellan">De misstänkta</h1>
-      <Zoombar namn="misstankta" alt="Sju svartvita porträtt på en träskiva med namnlappar." prioritet />
+      <ZoombarMedInfo namn="misstankta" alt="Sju svartvita porträtt på en träskiva med namnlappar." prioritet />
       <Misstankta personer={PERSONER} />
     </main>
   );

@@ -2,16 +2,18 @@ import type { Lucka } from "@/content/typer";
 import type { Plats } from "@/content/karta";
 import type { Person } from "@/content/personer";
 import { Dokument } from "./Dokument";
-import { Zoombar } from "./Zoombar";
+import { ZoombarMedInfo } from "./ZoombarServer";
+import { bildInfo } from "@/lib/bilder";
 import { Karta, Loggbok, Misstankta, Pussel } from "./Interaktioner";
 import { berattelseDatum } from "@/lib/tid";
 import { SaSpelarNi } from "./SaSpelarNi";
 import { Uppgift } from "./Uppgift";
 
 /** Gemensam rendering av en lucka – används i laget, i smakprovet och i admin. */
-export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; platser?: Plats[]; personer?: Person[] }) {
+export async function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; platser?: Plats[]; personer?: Person[] }) {
   const loggbok = lucka.interaktion === "loggbok" && lucka.transkription;
   const karta = lucka.interaktion === "karta" && platser;
+  const loggbokInfo = loggbok ? await bildInfo(lucka.bilder[0].namn) : null;
   return (
     <>
       <header className="luckhuvud">
@@ -23,11 +25,11 @@ export function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; plats
       {karta ? (
         <Karta platser={platser} />
       ) : loggbok ? (
-        <Loggbok namn={lucka.bilder[0].namn} alt={lucka.bilder[0].alt} transkription={lucka.transkription!} />
+        <Loggbok namn={lucka.bilder[0].namn} alt={lucka.bilder[0].alt} transkription={lucka.transkription!} info={loggbokInfo} />
       ) : (
-        lucka.bilder.map((b, i) => <Zoombar key={b.namn} namn={b.namn} alt={b.alt} prioritet={i === 0} />)
+        lucka.bilder.map((b, i) => <ZoombarMedInfo key={b.namn} namn={b.namn} alt={b.alt} prioritet={i === 0} />)
       )}
-      {loggbok && lucka.bilder.slice(1).map((b) => <Zoombar key={b.namn} namn={b.namn} alt={b.alt} />)}
+      {loggbok && lucka.bilder.slice(1).map((b) => <ZoombarMedInfo key={b.namn} namn={b.namn} alt={b.alt} />)}
       {lucka.interaktion === "misstankta" && personer && <Misstankta personer={personer} />}
       {lucka.avsnitt.map((a, i) => <Dokument key={i} a={a} />)}
       {lucka.interaktion === "pussel" && lucka.pussel && (

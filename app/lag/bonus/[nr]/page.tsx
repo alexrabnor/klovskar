@@ -5,7 +5,7 @@ import { upplastBonus } from "@/lib/innehall";
 import { bonusNr } from "@/content/bonus";
 import { arOppen } from "@/lib/tid";
 import { Dokument } from "@/components/Dokument";
-import { Zoombar } from "@/components/Zoombar";
+import { ZoombarMedInfo } from "@/components/ZoombarServer";
 import { Gatan, type KlientGata } from "./Gatan";
 import { Signalflaggor } from "@/components/Signalflaggor";
 
@@ -49,7 +49,7 @@ export default async function BonusSida({ params }: { params: Promise<{ nr: stri
         <h1 className="rubrik-stor">{upplast.titel}</h1>
         <p className="ingress">{upplast.ingress}</p>
       </header>
-      {upplast.bilder.map((bild, i) => <Zoombar key={bild.namn} namn={bild.namn} alt={bild.alt} prioritet={i === 0} />)}
+      {upplast.bilder.map((bild, i) => <ZoombarMedInfo key={bild.namn} namn={bild.namn} alt={bild.alt} prioritet={i === 0} />)}
       {upplast.avsnitt.map((a, i) => <Dokument key={i} a={a} />)}
     </main>
   );

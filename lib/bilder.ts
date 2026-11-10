@@ -6,7 +6,7 @@ import sharp from "sharp";
 const BILD_DIR = process.env.BILD_DIR || path.join(process.cwd(), "bilder");
 const CACHE_DIR = path.join(path.dirname(process.env.DB_PATH || path.join(process.cwd(), "data", "x")), "bildcache");
 const ANDELSER = [".jpg", ".jpeg", ".png", ".webp"];
-export const BREDDER = [320, 640, 960, 1600] as const;
+export const BREDDER = [320, 640, 960, 1200, 1600] as const;
 
 /** Bilder som alltid får visas: smakprov (lucka 1–2), meny och startsida. */
 const PUBLIKA = new Set(["omslag", "hotellet-dag", "koket", "karta", "misstankta", "brottsplats", "lucka-01"]);
@@ -46,6 +46,49 @@ export async function skaladBild(fil: string, namn: string, bredd: number): Prom
   fs.mkdirSync(CACHE_DIR, { recursive: true });
   fs.writeFileSync(cachefil, buf);
   return buf;
+}
+
+export interface BildInfo { w: number; h: number; lqip: string }
+const infoCache = new Map<string, BildInfo>();
+
+/** Mått och en liten suddig förhandsbild (data-URL, under 1 kB) som visas medan bilden laddas. */
+export async function bildInfo(namn: string): Promise<BildInfo | null> {
+  const fil = hittaBildfil(namn);
+  if (!fil) return null;
+  const nyckel = `${namn}-${Math.floor(fs.statSync(fil).mtimeMs)}`;
+  const finns = infoCache.get(nyckel);
+  if (finns) return finns;
+  try {
+    const bild = sharp(fil).rotate();
+    const meta = await bild.metadata();
+    // rotate() vänder måtten för stående foton med EXIF-orientering 5–8
+    const vand = (meta.orientation ?? 1) >= 5;
+    const w = (vand ? meta.height : meta.width) ?? 4;
+    const h = (vand ? meta.width : meta.height) ?? 3;
+    const liten = await sharp(fil).rotate().resize({ width: 24 }).blur(1.2).webp({ quality: 40 }).toBuffer();
+    const info = { w, h, lqip: `data:image/webp;base64,${liten.toString("base64")}` };
+    infoCache.set(nyckel, info);
+    return info;
+  } catch (e) {
+    console.warn(`[bild] info misslyckades: ${namn}`, (e as Error).message);
+    return null;
+  }
+}
+
+/** Skapar alla skalade varianter i förväg, så att ingen besökare behöver vänta på första kodningen. */
+export async function vamCache(): Promise<number> {
+  let antal = 0;
+  const filer = fs.existsSync(BILD_DIR) ? fs.readdirSync(BILD_DIR) : [];
+  for (const f of filer) {
+    const ext = path.extname(f).toLowerCase();
+    const namn = path.basename(f, ext);
+    if (!ANDELSER.includes(ext) || !/^[a-z0-9-]+$/.test(namn)) continue;
+    const fil = hittaBildfil(namn);
+    if (!fil) continue;
+    for (const bredd of BREDDER) { await skaladBild(fil, namn, bredd); antal++; }
+    await bildInfo(namn);
+  }
+  return antal;
 }
 
 export function platshallareSvg(namn: string): string {

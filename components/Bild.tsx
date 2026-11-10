@@ -11,7 +11,7 @@ export function Bild({ namn, alt, sizes = "(max-width: 720px) 100vw, 720px", cla
   return (
     <img
       src={bildUrl(namn, 960)}
-      srcSet={`${bildUrl(namn, 640)} 640w, ${bildUrl(namn, 960)} 960w, ${bildUrl(namn, 1600)} 1600w`}
+      srcSet={`${bildUrl(namn, 640)} 640w, ${bildUrl(namn, 960)} 960w, ${bildUrl(namn, 1200)} 1200w, ${bildUrl(namn, 1600)} 1600w`}
       sizes={sizes}
       alt={alt}
       className={className}
