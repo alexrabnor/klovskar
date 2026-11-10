@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { bildUrl } from "./Bild";
 import { Zoombar } from "./Zoombar";
 import type { Plats } from "@/content/karta";
@@ -54,12 +54,18 @@ export function Pussel({ bitar }: { bitar: string[] }) {
   const [vald, setVald] = useState<number | null>(null);
   const [drar, setDrar] = useState<number | null>(null);
   const klar = ordning.every((v, i) => v === i);
+  const rattAntal = ordning.filter((v, i) => v === i).length;
 
   useEffect(() => {
-    try { if (localStorage.getItem("klov-pussel-6") === "klar") setOrdning(bitar.map((_, i) => i)); } catch {}
+    try { if (localStorage.getItem("klov-pussel-6") === "klar") { aterstalld.current = true; setOrdning(bitar.map((_, i) => i)); } } catch {}
   }, [bitar]);
+  const losRuta = useRef<HTMLDivElement>(null);
+  const aterstalld = useRef(false);
   useEffect(() => {
-    if (klar) try { localStorage.setItem("klov-pussel-6", "klar"); } catch {}
+    if (!klar) return;
+    try { localStorage.setItem("klov-pussel-6", "klar"); } catch {}
+    // Rulla fram bekräftelsen när laget löser pusslet nu – inte när ett redan löst pussel laddas
+    if (!aterstalld.current) losRuta.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [klar]);
 
   const byt = (a: number, b: number) => {
@@ -75,7 +81,12 @@ export function Pussel({ bitar }: { bitar: string[] }) {
 
   return (
     <div className="stack">
-      <p className="dampad liten">{klar ? "Brevet är helt." : "Tryck på två bitar för att byta plats på dem, eller dra en bit till rätt ställe. Börja med datumet."}</p>
+      {!klar && (
+        <p className="dampad liten">
+          Tryck på två bitar för att byta plats på dem, eller dra en bit till rätt ställe. Börja med datumet.
+          En bit som ligger rätt rätar upp sig och får en gul kant. <b aria-live="polite">{rattAntal} av {bitar.length} på plats.</b>
+        </p>
+      )}
       <ol className={`pussel${klar ? " pussel-klar" : ""}`}>
         {ordning.map((bit, pos) => (
           <li key={bit}
@@ -85,13 +96,17 @@ export function Pussel({ bitar }: { bitar: string[] }) {
             onDrop={() => { if (drar !== null && drar !== pos) byt(drar, pos); setDrar(null); }}
             onClick={() => tryck(pos)}
             className={`pussel-bit${vald === pos ? " vald" : ""}${ordning[pos] === pos ? " ratt" : ""}`}
-            style={{ transform: klar ? "none" : `rotate(${((bit * 37) % 7) - 3}deg)` }}
+            style={{ transform: klar || ordning[pos] === pos ? "none" : `rotate(${((bit * 37) % 7) - 3}deg)` }}
           >
             {bitar[bit]}
           </li>
         ))}
       </ol>
-      {klar && <p className="ok">Ni har fått ihop brevet. Läs det igen, långsamt.</p>}
+      {klar && (
+        <div className="pussel-lost" role="status" ref={losRuta}>
+          <b>✓ Brevet är helt.</b> Alla elva bitar ligger rätt. Läs det igen, långsamt – vilket besked fick Harald den 28 november?
+        </div>
+      )}
     </div>
   );
 }
