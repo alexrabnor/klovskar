@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Bild } from "@/components/Bild";
 import { Snofall } from "@/components/Snofall";
 import { Sidfot } from "@/components/Sidfot";
-import { prisKr } from "@/lib/stripe";
+import { kopOppet, prisKr } from "@/lib/stripe";
 import { inloggad } from "@/lib/session";
 import { PERSONER } from "@/content/personer";
 
@@ -40,8 +40,17 @@ export default async function Start() {
               Varje morgon öppnas en ny lucka med kommissarie Sandahls material. Ni löser fallet tillsammans – och på julafton lämnar ni in er anklagelse. Hela 5 personer kan vara med i samma lag.
             </p>
             <div className="rad">
-              <Link className="knapp" href="/kop">Köp för {pris} kr</Link>
-              <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort i present</Link>
+              {kopOppet() ? (
+                <>
+                  <Link className="knapp" href="/kop">Köp för {pris} kr</Link>
+                  <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort i present</Link>
+                </>
+              ) : (
+                <>
+                  <span className="slapps-snart">Släpps snart</span>
+                  <Link className="knapp" href="/smakprov/1">Läs lucka 1 gratis</Link>
+                </>
+              )}
             </div>
             <p className="liten dampad">
               {i ? <>Ni spelar redan som <b>{i.lag.namn}</b>. <Link href="/lag">Till kalendern →</Link></> : <>Har ni redan en kod eller en lagkod? <Link href="/borja">Börja här →</Link></>}
@@ -86,7 +95,7 @@ export default async function Start() {
               <p className="etikett">Julklapp</p>
               <h2 className="rubrik-mellan">Ge bort ett mord</h2>
               <p>Köp som present så får du ett presentkort med koden – att skriva ut, lägga under granen eller skicka vidare. Hela 5 personer kan vara med i laget. Mottagaren väljer själv när deras 24 dagar börjar.</p>
-              <div><Link className="knapp" href="/kop?present=1">Köp presentkort – {pris} kr (ord. 199 kr)</Link></div>
+              <div>{kopOppet() ? <Link className="knapp" href="/kop?present=1">Köp presentkort – {pris} kr (ord. 199 kr)</Link> : <span className="slapps-snart">Presentkort släpps snart</span>}</div>
             </div>
           </section>
 

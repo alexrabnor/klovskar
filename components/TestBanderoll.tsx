@@ -1,8 +1,9 @@
-import { stripeLage } from "@/lib/stripe";
+import { kopOppet, stripeLage } from "@/lib/stripe";
 
 export function TestBanderoll() {
   const testDatum = process.env.TESTLAGE_DATUM?.trim();
-  const testBetalning = stripeLage() === "test";
+  // Bara när köpet faktiskt är öppet i testläge – annars finns inget att varna för
+  const testBetalning = kopOppet() && stripeLage() === "test";
   if (!testDatum && !testBetalning) return null;
   return (
     <div className="testbanderoll" role="status">

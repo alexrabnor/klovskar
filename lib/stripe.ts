@@ -19,6 +19,14 @@ export function stripeKonfigurerad(): boolean {
   return !!nyckel();
 }
 
+/**
+ * Är butiken öppen för kunder? Bara i live-läge – i testläge skulle ett riktigt kort nekas
+ * och testkortet ge en riktig kod gratis. TESTKOP=1 öppnar ändå, för att prova köpkedjan.
+ */
+export function kopOppet(): boolean {
+  return stripeKonfigurerad() && (stripeLage() === "live" || process.env.TESTKOP === "1");
+}
+
 let klient: Stripe | null = null;
 let klientLage: StripeLage | null = null;
 

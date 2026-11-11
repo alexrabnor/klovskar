@@ -149,3 +149,6 @@ Efter testarfeedback ("lätt, men fler frivilliga extrauppgifter vore kul") finn
 Lösta uppgifter sparas per lag i `klov_uppgift` (inte localStorage – då blandades lag på samma telefon, och laget såg inte varandras lösningar). De ger **inga poäng** och påverkar inte topplistan; facit visar "Uppgifter: X av 9". Servern litar på klienten när den markerar en uppgift löst – svaren finns ändå i den öppna luckan, och det finns inget att vinna på att fuska.
 
 Bonus 1:s uppdragsrad säger inte längre hur chiffret löses ("tre steg") – ledtråden räcker. Två testare: den ena tyckte det var för otydligt (då stod det bara "flytta tillbaka"), den andra att det var övertydligt när båda stod med.
+
+## Köpet stängt tills Stripe är live (2026-11-11)
+`kopOppet()` i `lib/stripe.ts`: köpet är öppet bara när `STRIPE_LAGE=live` (eller `TESTKOP=1` för att prova köpkedjan i sandlådan). I testläge skulle ett riktigt kort nekas och testkortet 4242 ge en riktig kod gratis. Stängt: startsidan visar "Släpps snart" + "Läs lucka 1 gratis", /kop visar en släpps-snart-ruta, och server-actionen vägrar. Testbanderollen visas bara när köpet faktiskt är öppet i testläge. Släpp = lägg in live-nycklarna och sätt `STRIPE_LAGE=live`.

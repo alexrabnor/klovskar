@@ -434,3 +434,4 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .uppgift-klocka { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
 .uppgift-klocka svg { max-width: 100%; height: auto; filter: drop-shadow(0 10px 20px #0008); }
 .uppgift-tid { margin: 0; font-family: var(--f-m); font-size: 36px; color: var(--barnsten); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
+.slapps-snart { display: inline-flex; align-items: center; padding: 10px 14px; border: 1px dashed var(--barnsten-mork); border-radius: 4px; color: var(--barnsten); font: 14px var(--f-m); letter-spacing: .08em; text-transform: uppercase; }

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { prisKr } from "@/lib/stripe";
+import { kopOppet, prisKr } from "@/lib/stripe";
 
 export const metadata: Metadata = { title: "Börja" };
+export const dynamic = "force-dynamic";
 
 export default function Borja() {
   return (
@@ -20,7 +21,7 @@ export default function Borja() {
         </Link>
         <Link href="/kop" className="panel valkort">
           <span className="etikett">Jag har ingen kod</span>
-          <span>Köp spelet för {prisKr()} kr för ett helt lag.</span>
+          <span>{kopOppet() ? `Köp spelet för ${prisKr()} kr för ett helt lag.` : "Spelet släpps snart. Köpet öppnar i god tid före den 1 december."}</span>
         </Link>
       </div>
       <p className="dampad liten">Har du bytt telefon? Använd din personliga inloggningslänk, eller gå med i laget igen med samma namn – någon i laget får godkänna.</p>

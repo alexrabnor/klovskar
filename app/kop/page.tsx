@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { KopFormular } from "./KopFormular";
-import { prisKr, stripeKonfigurerad } from "@/lib/stripe";
+import { kopOppet, prisKr } from "@/lib/stripe";
 import { adventStart, luckorDirekt } from "@/lib/lag";
 import { Sidfot } from "@/components/Sidfot";
 
@@ -28,9 +28,15 @@ export default async function Kop({ searchParams }: { searchParams: Promise<{ pr
             så att ni kan läsa ikapp. Ni kan också välja ett eget startdatum när ni skapar laget.
           </p>
         )}
-        {stripeKonfigurerad()
+        {kopOppet()
           ? <KopFormular present={present} />
-          : <p className="panel fel">Betalningen är inte aktiverad än. Försök igen senare.</p>}
+          : (
+            <div className="panel stack">
+              <p><b>Spelet släpps snart.</b> Köpet öppnar inom kort, i god tid före den 1 december.</p>
+              <p className="dampad">Under tiden kan ni läsa de två första luckorna gratis.</p>
+              <div><Link className="knapp knapp-sekundar" href="/smakprov/1">Läs lucka 1</Link></div>
+            </div>
+          )}
       </main>
       <Sidfot />
     </>
