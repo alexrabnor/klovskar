@@ -33,7 +33,7 @@ export default async function Smakprov({ params }: { params: Promise<{ nr: strin
           {kopOppet() ? (
             <div className="rad">
               <Link className="knapp" href="/kop">Köp för {prisKr()} kr</Link>
-              <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort</Link>
+              <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort i julklapp</Link>
             </div>
           ) : <p className="dampad"><b>Spelet släpps snart.</b> Köpet öppnar i god tid före den 1 december.</p>}
         </div>

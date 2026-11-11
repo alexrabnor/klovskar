@@ -43,7 +43,7 @@ export default async function Start() {
               {kopOppet() ? (
                 <>
                   <Link className="knapp" href="/kop">Köp för {pris} kr</Link>
-                  <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort i present</Link>
+                  <Link className="knapp knapp-sekundar" href="/kop?present=1">Ge bort i julklapp</Link>
                 </>
               ) : (
                 <>
@@ -94,8 +94,8 @@ export default async function Start() {
             <div className="panel present-panel">
               <p className="etikett">Julklapp</p>
               <h2 className="rubrik-mellan">Ge bort ett mord</h2>
-              <p>Köp som present så får du ett presentkort med koden – att skriva ut, lägga under granen eller skicka vidare. Hela 5 personer kan vara med i laget. Mottagaren väljer själv när deras 24 dagar börjar.</p>
-              <div>{kopOppet() ? <Link className="knapp" href="/kop?present=1">Köp presentkort – {pris} kr (ord. 199 kr)</Link> : <span className="slapps-snart">Presentkort släpps snart</span>}</div>
+              <p>Ge bort spelet i julklapp så får du ett presentkort med koden – att skriva ut, lägga under granen eller skicka vidare. Hela 5 personer kan vara med i laget. Mottagaren väljer själv när deras 24 dagar börjar.</p>
+              <div>{kopOppet() ? <Link className="knapp" href="/kop?present=1">Ge bort i julklapp – {pris} kr (ord. 199 kr)</Link> : <span className="slapps-snart">Julklappen släpps snart</span>}</div>
             </div>
           </section>
 

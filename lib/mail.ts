@@ -67,7 +67,7 @@ const knapp = (url: string, text: string) =>
 export async function mejlaKop(epost: string, kod: string, typ: "kop" | "present") {
   const lank = `${BAS()}/aktivera?kod=${encodeURIComponent(kod)}`;
   if (typ === "present") {
-    return skicka(epost, "Ditt presentkort – Mordet på Klovskär", ram(`
+    return skicka(epost, "Din julklapp – Mordet på Klovskär", ram(`
 <h1 style="font-weight:normal;font-size:28px;margin:0 0 12px">Tack för ditt köp!</h1>
 <p>Här är presentkortet. Skicka vidare länken nedan, eller skriv ut presentkortet och lägg det under granen.</p>
 ${knapp(`${BAS()}/presentkort/${encodeURIComponent(kod)}`, "Öppna presentkortet")}

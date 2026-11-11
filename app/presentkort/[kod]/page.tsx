@@ -15,7 +15,7 @@ export default async function Presentkort({ params }: { params: Promise<{ kod: s
       <article className="presentkort">
         <div className="presentkort-bild"><Bild namn="omslag" alt="Fyrtornet och hotellet på Klovskär en snöig natt." sizes="360px" prioritet /></div>
         <div className="presentkort-text">
-          <p className="etikett">Presentkort</p>
+          <p className="etikett">En julklapp till dig · Presentkort</p>
           <h1>Mordet på Klovskär</h1>
           <p>Adventsmysteriet 2026: 24 luckor – hela fem personer kan vara med i laget. Ni väljer själva när de 24 dagarna börjar.</p>
           <p className="presentkort-kod">{kod.kod}</p>
