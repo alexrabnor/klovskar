@@ -103,7 +103,13 @@ function Morse({ morse }: { morse: string }) {
         <button type="button" className="knapp knapp-sekundar" onClick={spela} disabled={spelar}>{spelar ? "Lampan blinkar …" : "Titta på lampan"}</button>
         <button type="button" className="lank-knapp" onClick={() => setVisaText((v) => !v)}>{visaText ? "Dölj" : "Visa"} som prickar och streck</button>
       </div>
-      {visaText && <p className="chiffertext" style={{ fontSize: 26 }}>{morse.split(" ").join("   ")}</p>}
+      {visaText && (
+        <p className="chiffertext morsetext" aria-label={`Morse: ${morse}`}>
+          {morse.split(" ").map((b, i) => (
+            <span key={i} className="morse-bokstav">{b.split("").map((t) => (t === "." ? "•" : "—")).join("\u2009")}</span>
+          ))}
+        </p>
+      )}
     </div>
   );
 }
