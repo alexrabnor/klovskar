@@ -51,7 +51,7 @@ export default async function LuckSida({ params }: { params: Promise<{ nr: strin
         </Link>
       )}
       {lucka.interaktion !== "misstankta" && (
-        <Link href="/lag/misstankta" className="panel misstankta-lank">
+        <Link href={`/lag/misstankta?fran=${nr}`} className="panel misstankta-lank">
           <span aria-hidden="true">👤</span>
           <span><b>De misstänkta</b> <span className="dampad">– se alla igen</span></span>
           <span aria-hidden="true" className="dampad">→</span>
