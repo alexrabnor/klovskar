@@ -55,6 +55,10 @@ export default async function Start() {
             <p className="liten dampad">
               {i ? <>Ni spelar redan som <b>{i.lag.namn}</b>. <Link href="/lag">Till kalendern →</Link></> : <>Har ni redan en kod eller en lagkod? <Link href="/borja">Börja här →</Link></>}
             </p>
+            <figure className="omdome">
+              <blockquote>”Först vid lucka 21 förstod jag vem det var.”</blockquote>
+              <figcaption>– Fredrik</figcaption>
+            </figure>
           </div>
         </section>
 
