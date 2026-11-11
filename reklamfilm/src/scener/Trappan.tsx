@@ -16,8 +16,8 @@ export const Trappan: React.FC = () => {
       />
       <Vinjett band="topp" />
       <Textyta topp={0.13}>
-        <Rad fran={6} storlek={88}>Färjan går inte.</Rad>
-        <Rad fran={30} storlek={88}>Ingen kan lämna ön.</Rad>
+        <Rad fran={8} storlek={88}>Färjan går inte.</Rad>
+        <Rad fran={53} storlek={88}>Ingen kan lämna ön.</Rad>
       </Textyta>
     </AbsoluteFill>
   );

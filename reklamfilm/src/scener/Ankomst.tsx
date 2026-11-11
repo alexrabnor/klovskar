@@ -12,14 +12,14 @@ export const Ankomst: React.FC = () => {
       <RorligBild
         fil="hotellet-dag.jpg"
         position="20% 50%"
-        skala={interpolate(frame, [0, 130], [1.12, 1.22], { extrapolateRight: "clamp" })}
-        forskjutning={interpolate(frame, [0, 130], ["4% 0%", "-12% 0%"], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) })}
+        skala={interpolate(frame, [0, 165], [1.12, 1.22], { extrapolateRight: "clamp" })}
+        forskjutning={interpolate(frame, [0, 165], ["4% 0%", "-12% 0%"], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) })}
       />
       <Vinjett band="botten" />
       <Sno antal={70} />
       <Textyta topp={0.56}>
-        <Rad typ="maskin" fran={6} storlek={44} farg={FARG.barnsten}>December 1962</Rad>
-        <Rad fran={20} storlek={92}>Isen har lagt sig runt Klovskär.</Rad>
+        <Rad typ="maskin" fran={8} storlek={44} farg={FARG.barnsten}>December 1962</Rad>
+        <Rad fran={88} storlek={92}>Isen har lagt sig runt Klovskär.</Rad>
       </Textyta>
     </AbsoluteFill>
   );

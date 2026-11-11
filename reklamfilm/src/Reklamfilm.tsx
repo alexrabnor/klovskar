@@ -11,7 +11,9 @@ import { Luckor } from "./scener/Luckor";
 import { Slut, SlutProps } from "./scener/Slut";
 
 export const OVERGANG = 15;
-export const SCENER = { ankomst: 120, telegram: 120, trappan: 110, deSju: 175, luckor: 165, slut: 165 };
+// Tajmat efter berättarrösten (public/ljud/berattare.mp3, startar efter RÖST_START bildrutor).
+export const RÖST_START = 9;
+export const SCENER = { ankomst: 162, telegram: 126, trappan: 113, deSju: 157, luckor: 203, slut: 184 };
 export const LANGD = Object.values(SCENER).reduce((a, b) => a + b, 0) - OVERGANG * (Object.keys(SCENER).length - 1);
 
 // Var varje scen börjar i den färdiga filmen (för ljudeffekter).
@@ -43,23 +45,27 @@ export const Reklamfilm: React.FC<SlutProps> = (props) => {
       {/* Ljud: alla CC0 från Freesound, se ../public/ljud/KALLOR.md i spelet */}
       <Audio
         src={staticFile("ljud/vind.mp3")}
-        volume={(f) => interpolate(f, [0, 20, durationInFrames - 30, durationInFrames], [0, 0.8, 0.8, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
+        volume={(f) => interpolate(f, [0, 20, durationInFrames - 30, durationInFrames], [0, 0.45, 0.45, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
       />
       <Audio
         src={staticFile("ljud/hav.mp3")}
-        volume={(f) => interpolate(f, [0, 30, start[1] + 20, start[1] + 50], [0, 0.35, 0.35, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
+        volume={(f) => interpolate(f, [0, 30, start[1] + 20, start[1] + 50], [0, 0.25, 0.25, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
       />
       <Sequence from={start[1] + 4} durationInFrames={50}>
-        <Audio src={staticFile("ljud/oppna.mp3")} volume={0.9} />
+        <Audio src={staticFile("ljud/oppna.mp3")} volume={0.6} />
       </Sequence>
       <Sequence from={start[2]} durationInFrames={start[4] - start[2] + 10}>
         <Audio
           src={staticFile("ljud/klocka.mp3")}
-          volume={(f) => interpolate(f, [0, 15, start[4] - start[2] - 10, start[4] - start[2] + 10], [0, 0.9, 0.9, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
+          volume={(f) => interpolate(f, [0, 15, start[4] - start[2] - 10, start[4] - start[2] + 10], [0, 0.5, 0.5, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
         />
       </Sequence>
       <Sequence from={start[4]} durationInFrames={50}>
-        <Audio src={staticFile("ljud/oppna.mp3")} volume={0.7} />
+        <Audio src={staticFile("ljud/oppna.mp3")} volume={0.5} />
+      </Sequence>
+      {/* Berättarröst: ElevenLabs (eleven_v4) */}
+      <Sequence from={RÖST_START} name="Berättare">
+        <Audio src={staticFile("ljud/berattare.mp3")} volume={1} />
       </Sequence>
     </AbsoluteFill>
   );

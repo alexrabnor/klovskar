@@ -25,8 +25,8 @@ export const DeSju: React.FC = () => {
             width: bredd,
             borderRadius: 6 * s,
             boxShadow: "0 30px 80px rgba(0,0,0,.8)",
-            rotate: interpolate(frame, [0, 170], ["-1.5deg", "0.5deg"]),
-            scale: String(interpolate(frame, [0, 170], [0.94, 1.04], { easing: Easing.inOut(Easing.quad) })),
+            rotate: interpolate(frame, [0, 160], ["-1.5deg", "0.5deg"]),
+            scale: String(interpolate(frame, [0, 160], [0.94, 1.04], { easing: Easing.inOut(Easing.quad) })),
           }}
         />
       </AbsoluteFill>
@@ -35,7 +35,7 @@ export const DeSju: React.FC = () => {
         <Rad fran={6} storlek={hog ? 86 : 70}>Sju personer var på ön den natten.</Rad>
       </Textyta>
       <Textyta topp={hog ? 0.72 : 0.8}>
-        <Rad fran={70} storlek={hog ? 96 : 80} farg={FARG.barnsten}>En av dem är mördaren.</Rad>
+        <Rad fran={87} storlek={hog ? 96 : 80} farg={FARG.barnsten}>En av dem är mördaren.</Rad>
       </Textyta>
     </AbsoluteFill>
   );

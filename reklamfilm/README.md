@@ -1,6 +1,6 @@
 # Reklamfilm – Mordet på Klovskär
 
-En 26 sekunder lång film för sociala medier, byggd med [Remotion](https://www.remotion.dev).
+En 29 sekunder lång film för sociala medier, byggd med [Remotion](https://www.remotion.dev).
 Den använder bara publika bilder från spelet (omslag, hotellet, telegrammet i lucka 1, brottsplatsen, de misstänkta och kartan) och avslöjar inget om lösningen.
 
 | Komposition | Format | Till |
@@ -19,7 +19,10 @@ Texten ligger inom säkra zonen, så att knapparna och bildtexten i TikTok och R
 5. **Luckor**: "24 luckor · En ny varje morgon kl. 06.00 …"
 6. **Slut**: omslaget, priset och adventdeckare.se
 
-Ljudet är vind, hav, klocka och prassel från spelets egna CC0-ljud (se `../public/ljud/KALLOR.md`).
+## Ljud
+
+- **Berättarröst:** `public/ljud/berattare.mp3`, gjord i ElevenLabs (eleven_v4). Scenerna och texterna är tajmade efter pauserna i den. Den börjar `RÖST_START` bildrutor in i filmen (se `src/Reklamfilm.tsx`). Om du byter röstfil måste `SCENER` och textrutornas `fran` justeras efter de nya pauserna. Kommersiell användning kräver en betald ElevenLabs-plan.
+- **Bakgrund:** vind, hav, klocka och prassel från spelets egna CC0-ljud (se `../public/ljud/KALLOR.md`), nedtonade under rösten.
 
 ## Kör
 

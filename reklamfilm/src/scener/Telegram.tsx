@@ -18,8 +18,8 @@ export const Telegram: React.FC = () => {
       <Vinjett band="topp" />
       <Sno antal={30} styrka={0.6} />
       <Textyta topp={0.13}>
-        <Rad typ="maskin" fran={8} storlek={44} farg={FARG.barnsten}>Telegram · Stop</Rad>
-        <Rad fran={20} storlek={88}>Redaren Harald Ekberg hittas död i fyrtornet.</Rad>
+        <Rad typ="maskin" fran={4} storlek={44} farg={FARG.barnsten}>Telegram · Stop</Rad>
+        <Rad fran={14} storlek={88}>Redaren Harald Ekberg hittas död i fyrtornet.</Rad>
       </Textyta>
     </AbsoluteFill>
   );
