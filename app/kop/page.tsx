@@ -19,7 +19,7 @@ export default async function Kop({ searchParams }: { searchParams: Promise<{ pr
           <p className="etikett">{present ? "Julklapp" : "Köp"}</p>
           <h1 className="rubrik-mellan">{present ? "Ge bort Mordet på Klovskär i julklapp" : "Mordet på Klovskär – ett lag"}</h1>
           <p className="dampad">
-            Introduktionspris {prisKr()} kr (ord. 199 kr) för ett lag där hela 5 personer kan vara med. Betalning med kort, Apple Pay eller Google Pay via Stripe.
+            Introduktionspris {prisKr()} kr (ord. 199 kr) för ett lag där hela 5 personer kan vara med. Betalning med kort, Apple Pay, Google Pay eller Klarna via Stripe.
           </p>
         </header>
         {direkt > 0 && (
