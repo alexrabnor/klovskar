@@ -141,4 +141,11 @@ byggprompten gäller detta dokument.
 - Veronal 0,25 g/tablett (10 st = 2,5 g, inte dödligt); fyren luktar gas (AGA), inte fotogen.
 
 ## Uppgifter i luckorna (2026-11-10)
-Lucka 5 (hitta 22.52 i loggboken), 12 (räkna 2,5 g Veronal), 20 (blodgrupper ett barn till en O-far kan ha) och 23 (ställ fickuret på 22.52). De bekräftar fakta laget redan har fått, men pekar aldrig ut mördaren, eftersom blindtestet visade att fallet redan är lätt. Svaren ligger i `content/luckor.ts` och skickas till klienten först när luckan är öppen. Klarmarkeringen sparas per enhet i localStorage, som pusslet i lucka 6.
+Lucka 5 (hitta 22.52 i loggboken), 12 (räkna 2,5 g Veronal), 20 (blodgrupper ett barn till en O-far kan ha) och 23 (ställ fickuret på 22.52). De bekräftar fakta laget redan har fått, men pekar aldrig ut mördaren, eftersom blindtestet visade att fallet redan är lätt. Svaren ligger i `content/luckor.ts` och skickas till klienten först när luckan är öppen. ~~Klarmarkeringen sparas per enhet i localStorage~~ – se nedan.
+
+## Fler uppgifter, sparade per lag (2026-11-11)
+Efter testarfeedback ("lätt, men fler frivilliga extrauppgifter vore kul") finns nu nio uppgifter: nya i lucka 3 (räkna dödsfönstret 22.10–01.10), 8 (elva dagar mellan arsenikköpet och mordet), 11 (Elsas "han svajade"), 14 (Johan hörde steg och ett metalliskt ljud) och 19 (bara Harald och Margit hade tornnyckel). Lucka 19:s uppgift ligger nära lösningen, men säger inget luckan inte redan säger rakt ut.
+
+Lösta uppgifter sparas per lag i `klov_uppgift` (inte localStorage – då blandades lag på samma telefon, och laget såg inte varandras lösningar). De ger **inga poäng** och påverkar inte topplistan; facit visar "Uppgifter: X av 9". Servern litar på klienten när den markerar en uppgift löst – svaren finns ändå i den öppna luckan, och det finns inget att vinna på att fuska.
+
+Bonus 1:s uppdragsrad säger inte längre hur chiffret löses ("tre steg") – ledtråden räcker. Två testare: den ena tyckte det var för otydligt (då stod det bara "flytta tillbaka"), den andra att det var övertydligt när båda stod med.

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { kravInloggad, markeraOppnad } from "@/lib/session";
-import { oppenLucka } from "@/lib/innehall";
+import { lostaUppgifter, oppenLucka } from "@/lib/innehall";
 import { BONUS } from "@/content/bonus";
 import { PLATSER } from "@/content/karta";
 import { PERSONER } from "@/content/personer";
@@ -36,6 +36,8 @@ export default async function LuckSida({ params }: { params: Promise<{ nr: strin
         lucka={lucka}
         platser={lucka.interaktion === "karta" ? PLATSER : undefined}
         personer={lucka.interaktion === "misstankta" ? PERSONER : undefined}
+        uppgiftLost={lucka.uppgift ? lostaUppgifter(lag.id).has(nr) : undefined}
+        sparaUppgift
       />
       {lucka.interaktion === "anklagelse" && (
         <div className="panel stack">

@@ -1,26 +1,26 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { Uppgift as UppgiftData } from "@/content/typer";
-
-const nyckel = (nr: number) => `klov-uppgift-${nr}`;
+import { markeraUppgift } from "@/app/lag/lucka/actions";
 
 /** En liten uppgift i en lucka: välj en rad, räkna, kryssa i eller ställ en klocka. */
-export function Uppgift({ nr, u }: { nr: number; u: UppgiftData }) {
-  const [lost, setLost] = useState(false);
+export function Uppgift({ nr, u, redanLost, spara }: { nr: number; u: UppgiftData; redanLost?: boolean; spara?: boolean }) {
+  // Laget delar lösningen: den sparas på servern, inte i telefonen
+  const [lost, setLost] = useState(!!redanLost);
   const [svar, setSvar] = useState<string | null>(null);
   const losRuta = useRef<HTMLDivElement>(null);
-  const aterstalld = useRef(false);
+  const nyssLost = useRef(false);
 
   useEffect(() => {
-    try { if (localStorage.getItem(nyckel(nr)) === "klar") { aterstalld.current = true; setLost(true); } } catch {}
-  }, [nr]);
-  useEffect(() => {
-    if (!lost) return;
-    try { localStorage.setItem(nyckel(nr), "klar"); } catch {}
-    if (!aterstalld.current) losRuta.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [lost, nr]);
+    if (lost && nyssLost.current) losRuta.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [lost]);
 
-  const ratt = () => { setSvar(null); setLost(true); };
+  const ratt = () => {
+    setSvar(null);
+    nyssLost.current = true;
+    setLost(true);
+    if (spara) markeraUppgift(nr).catch(() => {});
+  };
 
   return (
     <section className="stack uppgift">

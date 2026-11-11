@@ -10,7 +10,7 @@ import { SaSpelarNi } from "./SaSpelarNi";
 import { Uppgift } from "./Uppgift";
 
 /** Gemensam rendering av en lucka – används i laget, i smakprovet och i admin. */
-export async function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka; platser?: Plats[]; personer?: Person[] }) {
+export async function LuckInnehall({ lucka, platser, personer, uppgiftLost, sparaUppgift }: { lucka: Lucka; platser?: Plats[]; personer?: Person[]; uppgiftLost?: boolean; sparaUppgift?: boolean }) {
   const loggbok = lucka.interaktion === "loggbok" && lucka.transkription;
   const karta = lucka.interaktion === "karta" && platser;
   const loggbokInfo = loggbok ? await bildInfo(lucka.bilder[0].namn) : null;
@@ -38,7 +38,7 @@ export async function LuckInnehall({ lucka, platser, personer }: { lucka: Lucka;
           <Pussel bitar={lucka.pussel} />
         </section>
       )}
-      {lucka.uppgift && <Uppgift nr={lucka.nr} u={lucka.uppgift} />}
+      {lucka.uppgift && <Uppgift nr={lucka.nr} u={lucka.uppgift} redanLost={uppgiftLost} spara={sparaUppgift} />}
     </>
   );
 }

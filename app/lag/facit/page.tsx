@@ -9,6 +9,8 @@ import { PERSONER } from "@/content/personer";
 import { MOTIV, METOD } from "@/lib/anklagelse-val";
 import { Avslojande } from "./Avslojande";
 import { Text } from "@/components/Text";
+import { LUCKOR } from "@/content/luckor";
+import { lostaUppgifter } from "@/lib/innehall";
 
 export const metadata: Metadata = { title: "Facit" };
 
@@ -27,6 +29,8 @@ export default async function Facit() {
   const u = JSON.parse(a.utkast);
   const p = JSON.parse(a.poang_detaljer) as Poang;
   const fall = p.mordare + p.motiv + p.metod + p.tid;
+  const antalUppgifter = LUCKOR.filter((l) => l.uppgift).length;
+  const uppgifter = lostaUppgifter(lag.id).size;
   const FALL_MAX = 5 + 3 + 3 + 2;
   const rad = (etikett: string, ert: string, poang: number, max: number) => (
     <tr><td>{etikett}</td><td>{ert}</td><td className="tal">{poang} / {max}</td></tr>
@@ -37,7 +41,7 @@ export default async function Facit() {
         <section className="stack">
           <p className="etikett">Lagets resultat</p>
           <h2 className="rubrik-stor">Fallet: {fall} av {FALL_MAX}</h2>
-          <p className="dampad">Chiffer: {p.bonus} av 6 · Totalt {p.totalt} av {MAX_POANG} poäng</p>
+          <p className="dampad">Chiffer: {p.bonus} av 6 · Uppgifter: {uppgifter} av {antalUppgifter} · Totalt {p.totalt} av {MAX_POANG} poäng</p>
           <div className="rull-x">
             <table className="tabell">
               <thead><tr><th>Del</th><th>Ert svar</th><th>Poäng</th></tr></thead>
@@ -47,6 +51,7 @@ export default async function Facit() {
                 {rad("Metod", METOD.find((x) => x.id === u.metod)?.text ?? "–", p.metod, 3)}
                 {rad("Tid", u.tid ?? "–", p.tid, 2)}
                 {rad("Chiffer (frivilliga)", `${p.bonus} lösta`, p.bonus, 6)}
+                <tr><td>Uppgifter i luckorna</td><td>{uppgifter} av {antalUppgifter} lösta</td><td className="tal dampad">–</td></tr>
               </tbody>
             </table>
           </div>

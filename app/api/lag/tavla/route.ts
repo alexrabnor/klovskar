@@ -25,7 +25,7 @@ export async function GET() {
       }
       if (k.typ === "person") {
         const p = personMedId(String(k.referens));
-        return { ...k, rubrik: p?.namn ?? "?", text: p?.roll ?? "", bild: null };
+        return { ...k, rubrik: p?.namn ?? "?", text: p?.roll ?? "", bild: p ? `portratt-${p.id}` : null };
       }
       return { ...k, rubrik: k.skapad_av ?? "Lapp", bild: null };
     }),

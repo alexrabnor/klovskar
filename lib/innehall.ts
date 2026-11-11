@@ -52,3 +52,9 @@ export function farSeBild(namn: string, lag: Lag | null, nu: number, admin: bool
 }
 
 export { LUCKOR };
+
+/** Luckor där laget har löst uppgiften. */
+export function lostaUppgifter(lagId: number): Set<number> {
+  const r = db().prepare("SELECT lucka_nr FROM klov_uppgift WHERE lag_id = ?").all(lagId) as { lucka_nr: number }[];
+  return new Set(r.map((x) => x.lucka_nr));
+}

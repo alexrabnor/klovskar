@@ -100,6 +100,13 @@ CREATE TABLE IF NOT EXISTS klov_bonus (
   upplast_av TEXT,
   PRIMARY KEY (lag_id, bonus_nr)
 );
+CREATE TABLE IF NOT EXISTS klov_uppgift (
+  lag_id INTEGER NOT NULL REFERENCES klov_lag(id) ON DELETE CASCADE,
+  lucka_nr INTEGER NOT NULL,
+  lost_tid TEXT NOT NULL DEFAULT (datetime('now')),
+  lost_av TEXT,
+  PRIMARY KEY (lag_id, lucka_nr)
+);
 CREATE TABLE IF NOT EXISTS klov_anklagelse (
   lag_id INTEGER PRIMARY KEY REFERENCES klov_lag(id) ON DELETE CASCADE,
   utkast TEXT NOT NULL DEFAULT '{}',

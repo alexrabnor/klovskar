@@ -19,7 +19,7 @@ export type Atkomst =
   | { slag: "okand" };
 
 export function bildensAtkomst(namn: string): Atkomst {
-  if (PUBLIKA.has(namn) || namn.startsWith("meny-")) return { slag: "publik" };
+  if (PUBLIKA.has(namn) || namn.startsWith("meny-") || namn.startsWith("portratt-")) return { slag: "publik" };
   let m = /^lucka-(\d{2})[ab]?$/.exec(namn);
   if (m) return { slag: "lucka", nr: Number(m[1]) };
   m = /^bonus-(\d)$/.exec(namn);
