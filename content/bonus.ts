@@ -142,7 +142,7 @@ Om resultatet bekräftade faderskapet hade han inte behövt stryka villkoret i v
     synsFran: 15,
     gata: {
       typ: "koordinat",
-      ledtrad: "Carls sjökort har ett rutnät i blyerts. Han har ringat in rutan E5. Vilken ö ligger där? Titta på kartan över Klovskär – ön på isen i sydost.",
+      ledtrad: "Carls sjökort har ett rutnät i blyerts. Han har ringat in rutan F6. Vilken ö ligger där? Titta på kartan över Klovskär – ön på isen i sydost.",
     },
     svar: ["KRÅKSKÄR", "KRAKSKAR"],
     bilder: [{ namn: "bonus-4", alt: "Ett gammalt sjökort med djupsiffror i vattnet och en blyertsritad streckad led från sjöboden på Klovskär till ön Kråkskär, markerad med ett kryss." }],

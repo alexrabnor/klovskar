@@ -47,6 +47,14 @@ export default async function LuckSida({ params }: { params: Promise<{ nr: strin
         <Link href={`/lag/bonus/${bonus.nr}`} className="panel chiffer-tips">
           <span className="etikett">Ett chiffer har dykt upp</span>
           <span>Någon har lämnat ett meddelande. Löser ni det öppnas bonuslucka {bonus.nr}.</span>
+          <span className="dampad liten">Frivilligt – fallet går att lösa utan bonusluckorna.</span>
+        </Link>
+      )}
+      {lucka.interaktion !== "misstankta" && (
+        <Link href="/lag/misstankta" className="panel misstankta-lank">
+          <span aria-hidden="true">👤</span>
+          <span><b>De misstänkta</b> <span className="dampad">– se alla igen</span></span>
+          <span aria-hidden="true" className="dampad">→</span>
         </Link>
       )}
       {lucka.fraga && <p className="fraga">{lucka.fraga}</p>}

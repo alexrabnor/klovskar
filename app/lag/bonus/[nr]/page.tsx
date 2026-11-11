@@ -28,7 +28,7 @@ export default async function BonusSida({ params }: { params: Promise<{ nr: stri
     // Bara gåtan skickas – aldrig svaret eller bonusinnehållet
     return (
       <main className="sida">
-        <Link href="/lag/bonus" className="liten">← Bonusluckor</Link>
+        <Tillbaka fran={b.synsFran} />
         <header className="stack">
           <p className="etikett">Bonus {nr} · chiffer från lucka {b.synsFran}</p>
           <h1 className="rubrik-mellan">Ett olöst meddelande</h1>
@@ -43,7 +43,7 @@ export default async function BonusSida({ params }: { params: Promise<{ nr: stri
   }
   return (
     <main className="sida">
-      <Link href="/lag/bonus" className="liten">← Bonusluckor</Link>
+      <Tillbaka fran={b.synsFran} />
       <header className="luckhuvud">
         <p className="datum">Bonuslucka {nr}</p>
         <h1 className="rubrik-stor">{upplast.titel}</h1>
@@ -51,6 +51,16 @@ export default async function BonusSida({ params }: { params: Promise<{ nr: stri
       </header>
       {upplast.bilder.map((bild, i) => <ZoombarMedInfo key={bild.namn} namn={bild.namn} alt={bild.alt} prioritet={i === 0} />)}
       {upplast.avsnitt.map((a, i) => <Dokument key={i} a={a} />)}
+      <Tillbaka fran={b.synsFran} />
     </main>
+  );
+}
+
+function Tillbaka({ fran }: { fran: number }) {
+  return (
+    <nav className="rad liten" style={{ justifyContent: "space-between" }} aria-label="Tillbaka">
+      <Link href={`/lag/lucka/${fran}`}>← Tillbaka till lucka {fran}</Link>
+      <Link href="/lag/bonus">Alla bonusluckor</Link>
+    </nav>
   );
 }

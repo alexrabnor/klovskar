@@ -292,6 +292,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 @media (hover: none) { .bara-dator { display: none; } }
 .lank-knapp { background: none; border: 0; padding: 0; color: var(--dampad); text-decoration: underline; cursor: pointer; font: inherit; }
 .chiffer-tips { display: grid; gap: 4px; text-decoration: none; color: var(--fg); border-color: var(--barnsten-mork); background: linear-gradient(135deg, #2b2210, var(--panel)); }
+.misstankta-lank { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; text-decoration: none; color: var(--fg); padding-block: 12px; }
 .transkription { white-space: pre-wrap; margin: 0; }
 .karta { position: relative; border-radius: 4px; overflow: hidden; border: 1px solid var(--linje); }
 .karta img { width: 100%; }

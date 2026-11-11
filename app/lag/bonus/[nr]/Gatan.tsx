@@ -10,7 +10,7 @@ import { bildUrl } from "@/components/Bild";
 
 /** Vad laget ska få fram – säger formen på svaret, aldrig svaret. */
 const UPPDRAG: Record<KlientGata["typ"], { gor: string; falt: string }> = {
-  caesar: { gor: "Flytta tillbaka varje bokstav i meddelandet. Då får ni fram ett ord.", falt: "Ordet ni fick fram" },
+  caesar: { gor: "Flytta tillbaka varje bokstav tre steg i alfabetet. Då får ni fram ett ord.", falt: "Ordet ni fick fram" },
   morse: { gor: "Titta på lampan och översätt blinkningarna till bokstäver. Då får ni fram ett ord.", falt: "Ordet ni fick fram" },
   anagram: { gor: "Kasta om bokstäverna så att de bildar ett ord.", falt: "Ordet ni fick fram" },
   koordinat: { gor: "Hitta rutan på kartan och se vad som ligger där.", falt: "Namnet på platsen" },

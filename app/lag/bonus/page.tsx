@@ -13,7 +13,7 @@ export default async function BonusLista() {
       <header className="stack">
         <p className="etikett">Bonusluckor</p>
         <h1 className="rubrik-mellan">Sex hemliga luckor</h1>
-        <p className="dampad">Under december dyker det upp chiffer i luckorna. Varje löst chiffer öppnar en bonuslucka med extra material – och ger laget en poäng på julafton.</p>
+        <p className="dampad">Under december dyker det upp chiffer i luckorna. Varje löst chiffer öppnar en bonuslucka med extra material – och ger laget en poäng på julafton. Chiffren är frivilliga: fallet går att lösa utan dem.</p>
       </header>
       {chiffer.length === 0 && <p className="panel">Inga chiffer än. Det första dyker upp i lucka 7.</p>}
       <ul className="bonuslista">
