@@ -152,3 +152,8 @@ Bonus 1:s uppdragsrad säger inte längre hur chiffret löses ("tre steg") – l
 
 ## Köpet stängt tills Stripe är live (2026-11-11)
 `kopOppet()` i `lib/stripe.ts`: köpet är öppet bara när `STRIPE_LAGE=live` (eller `TESTKOP=1` för att prova köpkedjan i sandlådan). I testläge skulle ett riktigt kort nekas och testkortet 4242 ge en riktig kod gratis. Stängt: startsidan visar "Släpps snart" + "Läs lucka 1 gratis", /kop visar en släpps-snart-ruta, och server-actionen vägrar. Testbanderollen visas bara när köpet faktiskt är öppet i testläge. Släpp = lägg in live-nycklarna och sätt `STRIPE_LAGE=live`.
+
+## Startdatum tidigast 1 december 2026 (2026-11-11)
+`startdatumEfterSlapp()` / `FORSTA_STARTDAG` i `lib/tid.ts`. Gäller köpta, present- och gratiskoder vid aktivering och när lagledaren byter datum. Testarkoder och admin går förbi (testare får ett datum i det förflutna så att allt är öppet). Senare datum, även passerade decemberdagar för att läsa ikapp, är tillåtna.
+
+Samtidigt: formulär som skickas till servern töms inte längre vid fel (`lib/behall-formular.ts`). React 19 nollställde `<form action>` – ett felmeddelande raderade lagnamn, namn och valt datum, och den som fyllde i igen fick tyst 1 december.

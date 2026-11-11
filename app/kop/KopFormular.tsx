@@ -1,11 +1,11 @@
 "use client";
-import { useActionState } from "react";
+import { useBehallAction } from "@/lib/behall-formular";
 import { startaKop } from "./actions";
 
 export function KopFormular({ present }: { present: boolean }) {
-  const [svar, skicka, vantar] = useActionState(startaKop, undefined);
+  const [svar, skicka, vantar] = useBehallAction(startaKop, undefined);
   return (
-    <form action={skicka} className="panel stack">
+    <form onSubmit={skicka} className="panel stack">
       <input type="hidden" name="present" value={present ? "1" : "0"} />
       <div className="falt">
         <label htmlFor="epost">{present ? "Din e-post – presentkortet skickas hit" : "E-post – koden skickas hit"}</label>

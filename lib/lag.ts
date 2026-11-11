@@ -1,7 +1,7 @@
 import "server-only";
 import { db, kodMedKod, lagMedKod, spelareILag, type Lag, type Spelare } from "./db";
 import { nyLagkod, nyToken } from "./slump";
-import { oppningstid, serverNu, svensktDatum, lagetsNu, testarStartdatum } from "./tid";
+import { oppningstid, serverNu, svensktDatum, lagetsNu, testarStartdatum, startdatumEfterSlapp } from "./tid";
 
 export const MAX_SPELARE = 5;
 
@@ -58,6 +58,7 @@ export function skapaLag(opts: { kod: string; lagnamn: string; startdatum: strin
     const testare = kod.typ === "testare";
     const startdatum = testare ? testarStartdatum(serverNu()) : opts.startdatum;
     if (!giltigtStartdatum(startdatum)) throw new Fel("Startdatumet ser inte rätt ut.");
+    if (!testare && !startdatumEfterSlapp(startdatum)) throw new Fel("Spelet släpps den 1 december 2026. Välj den dagen eller senare.");
     const epost = rensaNamn(opts.epost ?? kod.epost ?? "", 120) || null;
     const ledare = nyToken();
     const lagkod = unikLagkod();
@@ -130,6 +131,7 @@ export function forstaLuckanOppnad(lag: Lag, nu = serverNu()): boolean {
 export function bytStartdatum(lag: Lag, startdatum: string, nu = serverNu()) {
   if (forstaLuckanOppnad(lag, nu)) throw new Fel("Första luckan har redan öppnat. Startdatumet går inte att ändra längre – kontakta oss om något blivit fel.");
   if (!giltigtStartdatum(startdatum, nu)) throw new Fel("Startdatumet ser inte rätt ut.");
+  if (!startdatumEfterSlapp(startdatum)) throw new Fel("Spelet släpps den 1 december 2026. Välj den dagen eller senare.");
   db().prepare("UPDATE klov_lag SET startdatum = ? WHERE id = ?").run(startdatum, lag.id);
 }
 

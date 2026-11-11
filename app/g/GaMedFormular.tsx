@@ -1,11 +1,11 @@
 "use client";
-import { useActionState } from "react";
+import { useBehallAction } from "@/lib/behall-formular";
 import { gaMedILag } from "@/app/actions";
 
 export function GaMedFormular({ kod, lagnamn }: { kod: string; lagnamn?: string }) {
-  const [svar, skicka, vantar] = useActionState(gaMedILag, undefined);
+  const [svar, skicka, vantar] = useBehallAction(gaMedILag, undefined);
   return (
-    <form action={skicka} className="panel stack">
+    <form onSubmit={skicka} className="panel stack">
       {lagnamn ? (
         <><p>Du är inbjuden till <b>{lagnamn}</b>.</p><input type="hidden" name="lagkod" value={kod} /></>
       ) : (

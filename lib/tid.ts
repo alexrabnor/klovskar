@@ -111,3 +111,11 @@ export function speldag(lag: LagTid, nu: number): number {
 export function berattelseDatum(nr: number): string {
   return `${nr} december 1962`;
 }
+
+/** Spelet släpps 1 december 2026 – inget betalande lag får starta tidigare. */
+export const FORSTA_STARTDAG = "2026-12-01";
+
+/** Får ett lag välja det här startdatumet? Testare och admin går förbi regeln. */
+export function startdatumEfterSlapp(s: string): boolean {
+  return s >= FORSTA_STARTDAG;
+}

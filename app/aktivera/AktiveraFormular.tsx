@@ -1,13 +1,14 @@
 "use client";
-import { useActionState, useState } from "react";
+import { useBehallAction } from "@/lib/behall-formular";
+import { useState } from "react";
 import { aktivera } from "@/app/actions";
 
-export function AktiveraFormular({ kod, epost, advent, adventDirekt }: { kod: string; epost: string; advent: string; adventDirekt: number }) {
-  const [svar, skicka, vantar] = useActionState(aktivera, undefined);
+export function AktiveraFormular({ kod, epost, advent, adventDirekt, minDatum, forslag }: { kod: string; epost: string; advent: string; adventDirekt: number; minDatum: string; forslag: string }) {
+  const [svar, skicka, vantar] = useBehallAction(aktivera, undefined);
   const [lage, setLage] = useState<"advent" | "eget">("advent");
   const adventAr = advent.slice(0, 4);
   return (
-    <form action={skicka} className="panel stack">
+    <form onSubmit={skicka} className="panel stack">
       <div className="falt">
         <label htmlFor="kod">Aktiveringskod</label>
         <input id="kod" name="kod" type="text" required defaultValue={kod} autoCapitalize="characters" autoComplete="off" placeholder="ABCD-EFGH-JKLM" style={{ fontFamily: "var(--f-m)", letterSpacing: ".08em" }} />
@@ -31,7 +32,7 @@ export function AktiveraFormular({ kod, epost, advent, adventDirekt }: { kod: st
           <input id="lage-eget" type="radio" name="startlage" value="eget" checked={lage === "eget"} onChange={() => setLage("eget")} />
           <span><b>Eget startdatum</b> – 24 dagar från dagen ni väljer.</span>
         </label>
-        {lage === "eget" && <input id="startdatum" name="startdatum" type="date" required aria-label="Startdatum" />}
+        {lage === "eget" && <input id="startdatum" name="startdatum" type="date" required min={minDatum} defaultValue={forslag} aria-label="Startdatum" />}
       </fieldset>
       <div className="falt">
         <label htmlFor="epost">Din e-post (valfritt) – för lagledarlänken</label>

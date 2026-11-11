@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna, manaderEfterSistaLuckan, testarStartdatum } from "@/lib/tid";
+import { arOppen, facitOppet, oppningstid, serverNu, stockholm, tolkaSvenskTid, allaFarLamnaIn, antalOppna, manaderEfterSistaLuckan, testarStartdatum, startdatumEfterSlapp, FORSTA_STARTDAG } from "@/lib/tid";
 
 const advent = { startdatum: "2026-12-01", forskjutning_min: 0 };
 
@@ -85,4 +85,17 @@ it("testarStartdatum: alla 24 luckor är öppna direkt", () => {
     const lag = { startdatum: testarStartdatum(nu), forskjutning_min: 0 };
     for (let nr = 1; nr <= 24; nr++) expect(arOppen(lag, nr, nu), `lucka ${nr} vid ${new Date(nu).toISOString()}`).toBe(true);
   }
+});
+
+describe("släppdatum", () => {
+  it("inget lag får starta före 1 december 2026", () => {
+    expect(FORSTA_STARTDAG).toBe("2026-12-01");
+    expect(startdatumEfterSlapp("2026-11-30")).toBe(false);
+    expect(startdatumEfterSlapp("2026-11-12")).toBe(false);
+  });
+  it("1 december och alla senare datum går bra", () => {
+    expect(startdatumEfterSlapp("2026-12-01")).toBe(true);
+    expect(startdatumEfterSlapp("2026-12-15")).toBe(true);
+    expect(startdatumEfterSlapp("2027-02-03")).toBe(true);
+  });
 });

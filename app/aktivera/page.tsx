@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AktiveraFormular } from "./AktiveraFormular";
 import { adventStart, luckorDirekt } from "@/lib/lag";
 import { kodMedKod } from "@/lib/db";
+import { FORSTA_STARTDAG, serverNu, svensktDatum } from "@/lib/tid";
 
 export const metadata: Metadata = { title: "Skapa lag" };
 export const dynamic = "force-dynamic";
@@ -24,6 +25,8 @@ export default async function Aktivera({ searchParams }: { searchParams: Promise
         epost={rad && rad.typ === "kop" ? rad.epost ?? "" : ""}
         advent={advent}
         adventDirekt={luckorDirekt(advent)}
+        minDatum={FORSTA_STARTDAG}
+        forslag={FORSTA_STARTDAG > svensktDatum(serverNu()) ? FORSTA_STARTDAG : svensktDatum(serverNu())}
       />
     </main>
   );
