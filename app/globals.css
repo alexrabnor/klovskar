@@ -375,8 +375,30 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .rutnat-karta .rutor { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(6, 1fr); }
 .rutnat-karta .ruta { border: 1px solid #3a2a1288; background: transparent; cursor: pointer; font: 11px var(--f-m); color: #3a2a12; text-align: left; padding: 2px 4px; }
 .rutnat-karta .ruta.vald { background: #e2a24a55; outline: 2px solid var(--barnsten); }
-.anklagelse-del legend { font-family: var(--f-r); font-size: 22px; padding: 0 6px; }
-.anklagelse-del { margin: 0; }
+/* Anklagelsen: rubriken ligger inne i panelen (inte i ramen), porträtt att peka ut */
+.anklagelse-del { margin: 0; min-width: 0; }
+.anklagelse-del legend { float: left; width: 100%; padding: 0; margin-bottom: 4px; font-family: var(--f-r); font-size: 23px; line-height: 1.2; text-wrap: balance; }
+.anklagelse-del legend + * { clear: both; }
+.anklagelse-del .personer { grid-template-columns: 1fr; gap: 8px; }
+.anklagelse-del .person { grid-template-columns: 56px 1fr auto; align-items: center; gap: 14px; padding: 8px 12px 8px 8px; min-height: 0; position: relative; }
+.anklagelse-del .person img { width: 56px; height: 72px; object-fit: cover; object-position: 50% 15%; border-radius: 2px; filter: grayscale(.2); }
+.anklagelse-del .person-text { display: grid; gap: 2px; min-width: 0; }
+.anklagelse-del .person.vald { background: #e2a24a1f; border-color: var(--barnsten); box-shadow: 0 0 0 1px var(--barnsten) inset; }
+.anklagelse-del .person.vald img { filter: none; }
+.person-stampel { font: 12px var(--f-m); letter-spacing: .1em; text-transform: uppercase; color: var(--barnsten); border: 1px solid var(--barnsten); border-radius: 3px; padding: 3px 6px; transform: rotate(-4deg); }
+@media (min-width: 720px) {
+  .anklagelse-del .personer { grid-template-columns: repeat(4, 1fr); }
+  .anklagelse-del .person { grid-template-columns: 1fr; padding: 8px; align-content: start; }
+  .anklagelse-del .person img { width: 100%; height: auto; aspect-ratio: 3 / 4; }
+  .person-stampel { position: absolute; top: 14px; right: 14px; background: #0b161bd9; }
+}
+.anklagelse-del .val { align-items: center; padding: 12px 14px; border: 1px solid var(--linje); border-radius: 4px; cursor: pointer; font-size: 16px; }
+.anklagelse-del .val:hover { border-color: #e2a24a88; }
+.anklagelse-del .val:has(input:checked) { border-color: var(--barnsten); background: #e2a24a1f; }
+.anklagelse-del .val input { appearance: none; margin: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #6d8a91; background: transparent; display: grid; place-items: center; }
+.anklagelse-del .val input:checked { border-color: var(--barnsten); }
+.anklagelse-del .val input:checked::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--barnsten); }
+.anklagelse-del .val input:focus-visible { outline: 2px solid var(--barnsten); outline-offset: 3px; }
 .ledtradar { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .ledtradar li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--linje); }
 .ledtradar a { font-family: var(--f-m); font-size: 14px; }
@@ -438,3 +460,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .omdome { margin: 12px 0 0; padding-left: 16px; border-left: 3px solid var(--barnsten); display: grid; gap: 4px; max-width: 34ch; }
 .omdome blockquote { margin: 0; font: italic 22px/1.35 var(--f-r); color: var(--fg); text-wrap: balance; }
 .omdome figcaption { font: 13px var(--f-m); letter-spacing: .12em; text-transform: uppercase; color: var(--barnsten); }
+
+/* Admin: lagkoden ska gå att läsa upp och skicka vidare */
+.admin-lagkod { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 12px 14px; border: 1px dashed var(--linje); border-radius: 4px; }
+.admin-lagkod > div:first-child { display: grid; gap: 2px; min-width: 0; }
+.admin-lagkod-kod { font: 28px var(--f-m); letter-spacing: .12em; color: var(--fg); }
+.admin-lagkod-lank { overflow-wrap: anywhere; }

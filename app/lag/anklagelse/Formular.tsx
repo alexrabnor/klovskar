@@ -2,10 +2,11 @@
 import { useActionState, useCallback, useEffect, useRef, useState } from "react";
 import type { Utkast } from "@/lib/anklagelse-val";
 import { lamnaIn } from "./actions";
+import { bildUrl } from "@/components/Bild";
 
 type Val = { id: string; text: string };
 
-export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { id: string; namn: string }[]; motiv: Val[]; metod: Val[]; farLamnaIn: boolean }) {
+export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { id: string; namn: string; roll: string }[]; motiv: Val[]; metod: Val[]; farLamnaIn: boolean }) {
   const [u, setU] = useState<Utkast>({});
   const [info, setInfo] = useState("");
   const [bekrafta, setBekrafta] = useState(false);
@@ -55,7 +56,12 @@ export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { i
         <div className="personer">
           {personer.map((p) => (
             <button key={p.id} type="button" className={`person${u.mordare === p.id ? " vald" : ""}`} aria-pressed={u.mordare === p.id} onClick={() => satt({ mordare: p.id })}>
-              <span className="person-namn">{p.namn}</span>
+              <img src={bildUrl(`portratt-${p.id}`, 320)} alt="" loading="lazy" decoding="async" />
+              <span className="person-text">
+                <span className="person-namn">{p.namn}</span>
+                <span className="person-roll">{p.roll}</span>
+              </span>
+              {u.mordare === p.id && <span className="person-stampel">Anklagad</span>}
             </button>
           ))}
         </div>
@@ -65,7 +71,7 @@ export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { i
         <legend>2. Varför?</legend>
         <p className="dampad liten">Välj det motiv som väger tyngst.</p>
         {motiv.map((m) => (
-          <label key={m.id} className="kryss" htmlFor={`motiv-${m.id}`}>
+          <label key={m.id} className="kryss val" htmlFor={`motiv-${m.id}`}>
             <input id={`motiv-${m.id}`} type="radio" name="motiv" checked={u.motiv === m.id} onChange={() => satt({ motiv: m.id })} />
             <span>{m.text}</span>
           </label>
@@ -79,7 +85,7 @@ export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { i
       <fieldset className="panel stack anklagelse-del">
         <legend>3. Hur?</legend>
         {metod.map((m) => (
-          <label key={m.id} className="kryss" htmlFor={`metod-${m.id}`}>
+          <label key={m.id} className="kryss val" htmlFor={`metod-${m.id}`}>
             <input id={`metod-${m.id}`} type="radio" name="metod" checked={u.metod === m.id} onChange={() => satt({ metod: m.id })} />
             <span>{m.text}</span>
           </label>
@@ -88,7 +94,7 @@ export function Formular({ personer, motiv, metod, farLamnaIn }: { personer: { i
 
       <fieldset className="panel stack anklagelse-del">
         <legend>4. När dog han?</legend>
-        <div className="falt" style={{ maxWidth: 200 }}>
+        <div className="falt" style={{ maxWidth: 320 }}>
           <label htmlFor="tid">Klockslag natten mot 1 december</label>
           <input id="tid" type="time" value={u.tid ?? ""} onChange={(e) => satt({ tid: e.target.value })} />
         </div>

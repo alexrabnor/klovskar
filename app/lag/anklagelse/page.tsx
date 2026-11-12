@@ -28,7 +28,7 @@ export default async function Anklagelse() {
         <h1 className="rubrik-mellan">Er anklagelse</h1>
         <p className="dampad">Alla i laget kan ändra i utkastet – det sparas av sig självt. {farLamnaIn ? (arLedare ? "Du är lagledare och lämnar in när ni är överens." : "Du har rätt att lämna in.") : "Lagledaren lämnar in när ni är överens."}</p>
       </header>
-      <Formular personer={PERSONER.map((p) => ({ id: p.id, namn: p.namn }))} motiv={[...MOTIV]} metod={[...METOD]} farLamnaIn={farLamnaIn} />
+      <Formular personer={PERSONER.map((p) => ({ id: p.id, namn: p.namn, roll: p.roll }))} motiv={[...MOTIV]} metod={[...METOD]} farLamnaIn={farLamnaIn} />
     </main>
   );
 }
