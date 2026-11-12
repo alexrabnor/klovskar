@@ -8,12 +8,13 @@ export const dynamic = "force-dynamic";
 export default function Integritet() {
   const namn = process.env.SALJARE_NAMN || "Säljaren";
   const epost = process.env.SALJARE_EPOST || "";
+  const adress = process.env.SALJARE_ADRESS || "";
   return (
     <>
       <main className="sida prosa">
         <Link href="/" className="liten">← Startsidan</Link>
         <h1 className="rubrik-mellan">Integritet</h1>
-        <p>Personuppgiftsansvarig är {namn}{epost && <> (<a href={`mailto:${epost}`}>{epost}</a>)</>}.</p>
+        <p>Personuppgiftsansvarig är {namn}{adress && <>, {adress}</>}{epost && <> (<a href={`mailto:${epost}`}>{epost}</a>)</>}.</p>
         <h2>Vad vi sparar</h2>
         <ul>
           <li><b>Köparens e-postadress</b>, för att skicka aktiveringskoden och kvittot och kunna hjälpa till om något går fel.</li>

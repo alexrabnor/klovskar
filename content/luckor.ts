@@ -876,7 +876,7 @@ Vem är Elsas mor?`,
     titel: "Brevet från 1935",
     ingress: "I Haralds kassaskrin, under en falsk botten, låg ett brev och en kassabok. Ingrid sa att hon aldrig sett dem.",
     bilder: [
-      { namn: "lucka-21", alt: "Ett handskrivet brev daterat Göteborg maj 1935, Käre Harald, vårt barn är fött, undertecknat M., ovanpå en kassabok där det står M.L. 25 kr för varje år från 1935 till 1962." },
+      { namn: "lucka-21", alt: "Ett handskrivet brev daterat Göteborg maj 1935, Käre Harald, vårt barn är fött, undertecknat M., bredvid en kassabok med M.L. 25 kr för varje månad fram till november 1962 och sist raden Inga fler. 28/11 i en argare handstil." },
     ],
     avsnitt: [
       {

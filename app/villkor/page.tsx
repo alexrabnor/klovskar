@@ -9,13 +9,14 @@ export const dynamic = "force-dynamic";
 export default function Villkor() {
   const namn = process.env.SALJARE_NAMN || "Säljaren";
   const epost = process.env.SALJARE_EPOST || "";
+  const adress = process.env.SALJARE_ADRESS || "";
   return (
     <>
       <main className="sida prosa">
         <Link href="/" className="liten">← Startsidan</Link>
         <h1 className="rubrik-mellan">Köpvillkor</h1>
         <h2>Säljare</h2>
-        <p>{namn}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}.</p>
+        <p>{namn}{adress && <>, {adress}</>}{epost && <>, e-post <a href={`mailto:${epost}`}>{epost}</a></>}.</p>
         <h2>Vad du köper</h2>
         <p>En aktiveringskod till det digitala spelet Mordet på Klovskär, Adventsmysteriet 2026. Koden skapar ett lag där hela fem personer kan vara med och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.se.</p>
         <h2>Pris och betalning</h2>
