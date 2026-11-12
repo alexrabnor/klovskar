@@ -37,3 +37,19 @@ describe("gallringen", () => {
     expect(gallra(stockholm(2028, 1, 25, 6, 0))).toBe(0);
   });
 });
+
+describe("gallringen av koder som aldrig aktiverades", () => {
+  beforeAll(() => {
+    db().prepare("INSERT INTO klov_kod (kod, typ, epost, belopp_ore, skapad) VALUES ('OAKT1', 'present', 'julklapp@exempel.se', 9900, '2026-11-15 10:00:00')").run();
+    db().prepare("INSERT INTO klov_kod (kod, typ, epost, belopp_ore, skapad) VALUES ('OAKT2', 'kop', 'senare@exempel.se', 9900, '2027-11-15 10:00:00')").run();
+  });
+  it("behåller e-posten fram till 13 månader efter köpet", () => {
+    expect(gallra(Date.UTC(2027, 11, 15, 9, 59))).toBe(0);
+    expect(db().prepare("SELECT epost FROM klov_kod WHERE kod = 'OAKT1'").get()).toEqual({ epost: "julklapp@exempel.se" });
+  });
+  it("tar bort e-posten efter 13 månader men behåller köpet", () => {
+    expect(gallra(Date.UTC(2027, 11, 15, 10, 0))).toBe(1);
+    expect(db().prepare("SELECT epost, belopp_ore FROM klov_kod WHERE kod = 'OAKT1'").get()).toEqual({ epost: null, belopp_ore: 9900 });
+    expect(db().prepare("SELECT epost FROM klov_kod WHERE kod = 'OAKT2'").get()).toEqual({ epost: "senare@exempel.se" });
+  });
+});
