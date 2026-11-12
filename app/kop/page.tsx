@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { KopFormular } from "./KopFormular";
-import { kopOppet, prisKr } from "@/lib/stripe";
+import { kopOppet, prisKr, prisText } from "@/lib/stripe";
 import { adventStart, luckorDirekt } from "@/lib/lag";
 import { Sidfot } from "@/components/Sidfot";
 
@@ -19,7 +19,7 @@ export default async function Kop({ searchParams }: { searchParams: Promise<{ pr
           <p className="etikett">{present ? "Julklapp" : "Köp"}</p>
           <h1 className="rubrik-mellan">{present ? "Ge bort Mordet på Klovskär i julklapp" : "Mordet på Klovskär – ett lag"}</h1>
           <p className="dampad">
-            Introduktionspris {prisKr()} kr (ord. 199 kr) för ett lag där hela 5 personer kan vara med. Betalning med kort, Apple Pay, Google Pay eller Klarna via Stripe.
+            {prisText()} för ett lag där hela 5 personer kan vara med. Betalning med kort, Apple Pay, Google Pay eller Klarna via Stripe.
           </p>
         </header>
         {direkt > 0 && (

@@ -40,7 +40,24 @@ export function stripe(): Stripe {
   return klient;
 }
 
-export function prisKr(): number {
+export const ORD_PRIS_KR = 199;
+
+/** Introduktionspriset gäller t.o.m. detta datum (svensk tid). Därefter ordinarie pris automatiskt. */
+export const INTRO_TOM = "15 december";
+const INTRO_SLUT = Date.parse("2026-12-16T00:00:00+01:00");
+
+export function introAktiv(nu = Date.now()): boolean {
+  return nu < INTRO_SLUT;
+}
+
+export function prisKr(nu = Date.now()): number {
+  if (!introAktiv(nu)) return ORD_PRIS_KR;
   const p = Number(process.env.PRIS_KR);
-  return Number.isFinite(p) && p > 0 ? p : 199;
+  return Number.isFinite(p) && p > 0 ? p : ORD_PRIS_KR;
+}
+
+/** "Introduktionspris 99 kr t.o.m. 15 december (ord. 199 kr)" – eller bara "199 kr" när det gått ut. */
+export function prisText(): string {
+  const p = prisKr();
+  return p < ORD_PRIS_KR ? `Introduktionspris ${p} kr t.o.m. ${INTRO_TOM} (ord. ${ORD_PRIS_KR} kr)` : `${p} kr`;
 }

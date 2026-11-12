@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { prisKr } from "@/lib/stripe";
+import { INTRO_TOM, ORD_PRIS_KR, introAktiv, prisKr } from "@/lib/stripe";
 import { Sidfot } from "@/components/Sidfot";
 
 export const metadata: Metadata = { title: "Köpvillkor" };
@@ -20,7 +20,7 @@ export default function Villkor() {
         <h2>Vad du köper</h2>
         <p>En aktiveringskod till det digitala spelet Mordet på Klovskär, Adventsmysteriet 2026. Koden skapar ett lag där hela fem personer kan vara med och ger tillgång till 24 luckor som öppnas en per dag, sex bonusluckor och facit. Spelet spelas i webbläsaren på adventdeckare.se.</p>
         <h2>Pris och betalning</h2>
-        <p>Priset är {prisKr()} kr per lag (introduktionspris, ordinarie pris 199 kr). Betalning sker med kort, Apple Pay, Google Pay eller Klarna via Stripe. Vi ser aldrig dina kortuppgifter.</p>
+        <p>Priset är {prisKr()} kr per lag{introAktiv() && <> (introduktionspris t.o.m. {INTRO_TOM} 2026, därefter ordinarie pris {ORD_PRIS_KR} kr)</>}. Priset som gäller är det som visas när du betalar. Betalning sker med kort, Apple Pay, Google Pay eller Klarna via Stripe. Vi ser aldrig dina kortuppgifter.</p>
         <h2>Leverans</h2>
         <p>Koden visas direkt efter betalningen och skickas till den e-postadress du anger. Ett presentkort levereras på samma sätt.</p>
         <h2>Ångerrätt</h2>

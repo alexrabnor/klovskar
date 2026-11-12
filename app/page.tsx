@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Bild } from "@/components/Bild";
 import { Snofall } from "@/components/Snofall";
 import { Sidfot } from "@/components/Sidfot";
-import { kopOppet, prisKr } from "@/lib/stripe";
+import { kopOppet, prisKr, prisText } from "@/lib/stripe";
 import { inloggad } from "@/lib/session";
 import { PERSONER } from "@/content/personer";
 
@@ -30,7 +30,7 @@ export default async function Start() {
             <Bild namn="omslag" alt="Hotell Fyrbåken och fyrtornet på Klovskär en snöig decembernatt, med titeln Mordet på Klovskär – ett adventsmysterium i 24 luckor." sizes="(max-width: 860px) 100vw, 460px" prioritet />
           </div>
           <div className="landning-text">
-            <p className="etikett">Adventsmysteriet 2026 · Introduktionspris {pris} kr (ord. 199 kr)</p>
+            <p className="etikett">Adventsmysteriet 2026 · {prisText()}</p>
             <h1 className="rubrik-stor">Mordet på Klovskär</h1>
             <p className="landning-ingress">
               December 1962. Isen har lagt sig runt en ö längst ut i Bohuslän och färjan går inte.
@@ -66,7 +66,7 @@ export default async function Start() {
           <section className="stack">
             <h2 className="rubrik-mellan">Så går det till</h2>
             <ol className="steg">
-              <li><b>Köp en kod.</b> Introduktionspris {pris} kr (ord. 199 kr) för hela laget. Koden kommer direkt och via mejl.</li>
+              <li><b>Köp en kod.</b> {prisText()} för hela laget. Koden kommer direkt och via mejl.</li>
               <li><b>Bjud in laget.</b> Hela fem personer kan vara med i samma lag. Dela lagkoden – ingen behöver konto eller lösenord.</li>
               <li><b>En lucka varje morgon.</b> Kl. 06.00 kommer nytt material: telegram, förhör, kvitton och fotografier från utredningen.</li>
               <li><b>Lös mordet till julafton.</b> Lämna in vem, varför, hur och när. Sedan får ni facit – och se vilka ledtrådar ni missade.</li>
@@ -99,7 +99,7 @@ export default async function Start() {
               <p className="etikett">Julklapp</p>
               <h2 className="rubrik-mellan">Ge bort ett mord</h2>
               <p>Ge bort spelet i julklapp så får du ett presentkort med koden – att skriva ut, lägga under granen eller skicka vidare. Hela 5 personer kan vara med i laget. Mottagaren väljer själv när deras 24 dagar börjar.</p>
-              <div>{kopOppet() ? <Link className="knapp" href="/kop?present=1">Ge bort i julklapp – {pris} kr (ord. 199 kr)</Link> : <span className="slapps-snart">Julklappen släpps snart</span>}</div>
+              <div>{kopOppet() ? <Link className="knapp" href="/kop?present=1">Ge bort i julklapp – {pris} kr</Link> : <span className="slapps-snart">Julklappen släpps snart</span>}</div>
             </div>
           </section>
 

@@ -1,0 +1,121 @@
+<title>Klovskär i Stripe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Special+Elite&display=swap">
+<style>
+/* Layout: en smal spalt, ett kort per steg i den ordning de ska göras, med kopierbara värden. */
+:root {
+  --bg: #0f1c22; --panel: #16272f; --line: #2a4049; --fg: #e4ddd0; --muted: #9fb0b3;
+  --amber: #e2a24a; --green: #7fb38a; --red: #d0675a;
+  --display: "DM Serif Display", Georgia, serif;
+  --body: "Source Serif 4", Georgia, serif;
+  --type: "Special Elite", "Courier New", monospace;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 40px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 22px; }
+h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 6vw, 2.7rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+.eyebrow { font-family: var(--type); color: var(--amber); letter-spacing: .08em; font-size: .85rem; text-transform: uppercase; margin: 0 0 8px; }
+.intro p { margin: 0 0 10px; color: var(--muted); max-width: 62ch; }
+.intro strong, .steg strong { color: var(--fg); }
+.steg { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 20px 22px; display: grid; gap: 10px; min-width: 0; }
+.steg header { display: flex; align-items: baseline; gap: 12px; }
+.nr { font-family: var(--type); color: var(--amber); font-size: 1rem; }
+h2 { font-family: var(--display); font-weight: 400; font-size: 1.4rem; margin: 0; text-wrap: balance; }
+.var { font-family: var(--type); font-size: .85rem; color: var(--muted); margin: 0; }
+.steg p, .steg ul { margin: 0; }
+.steg ul { padding-left: 20px; display: grid; gap: 6px; }
+.falt { display: grid; gap: 8px; }
+.rad { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; border-top: 1px dashed var(--line); padding-top: 8px; }
+.rad .etikett { grid-column: 1 / -1; font-size: .88rem; color: var(--muted); }
+.rad code { font-family: var(--type); font-size: .9rem; color: #f0e6d2; background: #0b151a; border: 1px solid var(--line); padding: 6px 9px; word-break: break-word; min-width: 0; }
+button { font: 600 .85rem var(--body); background: var(--amber); color: #1a1208; border: 0; border-radius: 3px; padding: 8px 12px; cursor: pointer; min-height: 40px; }
+button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+button.ok { background: var(--green); }
+.obs { padding-left: 12px; border-left: 3px solid var(--red); }
+.du { padding-left: 12px; border-left: 3px solid var(--green); color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Mordet på Klovskär · betalning</p>
+    <h1>Så ställer du in Stripe</h1>
+    <p>Du behöver <strong>inte skapa någon produkt</strong> i Stripe. Appen skickar spelets namn, pris (99 kr) och beskrivning med varje köp, så de syns ändå på kvittot och under Betalningar.</p>
+    <p>Det Stripe behöver veta är vem som säljer, vad du säljer och vart pengarna ska. Gör allt i <strong>testläge</strong> först (reglaget "Testläge" eller "Sandbox" uppe till höger). Då kan vi provköpa med låtsaskort innan riktiga pengar dras.</p>
+  </section>
+  <div id="lista" style="display:grid;gap:22px"></div>
+</div>
+
+<script>
+const steg = [
+  { titel: "Skapa konto", var: "stripe.com/se → Starta nu",
+    html: `<ul><li>Välj land <strong>Sverige</strong> och valuta SEK.</li>
+<li>Verksamhetstyp: <strong>Enskild näringsidkare</strong> om du har enskild firma, annars det alternativ som passar dig. Du legitimerar dig med BankID och anger personnummer.</li>
+<li>Utbetalningar: ange det bankkonto pengarna ska till.</li></ul>`},
+  { titel: "Berätta vad du säljer", var: "Inställningar → Företag → Företagsuppgifter / Offentliga uppgifter",
+    falt: [
+      ["Offentligt företagsnamn", "Adventdeckare"],
+      ["Webbplats", "https://adventdeckare.se"],
+      ["Supportmejl", "adventdeckare@alexcloud.se"],
+      ["Beskrivning på kontoutdraget (max 22 tecken)", "ADVENTDECKARE"],
+      ["Kort beskrivning (om den efterfrågas)", "ADVENT"],
+      ["Bransch", "Digitala varor / spel och programvara"],
+      ["Produktbeskrivning (Stripe granskar den)", "Digitalt adventsmysterium på svenska: ett detektivspel i webbläsaren med 24 luckor, en per dag 1–24 december. Säljs som engångsköp per lag (99 kr). Leverans direkt efter betalning via en aktiveringskod på skärmen och i mejl. Inga prenumerationer."],
+    ]},
+  { titel: "Utseende på betalsidan", var: "Inställningar → Varumärke (Branding)",
+    html: `<p>Ikon och färger syns på betalsidan och kvittot. Spara ikonen från länken nedan och ladda upp den i Stripe.</p>`,
+    falt: [
+      ["Ikon (512 × 512)", "https://adventdeckare.se/icon-512.png"],
+      ["Varumärkesfärg", "#0e1a1f"],
+      ["Accentfärg", "#e2a24a"],
+    ]},
+  { titel: "Betalsätt", var: "Inställningar → Betalningar → Betalmetoder",
+    html: `<ul><li><strong>Kort</strong>: på (är på från början).</li>
+<li><strong>Apple Pay och Google Pay</strong>: på. Ingen domänverifiering behövs, eftersom betalsidan ligger hos Stripe.</li>
+<li><strong>Swish</strong>: slå på. Många svenskar vill betala så.</li>
+<li>Klarna och andra kan vara av. Inget i appen behöver ändras, för betalsidan visar de sätt du slagit på.</li></ul>`},
+  { titel: "Kvitton till köparen", var: "Inställningar → Kundmejl (Customer emails)",
+    html: `<ul><li>Slå på mejl för <strong>lyckade betalningar</strong> och <strong>återbetalningar</strong>.</li>
+<li>Appen ber Stripe göra en faktura till varje köp, som köparen får som kvitto. Under Inställningar → Fakturor kan du fylla i en sidfot, t.ex. <em>"Tack för att ni spelar Adventsmysteriet 2026!"</em> Stripe kan ta en liten avgift per sådan faktura. Säg till om du hellre vill ha bara det vanliga kvittot.</li></ul>`},
+  { titel: "Hemlig nyckel (testläge)", var: "Utvecklare → API-nycklar",
+    html: `<p>Kopiera <strong>Hemlig nyckel</strong>, som börjar med <code>sk_test_</code>. Testnyckeln kan bara flytta låtsaspengar, så den kan du klistra in till mig i chatten.</p>`},
+  { titel: "Webhook", var: "Utvecklare → Webhooks → Lägg till slutpunkt (Add destination)",
+    html: `<p>Det är så Stripe säger till appen att någon har betalat, och då skapas lagets kod. Välj händelserna nedan och spara. Kopiera sedan <strong>signeringshemligheten</strong>, som börjar med <code>whsec_</code>, och skicka den också.</p>`,
+    falt: [
+      ["Slutpunktens URL", "https://adventdeckare.se/api/stripe/webhook"],
+      ["Händelse 1", "checkout.session.completed"],
+      ["Händelse 2", "checkout.session.async_payment_succeeded"],
+      ["Händelse 3", "charge.refunded"],
+    ]},
+  { titel: "Provköp (gör jag)", var: "När jag fått nyckeln och hemligheten",
+    html: `<p class="du">Jag lägger in båda i <code>.env</code> och bygger om appen. Sedan köper vi med testkortet <code>4242 4242 4242 4242</code> (valfritt datum framåt, valfri CVC) och kontrollerar att koden visas, att mejlet kommer och att en återbetalning spärrar koden.</p>`},
+  { titel: "Skarpt läge", var: "När provköpet fungerar, före 1 december",
+    html: `<ul><li>Stripe måste ha <strong>aktiverat kontot</strong>, och det kan ta några dagar. Gör steg 1–2 snart.</li>
+<li>Stäng av testläget och gör steg 6–7 igen. Den skarpa nyckeln börjar med <code>sk_live_</code>.</li>
+<li class="obs">Klistra <strong>inte</strong> in den skarpa nyckeln i chatten. Skriv in den själv i <code>~/apps/klovskar/.env</code> (<code>STRIPE_LIVE_SECRET_KEY</code> och <code>STRIPE_LIVE_WEBHOOK_SECRET</code>), till exempel med <code>nano</code> i terminalfliken. Säg sedan till, så slår jag om till skarpt läge.</li>
+<li>Jag behöver också veta <strong>vilket säljarnamn</strong> som ska stå i villkoren, sidfoten och kvittomejlen. I dag står där bara "Säljaren".</li></ul>`},
+];
+
+const lista = document.getElementById("lista");
+steg.forEach((s, i) => {
+  const a = document.createElement("article");
+  a.className = "steg";
+  a.innerHTML = `<header><span class="nr">${i + 1}</span><h2>${s.titel}</h2></header><p class="var">${s.var}</p>${s.html || ""}`;
+  if (s.falt) {
+    const f = document.createElement("div"); f.className = "falt";
+    for (const [etikett, varde] of s.falt) {
+      const r = document.createElement("div"); r.className = "rad";
+      r.innerHTML = `<span class="etikett"></span><code></code><button type="button">Kopiera</button>`;
+      r.querySelector(".etikett").textContent = etikett;
+      const c = r.querySelector("code"); c.textContent = varde;
+      const b = r.querySelector("button");
+      b.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(varde); b.textContent = "Kopierad"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Kopiera"; b.classList.remove("ok"); }, 1800); }
+        catch { const rg = document.createRange(); rg.selectNodeContents(c); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); b.textContent = "Markerad"; }
+      });
+      f.appendChild(r);
+    }
+    a.appendChild(f);
+  }
+  lista.appendChild(a);
+});
+</script>
