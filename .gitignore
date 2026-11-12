@@ -7,3 +7,7 @@ data/
 next-env.d.ts
 *.tsbuildinfo
 bilder/_original/
+
+# nanos nödsparning m.m. – innehåller nycklar
+.env*
+!.env.example
