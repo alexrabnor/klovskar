@@ -466,3 +466,21 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .admin-lagkod > div:first-child { display: grid; gap: 2px; min-width: 0; }
 .admin-lagkod-kod { font: 28px var(--f-m); letter-spacing: .12em; color: var(--fg); }
 .admin-lagkod-lank { overflow-wrap: anywhere; }
+
+/* Facit: ert svar bredvid rätt svar, poäng per del och totalt */
+.resultat { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.resultat li { padding: 14px 16px; border: 1px solid var(--linje); border-left: 4px solid var(--linje); border-radius: 4px; background: var(--panel); display: grid; gap: 10px; }
+.resultat li.res-ratt { border-left-color: #6fae7c; }
+.resultat li.res-delvis { border-left-color: var(--barnsten); }
+.resultat li.res-fel { border-left-color: #c46a5a; }
+.resultat-topp { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.resultat-del { font: 20px var(--f-r); }
+.resultat-poang { font: 17px var(--f-m); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.resultat li.res-ratt .resultat-poang { color: #8fc79b; }
+.resultat li.res-fel .resultat-poang { color: #e08b7a; }
+.resultat dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.resultat dl > div { min-width: 0; }
+.resultat dt { font: 12px var(--f-m); letter-spacing: .08em; text-transform: uppercase; color: var(--dampad); }
+.resultat dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+.resultat .resultat-total { display: flex; justify-content: space-between; align-items: baseline; border-left-color: var(--barnsten); background: #e2a24a1a; font: 22px var(--f-r); }
+.resultat .resultat-total .resultat-poang { font-size: 22px; color: var(--barnsten); }

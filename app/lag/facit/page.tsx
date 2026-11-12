@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { kravInloggad } from "@/lib/session";
 import { facitOppet } from "@/lib/tid";
 import { db } from "@/lib/db";
-import { FACIT_STEG, NYCKELLEDTRADAR } from "@/content/facit";
+import { FACIT_STEG, NYCKELLEDTRADAR, MORDARE, RATT_MOTIV, RATT_METOD, TID_FRAN, TID_TILL } from "@/content/facit";
 import { MAX_POANG, type Poang } from "@/lib/poang";
 import { PERSONER } from "@/content/personer";
 import { MOTIV, METOD } from "@/lib/anklagelse-val";
@@ -32,29 +32,39 @@ export default async function Facit() {
   const antalUppgifter = LUCKOR.filter((l) => l.uppgift).length;
   const uppgifter = lostaUppgifter(lag.id).size;
   const FALL_MAX = 5 + 3 + 3 + 2;
-  const rad = (etikett: string, ert: string, poang: number, max: number) => (
-    <tr><td>{etikett}</td><td>{ert}</td><td className="tal">{poang} / {max}</td></tr>
-  );
+  const klock = (min: number) => `${String(Math.floor(min / 60)).padStart(2, "0")}.${String(min % 60).padStart(2, "0")}`;
+  const delar = [
+    { del: "Mördaren", ert: PERSONER.find((x) => x.id === u.mordare)?.namn ?? "–", ratt: PERSONER.find((x) => x.id === MORDARE)!.namn, poang: p.mordare, max: 5 },
+    { del: "Motiv", ert: MOTIV.find((x) => x.id === u.motiv)?.text ?? "–", ratt: MOTIV.find((x) => x.id === RATT_MOTIV)!.text, poang: p.motiv, max: 3 },
+    { del: "Metod", ert: METOD.find((x) => x.id === u.metod)?.text ?? "–", ratt: METOD.find((x) => x.id === RATT_METOD)!.text, poang: p.metod, max: 3 },
+    { del: "Tidpunkt", ert: u.tid ? u.tid.replace(":", ".") : "–", ratt: `${klock(TID_FRAN)}–${klock(TID_TILL)}`, poang: p.tid, max: 2 },
+    { del: "Chiffer (frivilliga)", ert: `${p.bonus} lösta`, ratt: "6 lösta", poang: p.bonus, max: 6, valfri: true },
+  ];
   return (
     <main className="sida">
       <Avslojande steg={FACIT_STEG.map((s) => ({ rubrik: s.rubrik, innehall: <Text text={s.text} /> }))}>
         <section className="stack">
           <p className="etikett">Lagets resultat</p>
           <h2 className="rubrik-stor">Fallet: {fall} av {FALL_MAX}</h2>
-          <p className="dampad">Chiffer: {p.bonus} av 6 · Uppgifter: {uppgifter} av {antalUppgifter} · Totalt {p.totalt} av {MAX_POANG} poäng</p>
-          <div className="rull-x">
-            <table className="tabell">
-              <thead><tr><th>Del</th><th>Ert svar</th><th>Poäng</th></tr></thead>
-              <tbody>
-                {rad("Mördaren", PERSONER.find((x) => x.id === u.mordare)?.namn ?? "–", p.mordare, 5)}
-                {rad("Motiv", MOTIV.find((x) => x.id === u.motiv)?.text ?? "–", p.motiv, 3)}
-                {rad("Metod", METOD.find((x) => x.id === u.metod)?.text ?? "–", p.metod, 3)}
-                {rad("Tid", u.tid ?? "–", p.tid, 2)}
-                {rad("Chiffer (frivilliga)", `${p.bonus} lösta`, p.bonus, 6)}
-                <tr><td>Uppgifter i luckorna</td><td>{uppgifter} av {antalUppgifter} lösta</td><td className="tal dampad">–</td></tr>
-              </tbody>
-            </table>
-          </div>
+          <ol className="resultat">
+            {delar.map((d) => (
+              <li key={d.del} className={d.valfri ? "res-valfri" : d.poang === d.max ? "res-ratt" : d.poang > 0 ? "res-delvis" : "res-fel"}>
+                <div className="resultat-topp">
+                  <span className="resultat-del">{d.del}</span>
+                  <span className="resultat-poang">{d.poang} / {d.max} p</span>
+                </div>
+                <dl>
+                  <div><dt>Ert svar</dt><dd>{d.ert}</dd></div>
+                  <div><dt>Rätt svar</dt><dd>{d.ratt}</dd></div>
+                </dl>
+              </li>
+            ))}
+            <li className="resultat-total">
+              <span>Totalt</span>
+              <span className="resultat-poang">{p.totalt} / {MAX_POANG} p</span>
+            </li>
+          </ol>
+          <p className="dampad liten">Uppgifterna i luckorna ger inga poäng. Ni löste {uppgifter} av {antalUppgifter}.</p>
           {u.motivText?.trim() && (
             <div className="panel stack">
               <p className="etikett">Ert motiv med egna ord</p>
