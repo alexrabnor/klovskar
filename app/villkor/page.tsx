@@ -28,7 +28,7 @@ export default function Villkor() {
         <h2>Tillgång</h2>
         <p>Mordet på Klovskär är Adventsmysteriet 2026. Laget behåller tillgången till spelet, sina anteckningar och facit så länge spelet finns, och minst till och med den 31 december 2027. Spelet kräver internetuppkoppling.</p>
         <h2>Fel och reklamation</h2>
-        <p>Fungerar något inte som det ska, kontakta oss så rättar vi det eller betalar tillbaka. Du kan också vända dig till Allmänna reklamationsnämnden, arn.se.</p>
+        <p>Fungerar något inte som det ska, kontakta oss så rättar vi det eller betalar tillbaka.</p>
       </main>
       <Sidfot />
     </>
