@@ -21,6 +21,19 @@ export default async function Inbjudan({ params }: { params: Promise<{ kod: stri
     );
   }
   const antal = spelareILag(lag.id).length;
+  if (lag.spel === "barn") {
+    return (
+      <main className="sida barn">
+        <div className="bildram" style={{ borderRadius: 16 }}><Bild namn="barn-omslag" alt="Fyren på Måsholmen en blå vinterkväll." prioritet /></div>
+        <header className="stack">
+          <p className="etikett">Stjärnan som försvann</p>
+          <h1 className="rubrik-mellan">{lag.namn} väntar på dig</h1>
+          <p className="dampad">Varje morgon öppnas en ny lucka med en berättelse, en fråga och ett uppdrag. Alla i laget delar samma detektivpass. {antal} av {MAX_SPELARE} platser är tagna.</p>
+        </header>
+        <GaMedFormular kod={lag.kod} lagnamn={lag.namn} />
+      </main>
+    );
+  }
   return (
     <main className="sida">
       <div className="bildram"><Bild namn="hotellet-dag" alt="Hotell Fyrbåken och fyrtornet på Klovskär i vinterljus." prioritet /></div>

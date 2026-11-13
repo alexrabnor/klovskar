@@ -12,13 +12,17 @@ export default async function Aktivera({ searchParams }: { searchParams: Promise
   const kod = (await searchParams).kod || "";
   const rad = kod ? kodMedKod(kod) : undefined;
   const advent = adventStart();
+  // Koden avgör vilket spel laget hör till. Utan känd kod visas Klovskärs text, utom på barndeckarens egen adress.
+  const barn = rad ? rad.spel === "barn" : process.env.STARTSIDA === "barn";
   return (
-    <main className="sida">
+    <main className={barn ? "sida barn" : "sida"}>
       <Link href="/borja" className="liten">← Tillbaka</Link>
       <header className="stack">
         <p className="etikett">Skapa lag</p>
-        <h1 className="rubrik-mellan">Välkomna till Klovskär</h1>
-        <p className="dampad">Den som skapar laget blir lagledare: lämnar in anklagelsen på julafton och kan bjuda in, ta bort och ändra.</p>
+        <h1 className="rubrik-mellan">{barn ? "Välkomna till Måsholmen" : "Välkomna till Klovskär"}</h1>
+        <p className="dampad">{barn
+          ? "Den som skapar laget blir lagledare och kan lägga till fler enheter. Lagets namn står sedan på diplomet."
+          : "Den som skapar laget blir lagledare: lämnar in anklagelsen på julafton och kan bjuda in, ta bort och ändra."}</p>
       </header>
       <AktiveraFormular
         kod={rad && !rad.lag_id ? rad.kod : kod}

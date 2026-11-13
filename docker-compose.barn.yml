@@ -1,0 +1,37 @@
+# Barndeckaren på egen adress (barndeckare.alexcloud.se) medan den provas.
+# Samma kod och samma bilder som Klovskär, men egen databas och egen port.
+#
+#   cp .env .env.barn      # ta bort Stripe-nycklarna eller låt STRIPE_LAGE=test stå kvar
+#   docker compose -f docker-compose.barn.yml up -d --build
+#
+# Peka sedan barndeckare.alexcloud.se mot port 3132 i Cloudflare Tunnel.
+name: barndeckare
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env.barn
+    environment:
+      DB_PATH: /app/data/barn.db
+      BILD_DIR: /app/bilder
+      TZ: Europe/Stockholm
+      PORT: "3132"
+      BAS_URL: https://barndeckare.alexcloud.se
+      # Slår på /barn och gör den till startsida
+      BARN: "1"
+      STARTSIDA: barn
+    ports:
+      - "3132:3132"
+    volumes:
+      - barndeckare_data:/app/data
+      - ./bilder:/app/bilder:ro
+    networks:
+      - caddy_net
+
+volumes:
+  barndeckare_data:
+
+networks:
+  caddy_net:
+    external: true

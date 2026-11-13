@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Bild } from "@/components/Bild";
 import { Snofall } from "@/components/Snofall";
 import { Sidfot } from "@/components/Sidfot";
@@ -19,6 +20,8 @@ const FRAGOR: [string, string][] = [
 ];
 
 export default async function Start() {
+  // På barndeckarens egen adress (STARTSIDA=barn) är /barn startsidan
+  if (process.env.STARTSIDA === "barn") redirect("/barn");
   const i = await inloggad();
   const pris = prisKr();
   return (

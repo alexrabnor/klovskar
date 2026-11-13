@@ -1,0 +1,681 @@
+import "server-only";
+import type { BarnLucka } from "./typer";
+
+// Stjärnan som försvann – alla 24 luckor. HEMLIGT: bara serverkod får läsa den här filen.
+//
+// Lösningen: tvillingarna Ebba och Love tog ner stjärnan natten till den 1 december för att
+// laga en avbruten udd och måla om den åt Algot (erkänner i lucka 14). Ur båthuset släpade
+// geten Mackan sedan hem den till stallet, för att den var varm och lyste (lucka 22).
+// Ledtrådar till tvillingarna: glitter, lappen, två par små spår, kälken, guldfärgen, blinket, saffransavtrycken.
+// Ledtrådar till Mackan: avtuggat rep, kluvna spår, vit tofs lågt ner, pinglan, släpspåret, kransen.
+
+export const BARNLUCKOR: BarnLucka[] = [
+  {
+    nr: 1,
+    titel: "Den tomma kroken",
+    teaser: "Stjärnan i fyren är borta.",
+    bildAlt: "Fyrvaktaren Algot står högst upp i fyren med en lykta och tittar på en tom krok.",
+    text: [
+      "Hej! Jag heter Sotis och är fyrkatt på Måsholmen. Jag har en vit tass, en röd halsduk och väldigt bra ögon.",
+      "Varje år den första december tänder Algot den stora guldstjärnan högst upp i fyren. Den lyser hela vägen till jul, så att julbåten hittar hit i mörkret.",
+      "I morse klättrade Algot uppför alla hundra trappsteg. Jag sprang före. Men där uppe hängde ingen stjärna. Bara en tom krok.",
+      "”Den hängde här i går”, sa Algot och kliade sig i skägget. På golvet låg något litet som blänkte. Guldglitter.",
+      "Jag behöver hjälp av riktiga detektiver. Vill ni vara med?",
+    ],
+    fraga: {
+      text: "Vad hittade Sotis på golvet i fyren?",
+      val: [
+        { text: "Guldglitter", ratt: true, svar: "Just det. Guldglitter, precis som det som sitter på stjärnan. Det är vår första ledtråd." },
+        { text: "En vante", svar: "Nej, ingen vante. Det var något mycket mindre som blänkte. Titta i texten en gång till." },
+        { text: "En fjäder", svar: "Ingen fjäder i dag. Det som låg på golvet var litet och guldfärgat." },
+      ],
+    },
+    uppdrag: {
+      titel: "Gör ditt detektivpass",
+      text: "En riktig detektiv har ett pass. Rita dig själv på ett papper, hitta på ett hemligt kodnamn och skriv dit det. Tryck till sist dit tummen med lite färg från en tuschpenna.",
+      behovs: "Papper, pennor och en tuschpenna.",
+      marke: "🪪",
+    },
+  },
+  {
+    nr: 2,
+    titel: "Alla på ön",
+    teaser: "Sotis presenterar öborna.",
+    bildAlt: "Öborna på Måsholmen står på rad på den snöiga bryggan. Måsen Gösta sitter på en stolpe.",
+    text: [
+      "Måsholmen är en liten ö. Här bor inte många, så det går fort att räkna upp alla.",
+      "Algot är fyrvaktare och har öns största stövlar. Saga bakar bröd och har alltid mjöl på förklädet. Tore fiskar och äger båthuset vid bryggan.",
+      "Majken kommer med postbåten och cyklar fortare än någon annan. Ebba och Love är tvillingar och bygger alltid på något hemligt. Professor Pip tittar på fåglar i kikare och skriver i en bok som ingen får läsa.",
+      "Sedan finns måsen Gösta, som tar allt som glänser. Och geten Mackan, som bor i det röda stallet uppe på backen.",
+      "Någon av dem vet vart stjärnan har tagit vägen. Det känner jag i morrhåren.",
+    ],
+    fraga: {
+      text: "Vem på ön tar allt som glänser?",
+      val: [
+        { text: "Måsen Gösta", ratt: true, svar: "Ja! Gösta älskar saker som glänser. Och stjärnan glänser mer än något annat på ön. Honom får vi hålla ögonen på." },
+        { text: "Bagaren Saga", svar: "Saga tycker mest om bullar. Det var någon med vingar som tar allt som glänser." },
+        { text: "Brevbäraren Majken", svar: "Majken har fullt upp med breven. Tänk på den som bor i ett bo på klippan." },
+      ],
+    },
+    uppdrag: {
+      titel: "Kims lek",
+      text: "En detektiv måste komma ihåg vad hon ser. Lägg tio småsaker på en bricka. Titta noga i en minut. Blunda medan någon tar bort en sak. Vilken saknas?",
+      behovs: "En bricka och tio småsaker.",
+      marke: "👀",
+    },
+  },
+  {
+    nr: 3,
+    titel: "Glitter i trappan",
+    teaser: "Ett spår av guld.",
+    bildAlt: "Fyrens spiraltrappa med ett spår av guldglitter som leder nedåt. En barnhand håller ett förstoringsglas.",
+    text: [
+      "Jag har nosat igenom hela fyren. Glittret låg inte bara där uppe. Det ligger på trappstegen också.",
+      "Ett korn här. Två korn där. Ett helt litet spår, som leder nedför trappan och ända fram till dörren.",
+      "Algot tittade i sitt förstoringsglas. ”Det är samma guld som på stjärnan”, sa han. ”Det ramlar av när man tar i den.”",
+      "Då vet vi en sak säkert. Stjärnan har inte ramlat ner i havet. Den har inte flugit sin väg. Någon har burit den nedför trappan och ut genom dörren.",
+    ],
+    fraga: {
+      text: "Vad berättar glitterspåret?",
+      val: [
+        { text: "Att någon har burit ut stjärnan genom dörren", ratt: true, svar: "Precis. Spåret går nedför trappan och ut. Någon har burit den." },
+        { text: "Att stjärnan har ramlat i havet", svar: "Då hade det inte legat glitter i trappan. Följ spåret: vart leder det?" },
+        { text: "Att stjärnan är kvar i fyren", svar: "Jag har letat överallt där inne. Spåret leder nedåt och fram till dörren." },
+      ],
+    },
+    uppdrag: {
+      titel: "Ta fingeravtryck",
+      text: "Gnid en blyertspenna hårt på ett papper tills det blir en mörk fläck. Tryck fingret i fläcken. Sätt en bit tejp på fingret, dra av den och klistra in den i ditt detektivpass. Har alla i familjen olika mönster?",
+      behovs: "Blyertspenna, papper och genomskinlig tejp.",
+      marke: "☝️",
+    },
+  },
+  {
+    nr: 4,
+    titel: "Lappen i snön",
+    teaser: "Ett meddelande som inte går att läsa.",
+    bildAlt: "En skrynklig lapp i snön vid en röd dörr, bredvid en liten spegel.",
+    text: [
+      "Vid fyrdörren låg en skrynklig lapp i snön. Jag petade på den med tassen.",
+      "Det stod något på den, men bokstäverna var alldeles konstiga. De stod åt fel håll! Algot vände och vred på lappen. ”Det här är ingen riktig skrift”, sa han.",
+      "Då kom Saga förbi med en korg bröd. ”Men det är ju spegelskrift”, sa hon och tog fram en liten spegel ur fickan.",
+      "I spegeln blev bokstäverna rätt. Där stod: SÄG INGET TILL ALGOT.",
+      "Algot blev tyst en lång stund. ”Vem är det som har hemligheter för mig?” sa han till sist.",
+    ],
+    fraga: {
+      text: "Vad stod det på lappen?",
+      val: [
+        { text: "Säg inget till Algot", ratt: true, svar: "Ja. Någon har en hemlighet, och Algot får inte veta. Och den som skrev kan spegelskrift." },
+        { text: "God jul, Algot", svar: "Det hade varit trevligare. Men lappen handlade om en hemlighet. Läs sista stycket igen." },
+        { text: "Stjärnan ligger i havet", svar: "Nej, det stod inget om havet. Lappen handlade om att Algot inte får veta något." },
+      ],
+    },
+    uppdrag: {
+      titel: "Skriv spegelskrift",
+      text: "Skriv ett hemligt meddelande baklänges, med bokstäverna åt fel håll. Det är svårt! Ge lappen till någon och låt dem läsa den i badrumsspegeln.",
+      behovs: "Papper, penna och en spegel.",
+      marke: "🪞",
+    },
+  },
+  {
+    nr: 5,
+    titel: "Spåren i snön",
+    teaser: "Någon har gått här. Fler än en.",
+    bildAlt: "En snöig stig från fyren ner till bryggan, sedd uppifrån. Två par små stövelspår och två smala ränder efter en kälke.",
+    text: [
+      "I dag har jag gått med nosen i snön hela vägen från fyren.",
+      "Där finns spår efter stövlar. Små stövlar. Och det är inte ett par, det är två par som har gått bredvid varandra.",
+      "Mellan stövelspåren går två smala ränder. Sådana ränder blir det efter en kälke.",
+      "Spåren går nedför backen och fram till bryggan. Där har vinden blåst bort snön, och där tar spåren slut.",
+      "Två stycken har alltså gått här med en kälke. Och det de drog på kälken var tungt, för ränderna är djupa.",
+    ],
+    fraga: {
+      text: "Hur många var det som gick med kälken?",
+      val: [
+        { text: "Två", ratt: true, svar: "Rätt. Två par stövlar bredvid varandra. De var två, och de hade små fötter." },
+        { text: "En", svar: "Titta på stövelspåren en gång till. Det är fler än ett par." },
+        { text: "Fem", svar: "Så många var de inte. Räkna paren av stövelspår i texten." },
+      ],
+    },
+    uppdrag: {
+      titel: "Spårjakt ute",
+      text: "En av er lägger ett spår utomhus med pinnar, kottar eller pilar i snön. Längst bort göms en liten skatt. De andra följer spåret och hittar den. Byt sedan!",
+      behovs: "Varma kläder och något litet att gömma.",
+      stor: true,
+      marke: "👣",
+    },
+  },
+  {
+    nr: 6,
+    titel: "Algots stövlar",
+    teaser: "Öns största fötter.",
+    bildAlt: "En jättestor gummistövel står bredvid en liten barnstövel. Algot sover i en gungstol i bakgrunden.",
+    text: [
+      "Ni kanske har tänkt det redan. Tänk om det är Algot själv som har tagit stjärnan? Han är ju lite glömsk.",
+      "Så jag smög in i hans hall och mätte hans stövel. Jag fick plats i den med hela kroppen. Och svansen!",
+      "Spåren i snön var små. Algots stövlar är störst på hela ön. Det kan inte ha varit han som gick där.",
+      "Saga berättade en sak till. Hon går upp klockan tre på natten för att baka. Den natten hörde hon Algot snarka genom väggen. Hela natten. ”Det lät som en motorbåt”, sa hon.",
+      "Algot har inte tagit sin egen stjärna. Honom kan vi stryka.",
+    ],
+    fraga: {
+      text: "Varför kan det inte vara Algot som gjorde spåren?",
+      val: [
+        { text: "Hans stövlar är för stora", ratt: true, svar: "Just det. Spåren var små och Algots stövlar är jättestora. Och så sov han hela natten. Stryk Algot!" },
+        { text: "Han har ingen kälke", svar: "Det vet vi inget om. Men jämför hans stövlar med spåren i snön." },
+        { text: "Han är rädd för snö", svar: "Algot har bott här i fyrtio vintrar, han är inte rädd för snö. Tänk på hur stora hans fötter är." },
+      ],
+    },
+    uppdrag: {
+      titel: "Fotavtryck i mjöl",
+      text: "Strö ett tunt lager mjöl på en bakplåt. Tryck dit en sko från var och en i familjen. Blanda sedan skorna och låt någon gissa vilket avtryck som hör till vilken sko.",
+      behovs: "En bakplåt, mjöl och skor (rena sulor!).",
+      stor: true,
+      marke: "🥾",
+    },
+    stryk: "algot",
+  },
+  {
+    nr: 7,
+    titel: "Måsens bo",
+    teaser: "Ett bo fullt av skatter.",
+    bildAlt: "Måsen Gösta sitter stolt vid sitt bo på en klippa. Boet är fullt av skedar, en knapp, en nyckel och en julgranskula.",
+    text: [
+      "Gösta tar allt som glänser. Det vet alla på Måsholmen. Så i dag klättrade jag upp på klippan där han har sitt bo.",
+      "Vilket bo! Där låg tre teskedar. En mässingsknapp. Nyckeln som Tore har letat efter sedan i somras. Och en röd julgranskula.",
+      "Gösta burrade upp sig och skrek åt mig. Han tyckte inte om att jag tittade.",
+      "Jag letade noga, under varenda sked. Men någon stjärna fanns det inte i boet.",
+      "Fast han kan ju ha gömt den någon annanstans. Vi får tänka lite till.",
+    ],
+    fraga: {
+      text: "Vad fanns INTE i Göstas bo?",
+      val: [
+        { text: "Stjärnan", ratt: true, svar: "Rätt. Massor av saker som glänser, men ingen stjärna." },
+        { text: "Tores nyckel", svar: "Jo, den låg där! Tore blir glad. Men vad var det jag letade efter och inte hittade?" },
+        { text: "Tre teskedar", svar: "De låg där allihop. Det är något mycket större som saknas i boet." },
+      ],
+    },
+    uppdrag: {
+      titel: "Bygg en kikare",
+      text: "Tejpa ihop två toarullar till en kikare. Måla den om du vill. Ställ dig vid fönstret och spana tills du har sett tre fåglar. Vad gör de?",
+      behovs: "Två toarullar och tejp.",
+      marke: "🔭",
+    },
+  },
+  {
+    nr: 8,
+    titel: "För tung för en mås",
+    teaser: "Saga tar fram vågen.",
+    bildAlt: "Inne i bageriet. Två mjölpåsar står på en gammal våg. Måsen Gösta försöker lyfta en mjölpåse med näbben. Saga skrattar.",
+    text: [
+      "”Hur mycket väger stjärnan egentligen?” frågade jag Algot. Han tänkte efter. ”Lika mycket som två påsar mjöl”, sa han.",
+      "Saga ställde två mjölpåsar på sin gamla våg. Fyra kilo.",
+      "Just då kom Gösta flygande in genom dörren. Han såg mjölpåsen, högg tag i den med näbben och flaxade allt vad han kunde.",
+      "Påsen rörde sig inte en millimeter. Gösta blev så arg att han satte sig på golvet och surade.",
+      "Saga skrattade så att hon fick mjöl i håret. En mås orkar inte ens lyfta en påse mjöl. Då orkar han inte flyga iväg med en stjärna som väger som två.",
+    ],
+    fraga: {
+      text: "Varför kan inte Gösta ha tagit stjärnan?",
+      val: [
+        { text: "Den är för tung för honom", ratt: true, svar: "Precis. Stjärnan väger fyra kilo och Gösta orkar inte ens en mjölpåse. Stryk Gösta!" },
+        { text: "Han tycker inte om guld", svar: "Jo, Gösta älskar allt som glänser. Men vad hände när han försökte lyfta mjölpåsen?" },
+        { text: "Han sov hela natten", svar: "Det vet vi inte. Tänk i stället på vad Saga visade med vågen." },
+      ],
+    },
+    uppdrag: {
+      titel: "Tung som en stjärna",
+      text: "Stjärnan väger fyra kilo. Leta upp tre saker hemma som du tror väger ungefär lika mycket. Väg dem och se vilken som kom närmast. Orkar du hålla den med rak arm medan du räknar till tio?",
+      behovs: "En köksvåg eller badrumsvåg.",
+      marke: "⚖️",
+    },
+    stryk: "gosta",
+  },
+  {
+    nr: 9,
+    titel: "Postbåten",
+    teaser: "Var fanns Majken den natten?",
+    bildAlt: "En stormig natt i en liten hamn. Postbåten ligger fastbunden med tjocka rep. Majken tittar ut genom ett upplyst fönster med en kopp varm choklad.",
+    text: [
+      "Majken cyklar fortast av alla. Hon skulle hinna från fyren till bryggan på en minut. Så jag frågade henne rakt ut: var fanns du natten då stjärnan försvann?",
+      "”Den kvällen blåste det så hårt att postbåten inte kunde gå”, sa Majken. ”Jag fick sova på fastlandet. Jag satt i hamnkontoret och drack varm choklad och väntade på att vinden skulle lägga sig.”",
+      "Tore nickade. Han hade sett själv att postbåtens plats vid bryggan stod tom hela natten. Majken kom inte förrän på morgonen.",
+      "Den som inte är på ön kan inte bära ut en stjärna ur fyren. Majken kan vi stryka.",
+    ],
+    fraga: {
+      text: "Var fanns Majken natten då stjärnan försvann?",
+      val: [
+        { text: "På fastlandet", ratt: true, svar: "Rätt. Postbåten kunde inte gå i blåsten, så Majken var inte ens på ön. Stryk Majken!" },
+        { text: "I fyren", svar: "Nej, där var hon inte. Vad sa hon om postbåten och vinden?" },
+        { text: "I båthuset", svar: "Inte där heller. Postbåten låg inte vid bryggan den natten. Var var Majken då?" },
+      ],
+    },
+    uppdrag: {
+      titel: "Osynligt bläck",
+      text: "Doppa en tops i citronsaft och skriv ett hemligt brev. Låt det torka tills ingenting syns. Be en vuxen värma pappret försiktigt med ett strykjärn eller över en varm lampa. Då kommer texten fram!",
+      behovs: "Citronsaft, tops, papper och en vuxen som värmer.",
+      marke: "🍋",
+    },
+    stryk: "majken",
+  },
+  {
+    nr: 10,
+    titel: "Professorns kikare",
+    teaser: "Någon såg något den natten.",
+    bildAlt: "Natt. Professor Pip står på en snöig kulle och tittar i kikare. Långt nedanför drar två små skuggor en kälke med något stort under en filt.",
+    text: [
+      "Professor Pip är uppe på nätterna. Han letar efter ugglor.",
+      "”Såg du något natten då stjärnan försvann?” frågade jag. Pip harklade sig och putsade glasögonen. Han tycker inte om att berätta saker.",
+      "”När vinden hade lagt sig såg jag två små skuggor”, sa han till slut. ”De drog en kälke nedför backen. På kälken låg något stort, med en filt över.”",
+      "”Vart tog de vägen?” frågade jag.",
+      "”Mot bryggan”, sa Pip. ”Sedan såg jag en uggla, och då glömde jag bort dem.”",
+      "Två små. En kälke. Något stort under en filt. Det stämmer precis med spåren i snön.",
+    ],
+    fraga: {
+      text: "Vad såg Professor Pip?",
+      val: [
+        { text: "Två små skuggor som drog en kälke", ratt: true, svar: "Ja. Två små skuggor med en kälke, och något stort under en filt. Precis som spåren visade." },
+        { text: "En stor man med en säck", svar: "Nej, de var inte stora. Hur beskrev Pip skuggorna?" },
+        { text: "En mås med en stjärna i näbben", svar: "Gösta har vi redan strukit. Pip såg något som drogs nedför backen." },
+      ],
+    },
+    uppdrag: {
+      titel: "Skuggteater",
+      text: "Släck lampan och tänd en ficklampa mot väggen. Gör skuggdjur med händerna: en fågel, en hund, en kanin. De andra gissar vad det är.",
+      behovs: "En ficklampa och en tom vägg.",
+      marke: "🔦",
+    },
+  },
+  {
+    nr: 11,
+    titel: "Burken som fattas",
+    teaser: "Något saknas i Tores båthus.",
+    bildAlt: "Tores båthus med nät och åror. På en hylla står färgburkar på rad, med en lucka där en burk saknas. Gula droppar på golvet. Tore kliar sig i huvudet.",
+    text: [
+      "Spåren slutade vid bryggan. Vid bryggan ligger Tores båthus. Så dit gick jag i dag.",
+      "Tore stod och stirrade på sin hylla. Där står alla hans färgburkar på rad: röd, blå, grön och vit.",
+      "”Det fattas en”, sa han. Mitt i raden var det en lucka, med en rund ring i dammet där en burk hade stått. ”Guldfärgen. Den jag målar namnet på båten med.”",
+      "På golvet nedanför hyllan fanns små gula droppar. De var torra.",
+      "”Jag har inte målat sedan i somras”, sa Tore. ”Så det där har inte jag spillt.”",
+    ],
+    fraga: {
+      text: "Vilken färgburk saknas?",
+      val: [
+        { text: "Guldfärgen", ratt: true, svar: "Rätt. Guldfärgen är borta, och någon har spillt av den på golvet. Vad kan man vilja måla i guld?" },
+        { text: "Den röda", svar: "Den röda står kvar på hyllan. Vilken färg hade dropparna på golvet?" },
+        { text: "Den blå", svar: "Blå står kvar. Tore brukar måla båtens namn med färgen som saknas." },
+      ],
+    },
+    uppdrag: {
+      titel: "Knyt en sjömansknop",
+      text: "Tore kan hundra knopar. Lär dig en: råbandsknopen. Höger över vänster och under, sedan vänster över höger och under. Dra åt. Kan du göra den med slutna ögon?",
+      behovs: "Ett snöre eller ett skosnöre.",
+      marke: "🪢",
+    },
+  },
+  {
+    nr: 12,
+    titel: "Blinket i natten",
+    teaser: "Någon signalerar i mörkret.",
+    bildAlt: "Natt över viken. I båthusets lilla fönster lyser en lampa som blinkar över det mörka vattnet.",
+    text: [
+      "I natt kunde jag inte sova. Jag satt i fönstret högst upp i fyren och tittade ut över viken.",
+      "Då blinkade det till borta vid bryggan. I båthusets fönster. Kort, kort, lång. Sedan mörkt.",
+      "Efter en stund kom det igen. Kort, kort, lång.",
+      "Jag väckte Algot. Han var signalist på en båt när han var ung. ”Det där är ingen olycka”, sa han. ”Det är någon som blinkar med en ficklampa. Någon som vill säga något till någon annan.”",
+      "Men Tore låg hemma och sov. Vem är det som är i hans båthus mitt i natten?",
+    ],
+    fraga: {
+      text: "Varifrån kom blinket?",
+      val: [
+        { text: "Från båthuset", ratt: true, svar: "Ja. Samma båthus där guldfärgen försvann. Det är något som pågår där inne." },
+        { text: "Från bageriet", svar: "Nej, Sagas ugn lyser inte i blinkar. Det kom från ett hus vid bryggan." },
+        { text: "Från en båt på havet", svar: "Det låg ingen båt där ute. Blinket kom från ett fönster vid bryggan." },
+      ],
+    },
+    uppdrag: {
+      titel: "Ficklampsmorse",
+      text: "Bestäm tre signaler tillsammans. Till exempel: ett blink betyder kom, två blink betyder vänta, tre blink betyder fara. Släck lamporna och skicka signaler mellan två rum.",
+      behovs: "En eller två ficklampor.",
+      stor: true,
+      marke: "💡",
+    },
+  },
+  {
+    nr: 13,
+    titel: "Luciamorgon",
+    teaser: "Två lussekatter saknas.",
+    bildAlt: "Tidig luciamorgon i bageriet. En plåt med lussekatter har två tomma platser. Små gula fingeravtryck på bordskanten. Saga ser förvånad ut.",
+    text: [
+      "I dag är det Lucia, och i bageriet luktade det saffran redan innan det blev ljust.",
+      "Saga hade bakat fyrtio lussekatter. Hon räknade dem på plåten. Trettioåtta.",
+      "”Det fattas två”, sa hon. ”Och titta här.”",
+      "På bordskanten fanns små gula avtryck efter fingrar. Saffran färgar av sig. Jag la min tass bredvid för att jämföra. Avtrycken var små. Mycket mindre än Sagas händer.",
+      "”Någon liten har varit här i natt och varit hungrig”, sa Saga. Hon lät inte ens arg.",
+      "Små stövlar. Små skuggor. Små fingrar. Jag börjar ana något.",
+    ],
+    fraga: {
+      text: "Hur såg avtrycken på bordet ut?",
+      val: [
+        { text: "Små, som efter barnfingrar", ratt: true, svar: "Just det. Små gula fingrar. Vilka på ön har så små händer?" },
+        { text: "Stora, som efter Algots händer", svar: "Nej, de var mycket mindre än Sagas händer. Hur stora var de då?" },
+        { text: "Som efter måsfötter", svar: "Gösta är struken, och det var fingrar, inte fötter. Var de stora eller små?" },
+      ],
+    },
+    uppdrag: {
+      titel: "Baka och smaka blint",
+      text: "Baka lussekatter eller pepparkakor tillsammans. Gör sedan smaktestet: bind för ögonen och lukta och smaka på kanel, kardemumma och ingefära. Kan du säga vilken som är vilken?",
+      behovs: "Det ni brukar baka med, plus tre kryddor och en halsduk.",
+      stor: true,
+      marke: "🥐",
+    },
+  },
+  {
+    nr: 14,
+    titel: "Tvillingarna berättar",
+    teaser: "Någon har något att säga.",
+    bildAlt: "Tvillingarna Ebba och Love står lite skamsna men stolta, med guldfärg på händer och näsor. Algot sitter på knä i snön framför dem och ler.",
+    text: [
+      "I morse knackade det på fyrdörren. Där stod Ebba och Love. De hade guldfärg på händerna. Love hade guldfärg på näsan också.",
+      "”Det var vi”, sa Ebba. ”Vi tog stjärnan.”",
+      "Algot satte sig på knä i snön. ”Varför då?” frågade han.",
+      "”En udd hade gått av”, sa Love. ”Vi såg det i somras. Du ser inte så bra längre, och vi ville inte att du skulle bli ledsen. Så vi tänkte laga den och måla om den. Det skulle bli en överraskning.”",
+      "De hade dragit den på kälken till båthuset. Lånat Tores guldfärg. Skrivit en lapp till varandra i spegelskrift. Blinkat med ficklampan när färgen hade torkat. Och ätit två lussekatter, för man blir hungrig av att måla på natten.",
+      "Algot kramade dem båda på en gång. ”I morgon går vi och hämtar den”, sa han.",
+    ],
+    fraga: {
+      text: "Varför tog tvillingarna stjärnan?",
+      val: [
+        { text: "De ville laga den åt Algot", ratt: true, svar: "Ja. En udd hade gått av, och de ville överraska honom. Ingen dum tanke alls." },
+        { text: "De ville ha den i sitt rum", svar: "Nej, de ville inte behålla den. Vad var det för fel på stjärnan?" },
+        { text: "De ville sälja den", svar: "Aldrig i livet. De gjorde det för Algots skull. Läs vad Love berättar." },
+      ],
+    },
+    uppdrag: {
+      titel: "Hemlig överraskning",
+      text: "Gör något snällt åt någon hemma utan att bli upptäckt. Bädda en säng, rita en teckning och lägg under kudden, eller göm en lapp i en sko. Ingen får se när du gör det!",
+      behovs: "Ingenting. Bara att du kan smyga.",
+      marke: "🎁",
+    },
+  },
+  {
+    nr: 15,
+    titel: "Borta igen!",
+    teaser: "Under presenningen väntar en överraskning.",
+    bildAlt: "Inne i båthuset. En presenning är undandragen. På golvet syns ett stjärnformat avtryck i sågspånet. Tvillingarna flämtar.",
+    text: [
+      "Alla på ön följde med till båthuset i dag. Tvillingarna gick först.",
+      "”Den ligger här”, sa Ebba och pekade på en stor grå presenning längst in. ”Den är jättefin nu.”",
+      "Love tog tag i presenningen och drog undan den.",
+      "Där fanns ingenting.",
+      "Bara ett avtryck i sågspånet på golvet. Ett avtryck med fem uddar, precis som en stjärna.",
+      "”Men den låg här i går kväll!” sa Love. Rösten darrade. ”Det är sant. Vi har inte tagit den igen.”",
+      "Jag tror dem. Tvillingarna tog stjärnan från fyren. Men någon annan har tagit den från båthuset.",
+    ],
+    fraga: {
+      text: "Vad fanns under presenningen?",
+      val: [
+        { text: "Bara ett avtryck efter stjärnan", ratt: true, svar: "Rätt. Stjärnan har legat där, det syns i sågspånet. Men nu är den borta igen." },
+        { text: "Stjärnan, nymålad och fin", svar: "Det trodde alla. Men vad fanns där när Love drog undan presenningen?" },
+        { text: "En kälke", svar: "Nej, ingen kälke. Titta på golvet: vad syns i sågspånet?" },
+      ],
+    },
+    uppdrag: {
+      titel: "Varmare, kallare",
+      text: "Göm en sak i rummet medan de andra blundar. Led sedan den som letar med bara två ord: varmare när den kommer närmare, kallare när den går åt fel håll.",
+      behovs: "En liten sak att gömma.",
+      marke: "🌡️",
+    },
+  },
+  {
+    nr: 16,
+    titel: "Nya spår",
+    teaser: "Det här är inga stövelspår.",
+    bildAlt: "Båthusets golv vid en öppen dörr: en avtuggad repända, små runda kluvna avtryck i sågspånet och lite guldglitter.",
+    text: [
+      "Nu börjar vi om från början. Jag har undersökt båthuset med nosen mot golvet.",
+      "Dörren stod på glänt. Tore brukar binda fast den med ett rep. Repet hängde kvar, men det var av. Inte avklippt. Avtuggat.",
+      "I sågspånet fanns spår. Inga stövlar den här gången. Spåren var små och runda, och varje spår var delat i två halvor. Som två små halvmånar bredvid varandra.",
+      "Och så låg det guldglitter i en rand ut genom dörren.",
+      "”Det där är inga barn”, sa Tore och kliade sig i skägget. Nej. Det där är inte ens en människa.",
+    ],
+    fraga: {
+      text: "Hur såg de nya spåren ut?",
+      val: [
+        { text: "Små, runda och delade i två", ratt: true, svar: "Just det. Kluvna spår. Sådana gör inga stövlar. Vem på ön har sådana fötter?" },
+        { text: "Som stora stövlar", svar: "Nej, det var inga stövlar alls den här gången. Hur beskrev jag spåren?" },
+        { text: "Som kattassar", svar: "Det var inte jag! Mina tassar har fyra trampdynor. De här spåren var delade i två halvor." },
+      ],
+    },
+    uppdrag: {
+      titel: "Rita en skattkarta",
+      text: "Rita en karta över ditt rum, sedd uppifrån: sängen, dörren, fönstret. Göm en sak och sätt ett kryss på kartan där den ligger. Ge kartan till någon som får leta.",
+      behovs: "Papper, pennor och en sak att gömma.",
+      marke: "🗺️",
+    },
+  },
+  {
+    nr: 17,
+    titel: "Den vita tofsen",
+    teaser: "Något har fastnat på en spik.",
+    bildAlt: "En röd dörrkarm med en vit, raggig tofs hår som fastnat på en rostig spik. En barnhand håller ett förstoringsglas över den.",
+    text: [
+      "På båthusets dörrkarm sitter en gammal rostig spik. På spiken hängde en liten tofs av vitt hår.",
+      "Algot har vitt skägg. Men hans skägg är mjukt som bomull, och det här håret var strävt och raggigt.",
+      "Jag har en vit tass. Men mitt hår är kort och blankt. Det här var långt.",
+      "Och så en sak till. Spiken sitter lågt. Ungefär i höjd med Algots knä.",
+      "Den som fastnade på spiken är alltså vit, raggig och inte särskilt hög. Och den har tuggat av ett rep.",
+    ],
+    fraga: {
+      text: "Var satt spiken med den vita tofsen?",
+      val: [
+        { text: "Lågt ner, i knähöjd", ratt: true, svar: "Ja. Lågt ner. Den som fastnade är vit, raggig och ganska kort." },
+        { text: "Högst upp på dörren", svar: "Nej, så högt satt den inte. Jämför med Algots knä." },
+        { text: "I taket", svar: "Då hade det varit en fågel. Spiken satt mycket längre ner." },
+      ],
+    },
+    uppdrag: {
+      titel: "Titta nära",
+      text: "Undersök tre saker på riktigt nära håll: ett hårstrå, en bit av en tröja och ett blad eller en barrkvist. Har du inget förstoringsglas? En vattendroppe på en bit plastfolie förstorar också. Rita vad du ser.",
+      behovs: "Ett förstoringsglas, eller plastfolie och en droppe vatten.",
+      marke: "🔍",
+    },
+  },
+  {
+    nr: 18,
+    titel: "Pling i natten",
+    teaser: "Ett ljud utanför fönstret.",
+    bildAlt: "En månljus natt över de sovande röda husen. Tvillingarna i pyjamas tittar ut genom ett fönster och lyssnar.",
+    text: [
+      "Ebba och Love kom springande till fyren i morse, fortfarande i pyjamas under jackorna.",
+      "”Vi hörde något i natt!” sa Ebba. ”Utanför vårt fönster.”",
+      "”Det lät pling”, sa Love. ”Pling, pling, pling. Som en liten klocka. Sedan blev det tyst.”",
+      "De hade tittat ut, men det var för mörkt för att se något. Bara månen och snön.",
+      "En liten klocka som går omkring av sig själv om natten. Jag har hört det ljudet förut någonstans. Jag kommer bara inte på var.",
+    ],
+    fraga: {
+      text: "Vad var det tvillingarna hörde?",
+      val: [
+        { text: "En liten klocka som plingade", ratt: true, svar: "Rätt. Pling, pling. Vem på ön har en liten klocka på sig?" },
+        { text: "En motorbåt", svar: "Nej, så lät det inte. Love härmade ljudet. Hur lät det?" },
+        { text: "Någon som sjöng", svar: "Ingen sjöng. Det var ett litet, klart ljud. Läs vad Love sa." },
+      ],
+    },
+    uppdrag: {
+      titel: "Ljudgåtan",
+      text: "En av er ställer sig bakom en dörr eller en filt och skramlar med saker, en i taget: nycklar, mynt, en sked i ett glas, ett papper som knycklas. De andra gissar vad det är.",
+      behovs: "Fem saker som låter olika.",
+      marke: "🔔",
+    },
+  },
+  {
+    nr: 19,
+    titel: "Släpspåret",
+    teaser: "Något tungt har släpats uppför backen.",
+    bildAlt: "En snöig backe i dagsljus. Ett brett släpspår med guldglitter leder upp mellan enbuskar mot ett litet rött skjul långt bort.",
+    text: [
+      "I dag sken solen över hela ön, och då syns allt som finns i snön.",
+      "Bakom båthuset börjar en bred ränna i snön. Den ser ut som när man drar en tung säck efter sig. I rännan ligger det guldglitter.",
+      "Bredvid rännan går de små kluvna spåren. Den som drog har gått baklänges och dragit med munnen, tror jag. Det förklarar det avtuggade repet.",
+      "Rännan går inte mot husen. Den går uppför backen, in bland enbuskarna.",
+      "Där uppe finns nästan ingenting. Bara vinden, enbuskarna och ett litet rött stall.",
+    ],
+    fraga: {
+      text: "Vart leder släpspåret?",
+      val: [
+        { text: "Uppför backen", ratt: true, svar: "Ja. Uppför backen, bort från husen. Vad är det som finns där uppe?" },
+        { text: "Ner till havet", svar: "Nej, det går åt andra hållet. Går spåret uppåt eller nedåt?" },
+        { text: "Till bageriet", svar: "Spåret går inte mot husen alls. Titta vart rännan tar vägen." },
+      ],
+    },
+    uppdrag: {
+      titel: "Mata fåglarna",
+      text: "Bred jordnötssmör eller kokosfett på en kotte. Rulla den i fågelfrö eller havregryn och häng ut den i ett träd med ett snöre. Titta efter vilka som kommer på besök. Finns det spår i snön under?",
+      behovs: "En kotte, jordnötssmör eller kokosfett, frön och ett snöre.",
+      stor: true,
+      marke: "🐦",
+    },
+  },
+  {
+    nr: 20,
+    titel: "Kransen",
+    teaser: "Någon har ätit upp julpyntet.",
+    bildAlt: "En röd ytterdörr med en halvt uppäten julkrans. Avbitna äpplen och ett tuggat band ligger på trappan. Saga står med händerna i sidorna.",
+    text: [
+      "Saga stod på sin trappa med händerna i sidorna när jag kom förbi.",
+      "”Titta på min krans!” sa hon. Julkransen på dörren var halvt uppäten. Granriset var avbitet. De röda äpplena låg på trappan med stora tuggmärken i. Till och med sidenbandet var tuggat.",
+      "På trappsteget glittrade det lite. Guld.",
+      "”Vem äter en julkrans?” sa Saga. ”Granris och sidenband?”",
+      "Jag satte mig och tänkte. Någon som tuggar av rep. Någon som äter granris. Någon som är vit och raggig, går på kluvna fötter och plingar när den går.",
+      "Nu vet jag var jag har hört den där klockan.",
+    ],
+    fraga: {
+      text: "Vem äter julkransar med band och allt?",
+      val: [
+        { text: "Någon som äter nästan vad som helst", ratt: true, svar: "Precis. Rep, granris, sidenband. Det finns en på ön som äter det mesta. Har ni listat ut vem?" },
+        { text: "Någon som bara äter fisk", svar: "Då hade kransen fått vara i fred. Den här har tuggat i sig rep och granris också." },
+        { text: "Någon som är väldigt kräsen", svar: "Tvärtom! Den som åt kransen åt till och med sidenbandet." },
+      ],
+    },
+    uppdrag: {
+      titel: "Vik en stjärna",
+      text: "Gör en egen stjärna att hänga i fönstret. Klipp ut en ur papper, eller vik fem pappersremsor till en. Måla den gul eller strö glitter på den. Nu lyser det hos er också.",
+      behovs: "Papper, sax och gärna gul färg eller glitter.",
+      stor: true,
+      marke: "⭐",
+    },
+  },
+  {
+    nr: 21,
+    titel: "Professorns kod",
+    teaser: "En bok full av siffror.",
+    bildAlt: "Ett träbord med en uppslagen anteckningsbok full av små fågelteckningar och rader av tecken, en kikare och en kopp te. Professor Pip håller ett finger mot munnen.",
+    text: [
+      "Professor Pip har suttit på backen med sin kikare varje natt. Om någon har sett vart stjärnan tog vägen, så är det han.",
+      "Men Pip säger ingenting. Han skriver bara i sin bok. Och i boken står det inga ord, bara siffror. Det är för att ingen ska kunna läsa var hans fåglar bor.",
+      "I dag glömde han boken uppslagen på bordet när han gick för att hämta te. Jag hoppade upp och tittade.",
+      "Högst upp på sidan stod: A är 1, B är 2, C är 3, och så vidare. Och under det, med stora siffror:",
+      "19 – 20 – 1 – 12 – 12 – 5 – 20",
+      "Under siffrorna hade han ritat något som lyste.",
+    ],
+    fraga: {
+      text: "Knäck koden: 19 – 20 – 1 – 12 – 12 – 5 – 20. Vad står det?",
+      val: [
+        { text: "STALLET", ratt: true, svar: "Rätt! S är 19, T är 20, A är 1, L är 12. STALLET. Pip har sett något som lyser i stallet." },
+        { text: "BRYGGAN", svar: "Inte riktigt. Första siffran är 19. Räkna i alfabetet: vilken bokstav är nummer 19?" },
+        { text: "FYREN", svar: "Det ordet har bara fem bokstäver, och här är det sju siffror. Börja med 19: vilken bokstav är det?" },
+      ],
+    },
+    uppdrag: {
+      titel: "Skriv i sifferkod",
+      text: "Skriv ditt namn med Pips kod: A är 1, B är 2, C är 3. Skicka sedan ett hemligt ord i kod till någon i familjen och se om de kan knäcka det.",
+      behovs: "Papper och penna. Skriv gärna upp hela alfabetet med siffror först.",
+      marke: "🔢",
+    },
+  },
+  {
+    nr: 22,
+    titel: "I stallet",
+    teaser: "Något lyser under halmen.",
+    bildAlt: "Inne i ett litet stall om natten. Geten Mackan ligger nöjd i halmen. Ett varmt gult sken lyser under henne, och en gyllene udd sticker fram.",
+    text: [
+      "Vi gick uppför backen allihop, i en lång rad genom snön. Jag gick först.",
+      "Stalldörren stod på glänt. Där inne var det varmt, och det lyste gult.",
+      "Mitt i halmen låg Mackan. Hon tuggade på något och såg väldigt nöjd ut. Pinglan på hennes halsband sa pling när hon vände på huvudet.",
+      "Och under henne, i halmen, lyste det. En gyllene udd stack fram bredvid hennes ena ben.",
+      "”Stjärnan!” ropade Ebba.",
+      "Tvillingarna hade provat lampan i båthuset och glömt att släcka den. Mackan hade sett något som lyste och var varmt. Det är kallt och mörkt i ett stall i december. Så hon tuggade av repet, släpade hem stjärnan och la sig på den.",
+      "Ingen blev arg. Inte ens Algot. ”Hon har ju bara velat ha det lite ljust”, sa han.",
+    ],
+    fraga: {
+      text: "Varför tog Mackan stjärnan?",
+      val: [
+        { text: "Den var varm och lyste", ratt: true, svar: "Ja. Det är mörkt och kallt i stallet, och stjärnan var varm och ljus. Mackan ville bara ha det mysigt." },
+        { text: "Hon ville äta upp den", svar: "Hon tuggade lite på sladden, det gjorde hon. Men varför la hon sig på den?" },
+        { text: "Hon var arg på Algot", svar: "Mackan är aldrig arg. Tänk på hur det är i ett stall i december." },
+      ],
+    },
+    uppdrag: {
+      titel: "Bygg en koja",
+      text: "Bygg en koja av filtar, kuddar och stolar. Ta med en ficklampa in och håll detektivmöte. Berätta för varandra: när förstod du att det var Mackan? Vilken ledtråd var bäst?",
+      behovs: "Filtar, kuddar och en ficklampa.",
+      marke: "⛺",
+    },
+  },
+  {
+    nr: 23,
+    titel: "Alla hjälps åt",
+    teaser: "Stjärnan behöver lagas. Igen.",
+    bildAlt: "Alla lagar stjärnan tillsammans på bageriets stora bord. Mackan kikar in genom dörren.",
+    text: [
+      "Stjärnan såg inte bra ut. Den hade halm i alla uddar. Sladden var tuggad på tre ställen. Och lampan inuti hade gått sönder när Mackan la sig på den.",
+      "”I morgon är det julafton”, sa Algot. ”Då kommer julbåten, så fort det har blivit mörkt.”",
+      "Då hjälptes alla åt. Vi bar stjärnan till bageriet, för där är bordet störst.",
+      "Tore lagade sladden med sina bästa knopar. Saga limmade fast udden som hade lossnat igen. Ebba och Love målade över tuggmärkena med guld. Majken tog postbåten till fastlandet och kom tillbaka med en ny lampa. Professor Pip höll stegen. Och Algot putsade tills det blänkte.",
+      "Jag höll koll på Mackan. Hon stod i dörren och tittade hela tiden.",
+    ],
+    fraga: {
+      text: "Vem lagade sladden?",
+      val: [
+        { text: "Tore", ratt: true, svar: "Rätt. Tore lagade sladden med sina bästa knopar. Alla gjorde något de var bra på." },
+        { text: "Saga", svar: "Saga limmade udden. Vem är det som är bäst på knopar?" },
+        { text: "Majken", svar: "Majken hämtade en ny lampa med postbåten. Sladden lagades av den som kan knopar." },
+      ],
+    },
+    uppdrag: {
+      titel: "Hjälps åt",
+      text: "Gör något tillsammans där var och en får en egen uppgift, precis som på Måsholmen. Klä granen, duka till julafton eller slå in klappar. Bestäm först vem som gör vad.",
+      behovs: "Det ni ändå ska göra inför jul.",
+      marke: "🤝",
+    },
+  },
+  {
+    nr: 24,
+    titel: "Stjärnan tänds",
+    teaser: "Julafton på Måsholmen.",
+    bildAlt: "Julaftonsnatt. Guldstjärnan lyser från fyrens topp över den snöiga ön. En liten båt med lykta närmar sig. Alla öbor vinkar från bryggan, och Mackan har en röd rosett.",
+    text: [
+      "I kväll klättrade Algot uppför alla hundra trappsteg en gång till. Den här gången följde Ebba och Love med och bar stjärnan mellan sig.",
+      "Algot hängde den på kroken. Han tryckte på knappen.",
+      "Och stjärnan tändes. Den lyste över hela Måsholmen, över bageriet och båthuset och bryggan, och långt ut över det mörka vattnet.",
+      "Där ute blinkade en liten lykta till svar. Julbåten hade sett oss.",
+      "Vi stod på bryggan allihop och vinkade. Mackan stod längst fram med en röd rosett om halsen. Tvillingarna hade gjort en egen liten lykta åt henne, att hänga i stallet. Nu behöver hon inte låna någon annans.",
+      "Tack för hjälpen, detektiver. Utan er hade det varit mörkt i fyren i kväll.",
+      "God jul önskar Sotis och alla på Måsholmen.",
+    ],
+    fraga: {
+      text: "Vad fick Mackan i julklapp?",
+      val: [
+        { text: "En egen liten lykta", ratt: true, svar: "Ja. En egen lykta till stallet. Nu har Mackan det ljust, och stjärnan får hänga kvar i fyren." },
+        { text: "Stjärnan", svar: "Nej, den hänger i fyren där den ska. Men tvillingarna hade gjort något åt henne." },
+        { text: "En julkrans att äta", svar: "Det hade hon nog tyckt om. Men det hon fick var något som lyser." },
+      ],
+    },
+    uppdrag: {
+      titel: "Detektivdiplom",
+      text: "Fallet är löst! Öppna diplomet i detektivpasset och skriv ut det, eller rita ett eget. Tänd sedan ett ljus i fönstret tillsammans med en vuxen, så att den som är ute i mörkret hittar hem.",
+      behovs: "En skrivare eller papper och pennor. Ett ljus och en vuxen.",
+      marke: "🏅",
+    },
+  },
+];
+
+export const barnLuckaNr = (nr: number) => BARNLUCKOR.find((l) => l.nr === nr);

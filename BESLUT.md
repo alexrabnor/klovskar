@@ -157,3 +157,17 @@ Bonus 1:s uppdragsrad säger inte längre hur chiffret löses ("tre steg") – l
 `startdatumEfterSlapp()` / `FORSTA_STARTDAG` i `lib/tid.ts`. Gäller köpta, present- och gratiskoder vid aktivering och när lagledaren byter datum. Testarkoder och admin går förbi (testare får ett datum i det förflutna så att allt är öppet). Senare datum, även passerade decemberdagar för att läsa ikapp, är tillåtna.
 
 Samtidigt: formulär som skickas till servern töms inte längre vid fel (`lib/behall-formular.ts`). React 19 nollställde `<form action>` – ett felmeddelande raderade lagnamn, namn och valt datum, och den som fyllde i igen fick tyst 1 december.
+
+## Barndeckaren – Stjärnan som försvann (2026-11-13)
+Ett andra spel i samma app, för barn 6–10 år: julstjärnan i fyren på Måsholmen är borta. Tvillingarna tog den för att laga den (lucka 14), sedan släpade geten Mackan hem den till stallet (lucka 22). Fyrkatten Sotis berättar.
+
+- **Samma sajt, provas först på barndeckare.alexcloud.se.** `BARN=1` slår på `/barn`; utan den finns sidorna inte. `STARTSIDA=barn` gör `/barn` till startsida. `docker-compose.barn.yml` kör en egen instans på port 3132 med egen databas.
+- **Ett lag hör till ett spel.** Kolumnen `spel` (`klovskar` | `barn`) finns på `klov_kod` och `klov_lag` och läggs till vid start om den saknas. Koden bestämmer lagets spel.
+- **Egna kakor per spel** (`barn_spelare`, `barn_ledare`), så att en förälder kan spela Klovskär och läsa barndeckaren på samma telefon. `inloggad("barn")` släpper aldrig in ett Klovskärlag och tvärtom, och `oppenLucka` / `farSeBild` kontrollerar spelet en gång till.
+- **Pris:** barndeckaren 60 kr, båda spelen 150 kr (`PRIS_BARN_KR`, `PRIS_BADA_KR`). Ett paket ger **två koder**, en per spel, eftersom vuxna och barn sällan är samma lag. Klovskärkoden bär hela beloppet och barnkoden 0 kr, så att intäkten inte räknas dubbelt. Barnkoden delar Stripe-session med suffixet `#barn`.
+- **Två adminsidor:** `/admin` visar bara Klovskär, `/barn/admin` bara barndeckaren. Samma lösenord.
+- **Luckan:** kort text att läsa högt, en bild (Sotis gömd i varje), en fråga med tre svar och ett uppdrag. Fel svar ger en ledtråd och man försöker igen – frågan stoppar aldrig.
+- **Uppdragen är frivilliga.** "Vi gjorde det!" sparar ett märke per lag i `klov_uppgift` utan kontroll, och går att ångra. Nästa lucka öppnas oavsett.
+- **Inga poäng, ingen anklagelse, ingen topplista.** Barnen stryker misstänkta (Algot lucka 6, Gösta 8, Majken 9) och får ett diplom när lucka 24 öppnat.
+- **Bilder:** `barn-omslag`, `barn-figurer`, `barn-karta`, `barn-lucka-01` … `barn-lucka-24` i `bilder/`. Omslag, figurer, karta och lucka 1–2 är publika (smakprov). Bilderna ska vara utan text.
+- **Inte byggt än:** push och morgonmejl för barnlag, byte av startdatum efter att laget skapats (admin kan), och länk till barndeckaren från Klovskärs startsida.

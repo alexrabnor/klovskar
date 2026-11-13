@@ -14,7 +14,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ namn
 
   if (!publik) {
     await cookies();
-    const i = await inloggad();
+    const i = await inloggad(atkomst.slag === "barnlucka" ? "barn" : "klovskar");
     const admin = await arAdmin();
     if (!farSeBild(namn, i?.lag ?? null, i?.nu ?? serverNu(), admin)) {
       // Samma svar oavsett om bilden finns – avslöja inget om låsta luckor

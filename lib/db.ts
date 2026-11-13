@@ -2,6 +2,7 @@ import "server-only";
 import Database from "better-sqlite3";
 import fs from "node:fs";
 import path from "node:path";
+import type { Spel } from "./spel";
 
 // En fil på en egen docker-volym. Ingen nätverksyta: bara appens process når den.
 const DB_PATH = process.env.DB_PATH || path.join(process.cwd(), "data", "klovskar.db");
@@ -142,6 +143,11 @@ export function db(): Database.Database {
   d.pragma("foreign_keys = ON");
   d.pragma("busy_timeout = 3000");
   d.exec(SCHEMA);
+  // Barndeckaren kom till efter att databasen var i drift: lägg till spelkolumnen där den saknas
+  for (const tabell of ["klov_kod", "klov_lag"]) {
+    const kolumner = d.prepare(`PRAGMA table_info(${tabell})`).all() as { name: string }[];
+    if (!kolumner.some((k) => k.name === "spel")) d.exec(`ALTER TABLE ${tabell} ADD COLUMN spel TEXT NOT NULL DEFAULT 'klovskar'`);
+  }
   instans = d;
   return d;
 }
@@ -163,6 +169,7 @@ export interface Lag {
   morgonmejl: number;
   aktiveringskod: string | null;
   forsta_oppning: string | null;
+  spel: Spel;
 }
 
 export interface Spelare {
@@ -185,6 +192,7 @@ export interface Kod {
   skapad: string;
   aterbetald: number;
   lag_id: number | null;
+  spel: Spel;
 }
 
 export const lagMedId = (id: number) => db().prepare("SELECT * FROM klov_lag WHERE id = ?").get(id) as Lag | undefined;

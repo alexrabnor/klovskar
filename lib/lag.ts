@@ -1,6 +1,7 @@
 import "server-only";
 import { db, kodMedKod, lagMedKod, spelareILag, type Lag, type Spelare } from "./db";
 import { nyLagkod, nyToken } from "./slump";
+import type { Spel } from "./spel";
 import { oppningstid, serverNu, svensktDatum, lagetsNu, testarStartdatum, startdatumEfterSlapp } from "./tid";
 
 export const MAX_SPELARE = 5;
@@ -62,15 +63,16 @@ export function skapaLag(opts: { kod: string; lagnamn: string; startdatum: strin
     const epost = rensaNamn(opts.epost ?? kod.epost ?? "", 120) || null;
     const ledare = nyToken();
     const lagkod = unikLagkod();
-    const lag = d.prepare(`INSERT INTO klov_lag (namn, kod, startdatum, ledare_token, ledare_epost, aktiveringskod, morgonmejl, synlig_i_topplista)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING *`).get(lagnamn, lagkod, startdatum, ledare, epost, kod.kod, 0, testare ? 0 : 1) as Lag;
+    // Laget hör till samma spel som koden. Barndeckaren har ingen topplista.
+    const lag = d.prepare(`INSERT INTO klov_lag (namn, kod, startdatum, ledare_token, ledare_epost, aktiveringskod, morgonmejl, synlig_i_topplista, spel)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING *`).get(lagnamn, lagkod, startdatum, ledare, epost, kod.kod, 0, testare || kod.spel === "barn" ? 0 : 1, kod.spel) as Lag;
     d.prepare("UPDATE klov_kod SET lag_id = ? WHERE kod = ?").run(lag.id, kod.kod);
     const spelare = d.prepare("INSERT INTO klov_spelare (lag_id, namn, token) VALUES (?, ?, ?) RETURNING *").get(lag.id, namn, nyToken()) as Spelare;
     return { lag, spelare };
   })();
 }
 
-export type GaMedResultat = { slag: "ny"; spelare: Spelare } | { slag: "overtag"; hemlighet: string; namn: string };
+export type GaMedResultat = { slag: "ny"; spelare: Spelare; spel: Spel } | { slag: "overtag"; hemlighet: string; namn: string };
 
 export function gaMed(lagkod: string, namnIn: string): GaMedResultat {
   const d = db();
@@ -89,7 +91,7 @@ export function gaMed(lagkod: string, namnIn: string): GaMedResultat {
     }
     if (spelare.length >= MAX_SPELARE) throw new Fel(`Laget är fullt – max ${MAX_SPELARE} spelare. Lagledaren kan ta bort någon som inte spelar.`);
     const ny = d.prepare("INSERT INTO klov_spelare (lag_id, namn, token) VALUES (?, ?, ?) RETURNING *").get(lag.id, namn, nyToken()) as Spelare;
-    return { slag: "ny", spelare: ny };
+    return { slag: "ny", spelare: ny, spel: lag.spel };
   })();
 }
 

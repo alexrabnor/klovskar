@@ -7,7 +7,8 @@ import {
   Fel, adventStart, bytLagkod, bytStartdatum, gaMed, godkannOvertag, nekaOvertag, satDelegering,
   satLagInstallningar, skapaLag, taBortSpelare, rensaNamn,
 } from "@/lib/lag";
-import { LEDARKAKA, SPELARKAKA, ADMINKAKA, adminKakvarde, inloggad, kakOpt, ledarLag } from "@/lib/session";
+import { LEDARKAKA, SPELARKAKA, ADMINKAKA, adminKakvarde, inloggad, kakOpt, kakor, ledarLag } from "@/lib/session";
+import { spelHem, type Spel } from "@/lib/spel";
 import { lagMedId } from "@/lib/db";
 import { mejlaLedarlank } from "@/lib/mail";
 
@@ -16,7 +17,7 @@ export type Svar = { fel?: string; ok?: string } | undefined;
 const felText = (e: unknown) => (e instanceof Fel ? e.message : (console.error(e), "Något gick fel. Försök igen om en stund."));
 
 export async function aktivera(_: Svar, f: FormData): Promise<Svar> {
-  let lagId: number;
+  let mal: string;
   try {
     const lage = String(f.get("startlage") || "advent");
     const startdatum = lage === "eget" ? String(f.get("startdatum") || "") : adventStart();
@@ -28,14 +29,14 @@ export async function aktivera(_: Svar, f: FormData): Promise<Svar> {
       epost: rensaNamn(f.get("epost"), 120) || undefined,
     });
     const k = await cookies();
-    k.set(SPELARKAKA, spelare.token, kakOpt);
-    k.set(LEDARKAKA, lag.ledare_token, kakOpt);
-    lagId = lag.id;
+    k.set(kakor(lag.spel).spelare, spelare.token, kakOpt);
+    k.set(kakor(lag.spel).ledare, lag.ledare_token, kakOpt);
+    mal = lag.spel === "barn" ? "/barn/valkommen" : `/lag/valkommen?id=${lag.id}`;
     mejlaLedarlank(lag).catch((e) => console.error("[mejl] ledarlänk", e));
   } catch (e) {
     return { fel: felText(e) };
   }
-  redirect(`/lag/valkommen?id=${lagId}`);
+  redirect(mal);
 }
 
 export async function gaMedILag(_: Svar, f: FormData): Promise<Svar> {
@@ -43,8 +44,8 @@ export async function gaMedILag(_: Svar, f: FormData): Promise<Svar> {
   try {
     const r = gaMed(String(f.get("lagkod") || ""), String(f.get("namn") || ""));
     if (r.slag === "ny") {
-      (await cookies()).set(SPELARKAKA, r.spelare.token, kakOpt);
-      mal = "/lag";
+      (await cookies()).set(kakor(r.spel).spelare, r.spelare.token, kakOpt);
+      mal = spelHem(r.spel);
     } else {
       mal = `/g/vanta?h=${encodeURIComponent(r.hemlighet)}&namn=${encodeURIComponent(r.namn)}`;
     }
@@ -55,10 +56,15 @@ export async function gaMedILag(_: Svar, f: FormData): Promise<Svar> {
 }
 
 /** Godkänn att någon tar över ett namn – av annan spelare i laget eller av lagledaren. */
+/** Formulären i barndeckaren skickar med spel=barn, så att rätt lag och rätt kakor används. */
+const spelFran = (f: FormData): Spel => (f.get("spel") === "barn" ? "barn" : "klovskar");
+const layoutFor = (spel: Spel) => (spel === "barn" ? "/barn" : "/lag");
+
 export async function godkann(f: FormData) {
   const id = Number(f.get("id"));
-  const i = await inloggad();
-  const ledare = await ledarLag();
+  const spel = spelFran(f);
+  const i = await inloggad(spel);
+  const ledare = await ledarLag(spel);
   const lagId = i?.lag.id ?? ledare?.id;
   if (!lagId) return;
   const somLedare = !!ledare && ledare.id === lagId;
@@ -67,15 +73,16 @@ export async function godkann(f: FormData) {
   } catch (e) {
     console.warn(felText(e));
   }
-  revalidatePath("/lag", "layout");
+  revalidatePath(layoutFor(spel), "layout");
 }
 
 export async function neka(f: FormData) {
-  const i = await inloggad();
-  const ledare = await ledarLag();
+  const spel = spelFran(f);
+  const i = await inloggad(spel);
+  const ledare = await ledarLag(spel);
   const lagId = i?.lag.id ?? ledare?.id;
   if (lagId) nekaOvertag(lagId, Number(f.get("id")));
-  revalidatePath("/lag", "layout");
+  revalidatePath(layoutFor(spel), "layout");
 }
 
 export async function loggaUt() {
@@ -156,5 +163,5 @@ export async function adminLoggaIn(_: Svar, f: FormData): Promise<Svar> {
   }
   adminFel.length = 0;
   (await cookies()).set(ADMINKAKA, adminKakvarde(losen), { ...kakOpt, maxAge: 60 * 60 * 24 * 30 });
-  redirect("/admin");
+  redirect(f.get("till") === "/barn/admin" ? "/barn/admin" : "/admin");
 }

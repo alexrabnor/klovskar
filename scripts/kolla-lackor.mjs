@@ -13,6 +13,11 @@ const HEMLIGT = [
   "Kronan var",                  // lucka 23
   "Bok för värnpliktig",         // lucka 17
   "M.L. 25 kr",                  // lucka 21
+  // Barndeckaren (Stjärnan som försvann)
+  "Vi tog stjärnan",             // lucka 14
+  "Avtuggat",                    // lucka 16
+  "Mitt i halmen låg Mackan",    // lucka 22
+  "släpade hem stjärnan",        // lucka 22
 ];
 
 function filer(dir) {

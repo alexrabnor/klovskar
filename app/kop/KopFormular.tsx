@@ -2,11 +2,12 @@
 import { useBehallAction } from "@/lib/behall-formular";
 import { startaKop } from "./actions";
 
-export function KopFormular({ present }: { present: boolean }) {
+export function KopFormular({ present, vara = "klovskar" }: { present: boolean; vara?: string }) {
   const [svar, skicka, vantar] = useBehallAction(startaKop, undefined);
   return (
     <form onSubmit={skicka} className="panel stack">
       <input type="hidden" name="present" value={present ? "1" : "0"} />
+      <input type="hidden" name="vara" value={vara} />
       <div className="falt">
         <label htmlFor="epost">{present ? "Din e-post – presentkortet skickas hit" : "E-post – koden skickas hit"}</label>
         <input id="epost" name="epost" type="email" autoComplete="email" required placeholder="namn@exempel.se" />

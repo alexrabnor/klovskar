@@ -1,0 +1,231 @@
+<title>Stjärnan som försvann</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: en läsbar spalt; luckorna som en numrerad kalenderlista där varje rad bär berättelse, uppdrag och bildprompt. */
+:root{
+  --bg:#eaf0f4; --panel:#ffffff; --ink:#14263a; --mute:#55677a; --line:#c9d5de;
+  --star:#f2b705; --star-ink:#3a2b00; --gran:#1f6b52; --lingon:#b3263a;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible",Verdana,sans-serif;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0e1a27; --panel:#16273a; --ink:#e6eef5; --mute:#9fb2c4; --line:#2c4258;
+  --star:#f5c62e; --star-ink:#2a1f00; --gran:#6fcfae; --lingon:#ff8b9a; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0e1a27; --panel:#16273a; --ink:#e6eef5; --mute:#9fb2c4; --line:#2c4258;
+  --star:#f5c62e; --star-ink:#2a1f00; --gran:#6fcfae; --lingon:#ff8b9a; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2rem 4rem}
+main{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem}
+section{display:flex;flex-direction:column;gap:1rem;min-width:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(2.2rem,8vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--star);color:var(--star-ink);padding:0 .15em;border-radius:.1em}
+h2{font-size:1.6rem;font-weight:800}
+h3{font-size:1.1rem;font-weight:600}
+p,ul{margin:0} ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.lead{font-size:1.2rem;color:var(--mute)}
+.eyebrow{font:700 .8rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--gran)}
+.facit{border:2px dashed var(--lingon);border-radius:.6rem;padding:1rem;background:var(--panel)}
+.facit b{color:var(--lingon)}
+dl{margin:0;display:grid;grid-template-columns:minmax(7rem,auto) 1fr;gap:.5rem 1rem}
+dt{font-weight:700} dd{margin:0;color:var(--mute);min-width:0}
+@media (max-width:30rem){dl{grid-template-columns:1fr;gap:.1rem} dd{margin-bottom:.5rem}}
+.vecka{font:700 .85rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--gran);
+  border-bottom:2px solid var(--line);padding:1rem 0 .3rem}
+ol.luckor{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.lucka{display:grid;grid-template-columns:3rem 1fr;gap:.2rem 1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.nr{font:800 2rem/1 var(--display);color:var(--star);-webkit-text-stroke:1px var(--ink);font-variant-numeric:tabular-nums}
+.lucka>div{min-width:0;display:flex;flex-direction:column;gap:.45rem}
+.upp{background:var(--panel);border-radius:.5rem;padding:.6rem .8rem;border:1px solid var(--line)}
+.upp b{color:var(--gran)} .stor{font-size:.75rem;font-weight:700;color:var(--lingon);margin-left:.4rem;text-transform:uppercase;letter-spacing:.06em}
+.rad{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+button{font:700 .9rem var(--body);background:var(--ink);color:var(--bg);border:0;border-radius:2rem;padding:.45rem 1rem;cursor:pointer}
+button:hover{background:var(--gran);color:var(--panel)} button:focus-visible,summary:focus-visible{outline:3px solid var(--star);outline-offset:2px}
+details{min-width:0} summary{cursor:pointer;color:var(--mute);font-size:.9rem}
+pre{font:.8rem/1.5 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;background:var(--panel);border:1px solid var(--line);
+  border-radius:.5rem;padding:.8rem;margin:.5rem 0 0;user-select:all}
+code{font:.8rem var(--mono);color:var(--mute)}
+.extra{display:flex;flex-direction:column;gap:.45rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+</style>
+
+<main>
+<header>
+  <section>
+    <p class="eyebrow">Förslag · adventsdeckare för barn 6–10 år</p>
+    <h1>Stjärnan som <span>försvann</span></h1>
+    <p class="lead">Samma upplägg som Klovskär: en ö, en gåta och 24 luckor. Men ingen dör, ingen är elak, och varje lucka har ett frivilligt uppdrag som görs på riktigt hemma.</p>
+  </section>
+</header>
+
+<section>
+  <h2>Idén</h2>
+  <p>På den lilla ön Måsholmen tänds en stor guldstjärna i fyrens topp varje jul, så att julbåten hittar in i mörkret. Den 1 december klättrar fyrvaktaren Algot upp för att tända den. Kroken är tom.</p>
+  <p>Barnen är detektiverna. Fyrkatten Sotis berättar och följer med överallt. Halvvägs kommer en vändning som gör att gåtan räcker hela vägen till julafton.</p>
+  <div class="facit">
+    <p><b>Lösningen (bara för dig):</b> Tvillingarna Ebba och Love tog ner stjärnan i smyg. En udd hade gått av, och de ville laga och måla den som en överraskning åt Algot. De erkänner i lucka 14. Men när de lyfter på presenningen i båthuset är stjärnan borta igen. Geten Mackan har släpat hem den till sitt stall, för att den var varm och lyste så fint. På julafton hänger stjärnan i fyren, och Mackan får en egen liten lykta.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Så blir den anpassad för barn</h2>
+  <ul>
+    <li><b>Något försvinner, ingen skadas.</b> Förklaringen är snäll, och alla blir vänner i slutet.</li>
+    <li><b>Kort högläsning.</b> En till två minuter text per lucka, en bild, en fråga.</li>
+    <li><b>Hitta Sotis.</b> Katten gömmer sig i varje bild. Det ger även den minsta något att göra.</li>
+    <li><b>Stryk en misstänkt i taget.</b> Lättare än att hålla sju motiv i huvudet. Efter lucka 6, 8 och 9 stryks en var.</li>
+    <li><b>Frågan stoppar aldrig.</b> Tre svar att välja på. Fel svar ger en extra ledtråd, sedan går man vidare.</li>
+    <li><b>Uppdragen är frivilliga.</b> Knappen "Vi gjorde det!" ger ett märke i detektivpasset. Ingen kontroll, och nästa lucka öppnas oavsett.</li>
+    <li><b>Saker som finns hemma.</b> Mjöl, tejp, ficklampa, toarullar. Små uppdrag tar tio minuter på vardagar, de stora ligger på helgerna (lucka 5–6, 12–13 och 19–20 om man börjar 1 december 2026).</li>
+    <li><b>Uppdragen hör ihop med ledtråden.</b> Hittar Sotis fotspår får barnen göra egna fotspår. Då känns det som riktigt detektivarbete.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Öborna</h2>
+  <dl id="figurer"></dl>
+</section>
+
+<section>
+  <h2>De 24 luckorna</h2>
+  <p>Varje rad: vad som händer, dagens uppdrag och en färdig bildprompt. Knappen kopierar hela prompten med stil och figurer.</p>
+  <ol class="luckor" id="luckor"></ol>
+</section>
+
+<section>
+  <h2>Övriga bilder</h2>
+  <p><b>Börja med figurbladet.</b> Ladda sedan upp det som referens i Nano Banana till varje ny bild, så ser figurerna likadana ut hela vägen. Alla promptar ber om bilder helt utan text, eftersom texten ändå blir rotvälska. Lägg namn och skyltar i appen. Spara varje bild i <code>bilder/</code> med filnamnet som står bredvid knappen, så visas den direkt.</p>
+  <div id="extra"></div>
+</section>
+</main>
+
+<script>
+const STIL = `Style: warm hand-painted children's picture-book illustration, gouache and coloured pencil, soft rounded shapes, friendly expressive faces, cosy Scandinavian winter mood. Palette: deep winter blue, snow white, saffron yellow, lingonberry red, spruce green. Setting: a tiny snowy island with a red-and-white striped lighthouse and a few red wooden houses in the Swedish west-coast archipelago, in December. Nothing scary, no weapons, no phones or screens. No text, letters or numbers anywhere in the image. Landscape 4:3.`;
+
+const F = {
+  sotis:["Sotis","Fyrkatten. Berättar och hjälper barnen.","Sotis, a small black cat with one white front paw, a red knitted scarf and big yellow eyes"],
+  algot:["Algot","Fyrvaktare, 70 år. Snäll, glömsk, jättestora stövlar.","Algot the lighthouse keeper, about 70, round and kind, big white beard, blue knitted cap, yellow raincoat, enormous black rubber boots"],
+  saga:["Saga","Bagare. Har alltid mjöl på förklädet.","Saga the baker, about 35, long red braid, green apron dusted with flour, rosy cheeks"],
+  tore:["Tore","Fiskare. Har båthuset och alla färgburkarna.","Tore the fisherman, about 50, tall, short dark beard, orange oilskin overalls, thick grey knitted sweater"],
+  majken:["Majken","Brevbärare. Kommer med postbåten och cyklar fort.","Majken the letter carrier, about 28, curly black hair, dark blue postal coat with brass buttons, a red bicycle with a basket"],
+  tvillingar:["Ebba och Love","Tvillingar, 9 år. Bygger alltid på något hemligt.","the twins Ebba and Love, 9 years old, both in red-and-white striped knitted hats and green winter jackets; Ebba has round glasses, Love has a gap in his front teeth"],
+  pip:["Professor Pip","Fågelskådare på besök. Skriver i en hemlig bok.","Professor Pip the bird-watcher, about 60, thin and tall, round glasses, brown tweed coat, long striped scarf, big binoculars around the neck"],
+  gosta:["Gösta","Mås. Samlar på allt som glänser.","Gösta the seagull, plump, with a cheeky look"],
+  mackan:["Mackan","Get. Äter det mesta och tycker om värme.","Mackan the goat, white and shaggy, one crooked horn, a small brass bell on a red collar"],
+};
+const STAR = "The lighthouse star is a golden five-pointed star lantern as big as a bicycle wheel, with a warm lamp inside.";
+const HIDE = "Somewhere in the picture Sotis the cat is partly hidden, for children to find.";
+const ALLA = ["algot","saga","tore","majken","tvillingar","pip"];
+
+const VECKOR = {1:"Vecka 1 · Stjärnan är borta",8:"Vecka 2 · Vem var var?",15:"Vecka 3 · Borta igen",21:"Vecka 4 · Upplösningen"};
+
+// [titel, berättelse, uppdrag, beskrivning, stor?, figurer, scen]
+const L = [
+["Den tomma kroken","Algot klättrar upp i fyren för att tända julstjärnan. Den är borta. Kvar finns bara en krok och lite guldglitter.","Gör ditt detektivpass","Rita dig själv, hitta på ett kodnamn och tryck dit tummen med lite färg.",0,["algot"],
+ "The lamp room at the top of the lighthouse at dawn. Algot holds a lantern and looks up, astonished, at an empty iron hook where the star usually hangs. A few flecks of gold glitter on the floor. Snow falls outside the round windows."],
+["Alla på ön","Sotis presenterar öborna. Någon av dem vet mer än de säger.","Kims lek","Lägg tio saker på en bricka. Titta i en minut. En vuxen tar bort en sak. Vilken?",0,[...ALLA,"gosta"],
+ "All the islanders stand in a row on the snowy jetty like a class photo: Algot, Saga, Tore, Majken with her bicycle, the twins and Professor Pip. Gösta the seagull sits on a pole beside them."],
+["Glitter i trappan","I fyrens trappa ligger ett spår av guldglitter. Det leder nedåt, inte uppåt. Stjärnan har burits ut.","Ta fingeravtryck","Gnid blyerts på ett papper, tryck fingret i det, lyft av med tejp och klistra in i passet.",0,[],
+ "Inside the lighthouse: a stone spiral staircase with a thin trail of gold glitter leading down the steps. In the foreground a child's mittened hand holds a magnifying glass over the glitter."],
+["Lappen i snön","Vid fyrdörren ligger en lapp. Bokstäverna är bakvända! I en spegel står det: Säg inget till Algot.","Spegelskrift","Skriv ett hemligt meddelande baklänges och låt någon läsa det i badrumsspegeln.",0,[],
+ "Close view of a small crumpled paper note lying in the snow by a red wooden door, next to a little hand mirror, lit by warm lantern light. The handwriting on the note is tiny scribbles that cannot be read."],
+["Spåren","I snön går två par små stövelspår och två smala ränder efter en kälke. De slutar vid bryggan.","Spårjakt ute","En lägger ett spår med pinnar och pilar. De andra följer det till en gömd skatt.",1,[],
+ "Seen from above at blue dusk: a snowy path from the lighthouse down to a wooden jetty. Two pairs of small boot prints side by side with two thin sledge tracks between them. The tracks stop at the jetty."],
+["Algots stövlar","Algots stövlar är störst på hela ön. Spåren var små. Och Algot snarkade hela natten. Stryk Algot.","Fotavtryck i mjöl","Strö mjöl på en plåt och tryck dit familjens skor. Blanda och gissa vems som är vems.",1,["algot"],
+ "A cosy hallway. One enormous black rubber boot stands next to a tiny child's boot for comparison. In the room behind, Algot sleeps in a rocking chair by the stove, mouth open, snoring."],
+["Måsens bo","Gösta tar allt som glänser. I boet ligger skedar, en knapp och en nyckel. Men ingen stjärna.","Bygg en kikare","Tejpa ihop två toarullar. Spana från fönstret tills du sett tre fåglar.",0,["gosta"],
+ "A seagull nest on a snowy rock by the sea, full of shiny things: teaspoons, a brass button, a key, a red Christmas bauble. Gösta sits beside it looking very proud. There is no star in the nest."],
+["För tung för en mås","Saga väger: stjärnan är lika tung som två påsar mjöl. Det orkar ingen mås. Stryk Gösta.","Hitta två kilo","Leta upp tre saker hemma som du tror väger två kilo. Väg och se vem som gissade bäst.",0,["saga","gosta"],
+ "Inside a warm bakery. An old kitchen scale with two flour sacks on it. Gösta the seagull tries to lift a flour sack with his beak and cannot. Saga laughs with her hands on her hips."],
+["Postbåten","Natten då stjärnan försvann stormade det. Postbåten låg kvar på fastlandet, och Majken med den. Stryk Majken.","Osynligt bläck","Skriv med citronsaft och en tops. Låt torka. En vuxen värmer pappret försiktigt så syns texten.",0,["majken"],
+ "A stormy night in a small mainland harbour. A little post boat is tied up with thick ropes while big waves splash. Majken watches from a lit window with a cup of hot chocolate."],
+["Professorns kikare","Professor Pip såg något den natten: två små skuggor som drog en kälke med något stort under en filt.","Skuggteater","Släck lampan, tänd ficklampan och gör skuggdjur på väggen. De andra gissar.",0,["pip"],
+ "Night. Professor Pip stands on a snowy hill looking through binoculars. Far below, two small dark silhouettes pull a sledge with something large hidden under a blanket."],
+["Burken som fattas","I Tores båthus saknas en burk guldfärg. På golvet finns gula droppar.","Knyt en sjömansknop","Lär dig råbandsknop med ett snöre eller ett skosnöre. Kan du göra den med slutna ögon?",0,["tore"],
+ "Inside a fisherman's boathouse with nets and oars. A shelf with a row of paint cans has one gap, with a ring mark where a can stood. Drops of gold paint on the wooden floor. Tore scratches his head."],
+["Blinket i natten","Någon blinkar med en lampa från båthuset mitt i natten. Kort, kort, lång. Vem signalerar?","Ficklampsmorse","Hitta på tre signaler, till exempel kom, vänta och fara. Skicka dem mellan två rum.",1,[],
+ "Night view across a dark bay from the lighthouse. On the far side, the small window of a boathouse shines with a bright blinking light that sends beams across the water. Stars in the sky."],
+["Luciamorgon","Två lussekatter saknas på plåten. På bordskanten finns små gula saffransavtryck, i barnstorlek.","Baka och smaka blint","Baka lussekatter eller pepparkakor. Smaka sedan kanel, kardemumma och ingefära med ögonbindel.",1,["saga"],
+ "Early Lucia morning in the bakery, candles lit. A baking tray of saffron buns with two empty spots. Small yellow fingerprints on the edge of the table. Saga looks surprised."],
+["Tvillingarna berättar","Ebba och Love erkänner. En udd hade gått av, och de ville laga stjärnan åt Algot. Den ligger i båthuset.","Hemlig överraskning","Gör något snällt åt någon hemma utan att bli upptäckt. Bädda, rita eller göm en lapp.",0,["tvillingar","algot"],
+ "The twins stand a little ashamed but proud, with gold paint on their hands and noses. Algot kneels in front of them in the snow, smiling warmly."],
+["Borta igen!","De lyfter på presenningen. Tomt. Bara ett avtryck i sågspånet, format som en stjärna.","Varmare, kallare","Göm en sak. Led den som letar med bara orden varmare och kallare.",0,["tvillingar"],
+ "Inside the boathouse. A tarpaulin is pulled aside. On the floor is a clean star-shaped outline in the sawdust where the star was lying. The twins gasp with their hands on their cheeks."],
+["Nya spår","Vid båthusdörren: ett avtuggat rep och konstiga runda avtryck, kluvna på mitten.","Rita en skattkarta","Rita en karta över ditt rum, göm något och sätt ett kryss. Låt någon annan leta.",0,[],
+ "Close view of a boathouse floor by an open door: a rope end that has been chewed off, small round split hoof prints in the sawdust and a little gold glitter. No animals or people visible."],
+["Den vita tofsen","På en spik i dörren sitter en tofs vitt, strävt hår. Algots skägg? Sotis tass? Eller någon annan?","Luppen","Undersök tre saker på nära håll: ditt hår, en tröja och ett löv. Rita vad du ser.",0,[],
+ "Close view of a red wooden door frame with a tuft of white shaggy hair caught on a rusty nail. A child's hand holds a magnifying glass over it. Snow in the background."],
+["Pling i natten","Tvillingarna vaknar av ett ljud utanför fönstret. Pling, pling. Sedan tyst.","Ljudgåtan","En skramlar med saker bakom ryggen: nycklar, mynt, en sked. De andra gissar.",0,["tvillingar"],
+ "A moonlit night over the sleeping red houses. The twins in pyjamas look out of an upstairs window, listening. Small curved sound lines drift through the air from somewhere behind the houses."],
+["Släpspåret","Uppför backen går en bred ränna i snön med glitter i. Något tungt har släpats.","Mata fåglarna","Bred jordnötssmör eller kokosfett på en kotte, rulla i frön och häng ut den. Vilka kommer?",1,[],
+ "A snowy hill in daylight. A wide drag mark with gold glitter in it leads up between juniper bushes towards a small red shed far away. Children's boots in the foreground follow the trail."],
+["Kransen","Sagas julkrans är halvt uppäten. Äpplena också. Vem på ön äter kransar?","Vik en stjärna","Klipp eller vik en pappersstjärna och häng den i fönstret, som i fyren.",1,["saga"],
+ "A red front door with a Christmas wreath that is half eaten. Bitten apples and a chewed ribbon lie on the snowy step with a little gold glitter. Saga stands beside it with her hands on her hips."],
+["Professorns kod","Pips anteckningsbok är skriven med siffror. A är 1, B är 2. Där står: STALLET.","Knäck koden","Skriv ditt namn med siffror. Skicka ett kodat ord till någon i familjen.",0,["pip"],
+ "A wooden table with an open notebook full of small bird drawings and rows of tiny dots and dashes, binoculars, a cup of tea and a pencil. Professor Pip holds a finger to his lips."],
+["I stallet","Mackan ligger i halmen. Under henne lyser det varmt och gult. En udd sticker fram.","Bygg en koja","Bygg en koja av filtar och ha ett detektivmöte. Vem tror ni gjorde det, och varför?",0,["mackan"],
+ "Inside a small goat shed at night. Mackan lies contentedly in the straw. A warm golden glow shines up from under the straw around her, and one golden star point sticks out."],
+["Alla hjälps åt","Stjärnan är tilltygad. Tore lagar sladden, Saga limmar, tvillingarna målar och Majken hämtar en ny lampa.","Hjälps åt","Gör något tillsammans där alla får en egen uppgift: klä granen, duka eller slå in klappar.",0,[...ALLA,"mackan"],
+ "Everyone repairs the star together on the big bakery table: Tore mends the cord, Saga glues a star point, the twins paint it gold, Majken holds a new lamp, Professor Pip holds a ladder, Algot polishes. Mackan peeks in through the door."],
+["Stjärnan tänds","På julafton lyser stjärnan över Måsholmen och julbåten hittar in. Mackan får en röd rosett och en egen lykta.","Detektivdiplom","Skriv ut diplomet, skriv dit alla namn och tänd ett ljus i fönstret.",0,[...ALLA,"mackan"],
+ "Christmas Eve night. The golden star shines brightly from the top of the lighthouse over the snowy island. A small boat with a lantern approaches. All the islanders wave from the jetty. Mackan wears a red bow and has a tiny lantern of her own."],
+];
+
+const EXTRA = [
+["figurer","Figurblad (gör den här först)",[...Object.keys(F)],
+ "Character sheet on a plain off-white background: every character listed below standing side by side, full body, facing the viewer, evenly spaced, clearly separated."],
+["omslag","Omslag",["sotis"],
+ "Cover illustration. Blue winter evening. The red-and-white lighthouse stands on the snowy island, but its top is dark and an empty hook can be seen where a star should hang. In the foreground Sotis the cat sits on a rock, looking up at the lighthouse. Warm yellow windows in the red houses. Leave calm empty sky in the upper third for a title."],
+["karta","Karta över Måsholmen",[],
+ "A hand-painted bird's-eye map of the whole island, like a treasure map in a picture book: the lighthouse on the north point, a bakery, a boathouse by a wooden jetty, a small red goat shed on a hill, a guest cottage, juniper bushes, rocks and sea all around. No labels."],
+["detektivpass","Detektivpass (tomt)",[],
+ "A blank detective passport lying open on a wooden table: on the left page an empty frame for a portrait and an empty square for a thumbprint, on the right page a grid of 24 empty circles for badges. A pencil and a magnifying glass beside it."],
+["marken","Märken",[],
+ "A sheet of 24 round embroidered badges in a 6 by 4 grid on a plain off-white background, each with one simple icon: magnifying glass, fingerprint, mirror, boot print, binoculars, kitchen scale, lemon, flashlight, rope knot, saffron bun, gift, map, bell, bird, paper star, key, blanket fort, lantern, cat, star, sledge, paint can, envelope, heart."],
+];
+
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function prompt(figs, scen, lucka){
+  const fs = lucka && !figs.includes("sotis") ? [...figs,"sotis"] : figs;
+  let t = STIL + "\n\n" + scen;
+  if (/star/i.test(scen)) t += " " + STAR;
+  if (lucka && !figs.includes("sotis")) t += " " + HIDE;
+  if (fs.length) t += "\n\nCharacters, keep them exactly like this:\n" + fs.map(k => "- " + F[k][2]).join("\n");
+  return t;
+}
+function kopiera(btn, text, pre){
+  const klar = () => { btn.textContent = "Kopierad"; setTimeout(() => btn.textContent = "Kopiera bildprompt", 1500); };
+  const reserv = () => { pre.closest("details").open = true; const r = document.createRange(); r.selectNodeContents(pre);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Markerad, kopiera själv"; };
+  try { navigator.clipboard.writeText(text).then(klar, reserv); } catch { reserv(); }
+}
+function promptRad(text, fil){
+  const d = document.createElement("div"); d.className = "rad";
+  d.innerHTML = `<button type="button">Kopiera bildprompt</button><code>${fil}.jpg</code><details><summary>Visa prompten</summary><pre>${esc(text)}</pre></details>`;
+  d.querySelector("button").onclick = e => kopiera(e.target, text, d.querySelector("pre"));
+  return d;
+}
+
+document.getElementById("figurer").innerHTML = Object.values(F).map(f => `<dt>${f[0]}</dt><dd>${f[1]}</dd>`).join("");
+
+const ol = document.getElementById("luckor");
+L.forEach((l, i) => {
+  const n = i + 1;
+  if (VECKOR[n]) { const v = document.createElement("li"); v.className = "vecka"; v.textContent = VECKOR[n]; ol.append(v); }
+  const li = document.createElement("li"); li.className = "lucka";
+  li.innerHTML = `<div class="nr">${n}</div><div><h3>${l[0]}</h3><p>${l[1]}</p>
+    <p class="upp"><b>Uppdrag: ${l[2]}</b>${l[4] ? '<span class="stor">helguppdrag</span>' : ""}<br>${l[3]}</p></div>`;
+  li.lastElementChild.append(promptRad(prompt(l[5], l[6], true), "barn-lucka-" + String(n).padStart(2, "0")));
+  ol.append(li);
+});
+
+const ex = document.getElementById("extra");
+EXTRA.forEach(e => {
+  const d = document.createElement("div"); d.className = "extra";
+  d.innerHTML = `<h3>${e[1]}</h3>`;
+  d.append(promptRad(prompt(e[2], e[3], false), "barn-" + e[0]));
+  ex.append(d);
+});
+</script>

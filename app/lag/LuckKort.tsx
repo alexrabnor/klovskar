@@ -13,8 +13,10 @@ function nedrakning(ms: number): string {
   return `${m} min`;
 }
 
-export function LuckKort({ nr, oppen, titel, bild, ny, oppnar, stor }: {
+export function LuckKort({ nr, oppen, titel, bild, ny, oppnar, stor, bas = "/lag/lucka" }: {
   nr: number; oppen: boolean; titel: string | null; bild: string | null; ny: boolean; oppnar: number; stor: boolean;
+  /** Sökvägen till luckorna – barndeckaren har sin egen. */
+  bas?: string;
 }) {
   const router = useRouter();
   const [kvar, setKvar] = useState<number | null>(null);
@@ -40,7 +42,7 @@ export function LuckKort({ nr, oppen, titel, bild, ny, oppnar, stor }: {
       </div>
     );
   }
-  const href = `/lag/lucka/${nr}`;
+  const href = `${bas}/${nr}`;
   const klick = (e: React.MouseEvent) => {
     if (!ny || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     e.preventDefault();

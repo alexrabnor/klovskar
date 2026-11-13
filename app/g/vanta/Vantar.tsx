@@ -9,7 +9,7 @@ export function Vantar({ h }: { h: string }) {
       const r = await fetch(`/api/overtag/${encodeURIComponent(h)}`, { method: "POST" }).catch(() => null);
       if (!aktiv || !r) return;
       const d = await r.json().catch(() => ({}));
-      if (d.status === "ok") window.location.href = "/lag";
+      if (d.status === "ok") window.location.href = typeof d.hem === "string" && d.hem.startsWith("/") ? d.hem : "/lag";
       else if (d.status === "borta") setStatus("borta");
     };
     kolla();

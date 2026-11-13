@@ -10,14 +10,21 @@ export default async function Presentkort({ params }: { params: Promise<{ kod: s
   const kod = kodMedKod(decodeURIComponent((await params).kod));
   if (!kod) notFound();
   const bas = (process.env.BAS_URL || "https://adventdeckare.se").replace(/^https?:\/\//, "");
+  const barn = kod.spel === "barn";
   return (
     <main className="presentkort-sida">
       <article className="presentkort">
-        <div className="presentkort-bild"><Bild namn="omslag" alt="Fyrtornet och hotellet på Klovskär en snöig natt." sizes="360px" prioritet /></div>
+        <div className="presentkort-bild">
+          {barn
+            ? <Bild namn="barn-omslag" alt="Fyren på Måsholmen en blå vinterkväll." sizes="360px" prioritet />
+            : <Bild namn="omslag" alt="Fyrtornet och hotellet på Klovskär en snöig natt." sizes="360px" prioritet />}
+        </div>
         <div className="presentkort-text">
           <p className="etikett">En julklapp till dig · Presentkort</p>
-          <h1>Mordet på Klovskär</h1>
-          <p>Adventsmysteriet 2026: 24 luckor – hela fem personer kan vara med i laget. Ni väljer själva när de 24 dagarna börjar.</p>
+          <h1>{barn ? "Stjärnan som försvann" : "Mordet på Klovskär"}</h1>
+          {barn
+            ? <p>En adventsdeckare för barn 6–10 år: 24 luckor med en berättelse, en fråga och ett uppdrag i varje. Ni väljer själva när de 24 dagarna börjar.</p>
+            : <p>Adventsmysteriet 2026: 24 luckor – hela fem personer kan vara med i laget. Ni väljer själva när de 24 dagarna börjar.</p>}
           <p className="presentkort-kod">{kod.kod}</p>
           <p className="liten">Skapa ert lag på <b>{bas}/aktivera</b></p>
           {kod.lag_id && <p className="liten" style={{ color: "#8a2f25" }}>Koden har redan använts.</p>}

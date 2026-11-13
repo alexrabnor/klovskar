@@ -25,6 +25,8 @@ export async function skickaNyaLuckor(nu = serverNu()) {
         markera.run(lag.id, nr);
         const farsk = lagetsNu(lag, nu) - oppningstid(lag.startdatum, nr) < FONSTER_MS;
         if (!farsk || nr < n) continue;
+        // Barndeckaren har inga notiser än – och får aldrig Klovskärs texter
+        if (lag.spel === "barn") continue;
         const l = luckaNr(nr);
         if (!l) continue;
         const spelare = (db().prepare("SELECT id FROM klov_spelare WHERE lag_id = ?").all(lag.id) as { id: number }[]).map((s) => s.id);

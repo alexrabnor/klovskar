@@ -11,6 +11,7 @@ import { Kopiera } from "./Hjalpmedel";
 import { adminLoggaUt, adminStartdatum, nollstallAnklagelse, satForskjutning, skapaGratiskod, taBortLag } from "./actions";
 import { LUCKOR } from "@/content/luckor";
 import { BONUS } from "@/content/bonus";
+import { barnPa } from "@/lib/spel";
 
 export const metadata: Metadata = { title: "Admin", robots: { index: false } };
 export const dynamic = "force-dynamic";
@@ -22,9 +23,9 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
 
   const d = db();
   const nu = serverNu();
-  const allaLag = d.prepare("SELECT l.*, (SELECT COUNT(*) FROM klov_spelare s WHERE s.lag_id = l.id) AS antal FROM klov_lag l ORDER BY l.id DESC").all() as (Lag & { antal: number })[];
-  const allaKoder = d.prepare("SELECT * FROM klov_kod ORDER BY skapad DESC").all() as Kod[];
-  const spelare = d.prepare("SELECT lag_id, namn, far_lamna_in FROM klov_spelare ORDER BY id").all() as { lag_id: number; namn: string; far_lamna_in: number }[];
+  const allaLag = d.prepare("SELECT l.*, (SELECT COUNT(*) FROM klov_spelare s WHERE s.lag_id = l.id) AS antal FROM klov_lag l WHERE l.spel = 'klovskar' ORDER BY l.id DESC").all() as (Lag & { antal: number })[];
+  const allaKoder = d.prepare("SELECT * FROM klov_kod WHERE spel = 'klovskar' ORDER BY skapad DESC").all() as Kod[];
+  const spelare = d.prepare("SELECT s.lag_id, s.namn, s.far_lamna_in FROM klov_spelare s JOIN klov_lag l ON l.id = s.lag_id WHERE l.spel = 'klovskar' ORDER BY s.id").all() as { lag_id: number; namn: string; far_lamna_in: number }[];
   const spelarePerLag = new Map<number, typeof spelare>();
   for (const s of spelare) spelarePerLag.set(s.lag_id, [...(spelarePerLag.get(s.lag_id) ?? []), s]);
   const lagPerId = new Map(allaLag.map((l) => [l.id, l]));
@@ -44,14 +45,17 @@ export default async function Admin({ searchParams }: { searchParams: Promise<{ 
   const koder = nq ? kodTraff : kodTraff.slice(0, VISA_KODER);
   const bas = process.env.BAS_URL || "https://adventdeckare.se";
   const intakter = d.prepare(`SELECT substr(skapad, 1, 4) ar, COUNT(*) st, SUM(belopp_ore) ore FROM klov_kod
-    WHERE typ IN ('kop', 'present') AND testlage = 0 AND aterbetald = 0 GROUP BY ar ORDER BY ar DESC`).all() as { ar: string; st: number; ore: number }[];
+    WHERE spel = 'klovskar' AND typ IN ('kop', 'present') AND testlage = 0 AND aterbetald = 0 GROUP BY ar ORDER BY ar DESC`).all() as { ar: string; st: number; ore: number }[];
   const status = (ok: boolean, text: string) => <span className={`chip ${ok ? "chip-ok" : "chip-varning"}`}>{text}</span>;
 
   return (
     <main className="sida sida-bred">
       <header className="rad" style={{ justifyContent: "space-between" }}>
         <h1 className="rubrik-mellan">Admin</h1>
-        <form action={adminLoggaUt}><button className="lank-knapp">Logga ut</button></form>
+        <span className="rad">
+          {barnPa() && <Link href="/barn/admin" className="liten">Barndeckarens admin →</Link>}
+          <form action={adminLoggaUt}><button className="lank-knapp">Logga ut</button></form>
+        </span>
       </header>
       <div className="rad">
         {status(stripeKonfigurerad(), `Stripe: ${stripeLage()}${stripeKonfigurerad() ? "" : " (nyckel saknas)"}`)}

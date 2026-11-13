@@ -11,8 +11,12 @@ export const BREDDER = [320, 640, 960, 1200, 1600] as const;
 /** Bilder som alltid får visas: smakprov (lucka 1–2), meny och startsida. */
 const PUBLIKA = new Set(["omslag", "hotellet-dag", "koket", "karta", "misstankta", "brottsplats", "lucka-01"]);
 
+/** Barndeckarens publika bilder: omslag, figurer, karta och smakprovet (lucka 1–2). */
+const BARN_PUBLIKA = new Set(["barn-omslag", "barn-figurer", "barn-karta", "barn-pass", "barn-marken", "barn-lucka-01", "barn-lucka-02"]);
+
 export type Atkomst =
   | { slag: "publik" }
+  | { slag: "barnlucka"; nr: number }
   | { slag: "lucka"; nr: number }
   | { slag: "bonus"; nr: number }
   | { slag: "facit" }
@@ -20,7 +24,10 @@ export type Atkomst =
 
 export function bildensAtkomst(namn: string): Atkomst {
   if (PUBLIKA.has(namn) || namn.startsWith("meny-") || namn.startsWith("portratt-")) return { slag: "publik" };
-  let m = /^lucka-(\d{2})[ab]?$/.exec(namn);
+  if (BARN_PUBLIKA.has(namn)) return { slag: "publik" };
+  let m = /^barn-lucka-(\d{2})$/.exec(namn);
+  if (m) return { slag: "barnlucka", nr: Number(m[1]) };
+  m = /^lucka-(\d{2})[ab]?$/.exec(namn);
   if (m) return { slag: "lucka", nr: Number(m[1]) };
   m = /^bonus-(\d)$/.exec(namn);
   if (m) return { slag: "bonus", nr: Number(m[1]) };

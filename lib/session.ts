@@ -4,10 +4,19 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { db, lagMedId, lagMedLedarToken, spelareMedToken, type Lag, type Spelare } from "./db";
 import { allaFarLamnaIn, serverNu } from "./tid";
+import type { Spel } from "./spel";
 
 export const SPELARKAKA = "klov_spelare";
 export const LEDARKAKA = "klov_ledare";
 export const ADMINKAKA = "klov_admin";
+
+/**
+ * Varje spel har egna kakor. En förälder kan då spela Klovskär och läsa barndeckaren
+ * för barnen på samma telefon utan att lagen krockar.
+ */
+export function kakor(spel: Spel): { spelare: string; ledare: string } {
+  return spel === "barn" ? { spelare: "barn_spelare", ledare: "barn_ledare" } : { spelare: SPELARKAKA, ledare: LEDARKAKA };
+}
 
 const ETT_AR = 60 * 60 * 24 * 365;
 
@@ -28,15 +37,17 @@ export interface Inloggad {
   nu: number;
 }
 
-export async function inloggad(): Promise<Inloggad | null> {
+/** Den inloggade spelaren i ett av spelen. Ett lag i det andra spelet räknas aldrig som inloggat här. */
+export async function inloggad(spel: Spel = "klovskar"): Promise<Inloggad | null> {
   const k = await cookies();
-  const token = k.get(SPELARKAKA)?.value;
+  const namn = kakor(spel);
+  const token = k.get(namn.spelare)?.value;
   if (!token) return null;
   const spelare = spelareMedToken(token);
   if (!spelare) return null;
   const lag = lagMedId(spelare.lag_id);
-  if (!lag) return null;
-  const ledarToken = k.get(LEDARKAKA)?.value;
+  if (!lag || lag.spel !== spel) return null;
+  const ledarToken = k.get(namn.ledare)?.value;
   const arLedare = !!ledarToken && ledarToken === lag.ledare_token;
   const nu = serverNu();
   const farLamnaIn = arLedare || !!spelare.far_lamna_in || allaFarLamnaIn(lag, nu);
@@ -44,16 +55,17 @@ export async function inloggad(): Promise<Inloggad | null> {
 }
 
 /** För sidor i /lag: skicka till startsidan om man inte är med i ett lag. */
-export async function kravInloggad(): Promise<Inloggad> {
-  const i = await inloggad();
-  if (!i) redirect("/borja");
+export async function kravInloggad(spel: Spel = "klovskar"): Promise<Inloggad> {
+  const i = await inloggad(spel);
+  if (!i) redirect(spel === "barn" ? "/barn" : "/borja");
   return i;
 }
 
 /** Lagledare utan spelarkaka (t.ex. presentköpare som inte spelar själv). */
-export async function ledarLag(): Promise<Lag | null> {
-  const t = (await cookies()).get(LEDARKAKA)?.value;
-  return t ? lagMedLedarToken(t) ?? null : null;
+export async function ledarLag(spel: Spel = "klovskar"): Promise<Lag | null> {
+  const t = (await cookies()).get(kakor(spel).ledare)?.value;
+  const lag = t ? lagMedLedarToken(t) : undefined;
+  return lag && lag.spel === spel ? lag : null;
 }
 
 export async function arAdmin(): Promise<boolean> {

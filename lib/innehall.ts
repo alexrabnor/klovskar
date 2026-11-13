@@ -11,7 +11,7 @@ export const SMAKPROV = [1, 2];
 
 /** Hämtar en lucka ENDAST om laget har den öppen. Annars null – innehållet lämnar aldrig servern. */
 export function oppenLucka(lag: Lag, nr: number, nu: number): Lucka | null {
-  if (!arOppen(lag, nr, nu)) return null;
+  if (lag.spel !== "klovskar" || !arOppen(lag, nr, nu)) return null;
   return luckaNr(nr) ?? null;
 }
 
@@ -45,6 +45,9 @@ export function farSeBild(namn: string, lag: Lag | null, nu: number, admin: bool
   if (a.slag === "publik") return true;
   if (admin) return true;
   if (!lag) return false;
+  // Ett lag ser bara sitt eget spels bilder
+  if (a.slag === "barnlucka") return lag.spel === "barn" && arOppen(lag, a.nr, nu);
+  if (lag.spel !== "klovskar") return false;
   if (a.slag === "lucka") return arOppen(lag, a.nr, nu);
   if (a.slag === "bonus") return !!upplastBonus(lag, a.nr, nu);
   if (a.slag === "facit") return facitOppet(lag, nu);

@@ -1,5 +1,6 @@
 import "server-only";
 import Stripe from "stripe";
+import type { Vara } from "./spel";
 
 export type StripeLage = "test" | "live";
 
@@ -60,4 +61,21 @@ export function prisKr(nu = Date.now()): number {
 export function prisText(): string {
   const p = prisKr();
   return p < ORD_PRIS_KR ? `Introduktionspris ${p} kr t.o.m. ${INTRO_TOM} (ord. ${ORD_PRIS_KR} kr)` : `${p} kr`;
+}
+
+// ------------------------------------------------------------------ barndeckaren och paketet
+
+export const BARN_PRIS_KR = 60;
+export const BADA_PRIS_KR = 150;
+
+const envPris = (namn: string, forval: number): number => {
+  const p = Number(process.env[namn]);
+  return Number.isFinite(p) && p > 0 ? p : forval;
+};
+
+/** Priset för det man köper: ett av spelen eller båda tillsammans. */
+export function prisFor(vara: Vara, nu = Date.now()): number {
+  if (vara === "barn") return envPris("PRIS_BARN_KR", BARN_PRIS_KR);
+  if (vara === "bada") return envPris("PRIS_BADA_KR", BADA_PRIS_KR);
+  return prisKr(nu);
 }
