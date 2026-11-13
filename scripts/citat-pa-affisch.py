@@ -16,6 +16,14 @@ CITAT = "”Först vid lucka 21 förstod jag vem det var.”"
 # Handbrutna rader för smala ytor – så att inget ord hamnar ensamt
 CITAT_SMAL = ["”Först vid lucka 21", "förstod jag", "vem det var.”"]
 AVSANDARE = "– FREDRIK"
+ANNA = {
+    "anna-snyggt": ["”Så snyggt, spännande", "och sagolikt berättad", "deckargåta.”"],
+    "anna-vastkusten": ["”Stämningsfull deckare", "i min absoluta", "favoritmiljö,", "västkusten!”"],
+}
+ANNA_BRED = {
+    "anna-snyggt": ["”Så snyggt, spännande och sagolikt", "berättad deckargåta.”"],
+    "anna-vastkusten": ["”Stämningsfull deckare i min absoluta", "favoritmiljö, västkusten!”"],
+}
 GULD = (226, 162, 74)
 PAPPER = (246, 238, 222)
 
@@ -32,13 +40,13 @@ def radbryt(text, font, bredd, rita):
     return rader + [rad]
 
 
-def lagg_citat(bild, x, y, bredd, storlek, centrera=False, rader=None):
+def lagg_citat(bild, x, y, bredd, storlek, centrera=False, rader=None, citat=CITAT, avsandare=AVSANDARE):
     """Citat med guldstreck ovanför, mjuk skugga så det läses mot snöhimlen."""
     bild = bild.convert("RGBA")
     f_citat = ImageFont.truetype(SERIF, storlek)
     f_namn = ImageFont.truetype(SANS, round(storlek * 0.42))
     rita = ImageDraw.Draw(bild)
-    rader = rader or radbryt(CITAT, f_citat, bredd, rita)
+    rader = rader or radbryt(citat, f_citat, bredd, rita)
     radhojd = round(storlek * 1.18)
 
     text = Image.new("RGBA", bild.size, (0, 0, 0, 0))
@@ -53,8 +61,8 @@ def lagg_citat(bild, x, y, bredd, storlek, centrera=False, rader=None):
         t.text((rx, ty), r, font=f_citat, fill=PAPPER + (255,))
         ty += radhojd
     ty += round(storlek * 0.2)
-    nx = x + (bredd - t.textlength(AVSANDARE, font=f_namn)) / 2 if centrera else x
-    t.text((nx, ty), AVSANDARE, font=f_namn, fill=GULD + (255,))
+    nx = x + (bredd - t.textlength(avsandare, font=f_namn)) / 2 if centrera else x
+    t.text((nx, ty), avsandare, font=f_namn, fill=GULD + (255,))
 
     # Skugga: textens alfa, suddad och mörk
     alfa = text.split()[3]
@@ -80,6 +88,14 @@ def main():
         (ROT / "og.jpg").rename(orig)
     og = Image.open(orig)
     lagg_citat(og, 90, 420, 640, 46).save(ROT / "og.jpg", quality=88)
+
+    # Annas citat – egna filer, delningsbilden ovan behåller Fredriks
+    for namn, rader in ANNA.items():
+        sm = 52 if len(rader) <= 3 else 46
+        ss = 72 if len(rader) <= 3 else 60
+        lagg_citat(Image.open(ROT / "affisch-feed.jpg"), 70, 230, 560, sm, rader=rader, avsandare="– ANNA").save(ROT / f"affisch-feed-{namn}.jpg", quality=90)
+        lagg_citat(Image.open(ROT / "affisch-story.jpg"), 80, 420, 560, ss, rader=rader, avsandare="– ANNA").save(ROT / f"affisch-story-{namn}.jpg", quality=90)
+        lagg_citat(Image.open(orig), 90, 400, 700, 44, rader=ANNA_BRED[namn], avsandare="– ANNA").save(ROT / f"og-{namn}.jpg", quality=88)
 
 
 if __name__ == "__main__":
