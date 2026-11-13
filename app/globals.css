@@ -457,6 +457,8 @@ input:focus, textarea:focus, select:focus { border-color: var(--barnsten); outli
 .uppgift-klocka svg { max-width: 100%; height: auto; filter: drop-shadow(0 10px 20px #0008); }
 .uppgift-tid { margin: 0; font-family: var(--f-m); font-size: 36px; color: var(--barnsten); letter-spacing: .06em; font-variant-numeric: tabular-nums; }
 .slapps-snart { display: inline-flex; align-items: center; padding: 10px 14px; border: 1px dashed var(--barnsten-mork); border-radius: 4px; color: var(--barnsten); font: 14px var(--f-m); letter-spacing: .08em; text-transform: uppercase; }
+.omdomen { display: grid; gap: 14px; margin-top: 12px; }
+.omdomen .omdome { margin: 0; }
 .omdome { margin: 12px 0 0; padding-left: 16px; border-left: 3px solid var(--barnsten); display: grid; gap: 4px; max-width: 34ch; }
 .omdome blockquote { margin: 0; font: italic 22px/1.35 var(--f-r); color: var(--fg); text-wrap: balance; }
 .omdome figcaption { font: 13px var(--f-m); letter-spacing: .12em; text-transform: uppercase; color: var(--barnsten); }

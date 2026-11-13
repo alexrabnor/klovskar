@@ -55,10 +55,16 @@ export default async function Start() {
             <p className="liten dampad">
               {i ? <>Ni spelar redan som <b>{i.lag.namn}</b>. <Link href="/lag">Till kalendern →</Link></> : <>Har ni redan en kod eller en lagkod? <Link href="/borja">Börja här →</Link></>}
             </p>
-            <figure className="omdome">
-              <blockquote>”Först vid lucka 21 förstod jag vem det var.”</blockquote>
-              <figcaption>– Fredrik</figcaption>
-            </figure>
+            <div className="omdomen">
+              <figure className="omdome">
+                <blockquote>”Så snyggt, spännande och sagolikt berättad deckargåta.”</blockquote>
+                <figcaption>– Anna</figcaption>
+              </figure>
+              <figure className="omdome">
+                <blockquote>”Först vid lucka 21 förstod jag vem det var.”</blockquote>
+                <figcaption>– Fredrik</figcaption>
+              </figure>
+            </div>
           </div>
         </section>
 
@@ -92,6 +98,10 @@ export default async function Start() {
               <li><b>Sex hemliga bonusluckor</b> bakom chiffer, morse och signalflaggor.</li>
               <li><b>Facit på julafton</b> med poäng och en lista över varje ledtråd ni gick förbi.</li>
             </ul>
+            <figure className="omdome">
+              <blockquote>”Stämningsfull deckare i min absoluta favoritmiljö, västkusten!”</blockquote>
+              <figcaption>– Anna</figcaption>
+            </figure>
           </section>
 
           <section className="stack" id="present">
