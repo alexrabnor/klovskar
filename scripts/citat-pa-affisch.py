@@ -98,5 +98,26 @@ def main():
         lagg_citat(Image.open(orig), 90, 400, 700, 44, rader=ANNA_BRED[namn], avsandare="– ANNA").save(ROT / f"og-{namn}.jpg", quality=88)
 
 
+TVA = [
+    (["”Så snyggt, spännande och", "sagolikt berättad deckargåta.”"], "– ANNA"),
+    (["”Först vid lucka 21 förstod", "jag vem det var.”"], "– FREDRIK"),
+]
+
+
+def tva_citat(bild, x, y, bredd, storlek, mellan):
+    """Annas och Fredriks citat under varandra, mindre än ett ensamt citat."""
+    hojd = round(storlek * (0.55 + 2 * 1.18 + 0.2 + 0.42 * 1.2))
+    for i, (rader, namn) in enumerate(TVA):
+        bild = lagg_citat(bild, x, y + i * (hojd + mellan), bredd, storlek, rader=rader, avsandare=namn)
+    return bild
+
+
+def main_tva():
+    tva_citat(Image.open(ROT / "affisch-feed.jpg"), 70, 225, 600, 34, 26).save(ROT / "affisch-feed-tva-citat.jpg", quality=90)
+    tva_citat(Image.open(ROT / "affisch-story.jpg"), 80, 420, 600, 46, 36).save(ROT / "affisch-story-tva-citat.jpg", quality=90)
+    tva_citat(Image.open(ROT / "og-utan-citat.jpg"), 90, 388, 640, 28, 12).save(ROT / "og-tva-citat.jpg", quality=88)
+
+
 if __name__ == "__main__":
+    main_tva()
     main()
